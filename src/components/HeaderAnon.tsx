@@ -2,7 +2,7 @@ import styles from './HeaderAnon.module.css'
 import logo from '../assets/logo.svg'
 
 import { Link } from 'react-router-dom'
-import { Button } from './Button'
+import { Btn } from './Btn'
 
 export function HeaderAnon(){
     return(
@@ -16,8 +16,8 @@ export function HeaderAnon(){
             <img src={ logo } className={ styles.logo } />
             <div className={ styles.containerBtns }>
                 <Link to={'login'} className={ styles.btnLogin }>Log-In</Link>
-                <Button
-                 route='#register'
+                <Btn
+                 route='#registro'
                  text='Registre-se'/>
             </div>
         </div>

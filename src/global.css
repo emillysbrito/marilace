@@ -28,9 +28,12 @@
   --adicional: 'Retrogression';
 
   /* TAMANHOS */
-  --paragrafos: 1rem;
-  --titulos: 2rem;
-  --subtitulos: 1.5rem;
+  --XG: 8rem;
+  --GG: 6rem;
+  --G: 4rem;
+  --M: 2rem;
+  --P: 1.25rem;
+  --PP: 1rem;
   --footer: 0.8rem;
 }
 
