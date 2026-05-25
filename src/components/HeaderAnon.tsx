@@ -10,8 +10,8 @@ export function HeaderAnon(){
 
             <ul className={ styles.nav }>
                 <Link to={'/'} className={ styles.navItem }>Início</Link>
-                <Link to={'about'} className={ styles.navItem }>Sobre</Link>
-                <Link to={'blog'} className={ styles.navItem }>Blog</Link>
+                <Link to={'/about'} className={ styles.navItem }>Sobre</Link>
+                <Link to={'/blog'} className={ styles.navItem }>Blog</Link>
             </ul>
             <img src={ logo } className={ styles.logo } />
             <div className={ styles.containerBtns }>
