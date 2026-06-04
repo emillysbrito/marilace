@@ -1,11 +1,80 @@
 .LandingPage{
     width: 100%;
     height: auto;
-    background-color: var(--preto);
+    background-color: var(--branco);
+    overflow-x: hidden;
 }
 
+/* HERO */
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+
+    margin: 24px;
+    width: 100%;
+    min-height: 100vh;
+
+    position: absolute;
+}
+
+.textoHero{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    max-width: 800px;
+
+    z-index: 999;
+}
+
+.textoHero .CTA{
+    margin: 24px 0;
+}
+
+.tituloHero{
+    color: var(--preto);
+
+    font-family: var(--base);
+    font-size: var(--GG);
+    font-weight: 900;
+}
+
+.tituloHero span{
+    color: var(--primaria);
+}
+
+.descHero{
+    color: var(--preto);
+
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 500;
+}
+
+.imgHero{
+    width: 40rem;
+    z-index: 999;
+}
+
+.fundoHero{
+    background-color: var(--branco);
+    height: 100vh;
+
+    z-index: -999;
+}
+
+.fundoHero img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* REGISTRO */
 .registro{
     background-color: var(--primaria);
+    border-radius: 48px 48px 0px 0px;
 
     display: flex;
     flex-direction: row;
@@ -15,6 +84,8 @@
 
     width: 100%;
     padding: 80px 0px;
+
+    position: relative;
 }
 
 .imgRegistro{
@@ -93,28 +164,28 @@
 }
 
 .estrela1, .estrela2 {
-  background-color: var(--verde);
+    background-color: var(--verde);
 
-  mask-image: url('../assets/estrela.svg');
-  -webkit-mask-image: url('../assets/estrela.svg');
-  mask-repeat: no-repeat;
-  mask-size: contain;
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
 
-  width: 120px;
-  height: 120px;
-  z-index: 888;
+    width: 120px;
+    height: 120px;
+    z-index: 888;
 }
 
 .estrela1 {
-  position: absolute;
-  top: 160px;
-  right: 100px;
-  transform: rotate(32deg);
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    transform: rotate(32deg);
 }
 
 .estrela2 {
-  position: absolute;
-  bottom: 60px;
-  left: 960px;
-  transform: rotate(-20deg);
+    position: absolute;
+    bottom: 60px;
+    left: 960px;
+    transform: rotate(-20deg);
 }

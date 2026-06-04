@@ -2,8 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
 
-    background-color: var(--verde);
+    background-color: var(--rosa);
     color: var(--preto);
     border: 3px solid var(--preto);
     border-radius: 999px;
@@ -20,9 +21,13 @@
     color: var(--preto);
 
     font-family: var(--base);
-    font-size: var(--PP);
+    font-size: var(--P);
     font-weight: 700;
     text-decoration: none;
 
-    padding: 8px 24px;
+    padding: 12px 24px 12px 32px;
+}
+
+.icon{
+    margin-left: 8px;
 }

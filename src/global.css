@@ -1,31 +1,31 @@
 /* IMPORTAÇÕES DE FONTES */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 @font-face {
-  font-family: 'MoonbaseAlpha';
-  src: url('./assets/fonts/MoonbaseAlpha\ Regular.otf');
+  font-family: "Moonbase";
+  src: url("./assets/fonts/MoonbaseAlpha-Regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'Retrogression';
-  src: url('./assets/fonts/Retrogression-Regular.otf');
+  font-family: "Retrogression";
+  src: url("./assets/fonts/Retrogression-Regular.otf");
 }
 
 /* VARIÁVEIS */
-:root{
+:root {
   /* PALETA DE CORES */
-  --primaria: #C3A0EE;
-  --primaria-escura: #7D4CA2;
-  --rosa: #FFCBCB;
-  --verde: #D5F299;
-  --branco: #FFFEF2;
+  --primaria: #c3a0ee;
+  --primaria-escura: #7d4ca2;
+  --rosa: #ffcbcb;
+  --verde: #d5f299;
+  --branco: #fffef2;
   --preto: #262424;
-  --cinza: #AEAAB2;
+  --cinza: #aeaab2;
 
   /* TIPOGRAFIA */
   --base: "Outfit", sans-serif;
-  --logo: 'MoonbaseAlpha';
-  --adicional: 'Retrogression';
+  --logo: "Moonbase";
+  --adicional: "Retrogression";
 
   /* TAMANHOS */
   --XG: 8rem;
@@ -37,7 +37,8 @@
   --footer: 0.8rem;
 }
 
-*{
+* {
   margin: 0px;
   padding: 0px;
+  scroll-behavior: smooth;
 }

@@ -8,6 +8,13 @@
 
     padding: 16px 48px;
     border-radius: 0px 0px 40px 40px;
+
+    position: fixed;
+
+    width: 100%;
+    z-index: 1000;
+
+    box-sizing: border-box;
 }
 
 .nav{
