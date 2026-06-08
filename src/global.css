@@ -4,18 +4,20 @@
 @font-face {
   font-family: "Moonbase";
   src: url("./assets/fonts/MoonbaseAlpha-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Retrogression";
-  src: url("./assets/fonts/Retrogression-Regular.otf");
+  font-family: "Redaction50";
+  src: url("./assets/fonts/redaction-50-latin-400-italic.ttf") format("truetype");
+  font-display: swap;
 }
 
 /* VARIÁVEIS */
 :root {
   /* PALETA DE CORES */
   --primaria: #c3a0ee;
-  --primaria-escura: #7d4ca2;
+  --primaria-escura: #704592;
   --rosa: #ffcbcb;
   --verde: #d5f299;
   --branco: #fffef2;
@@ -25,14 +27,14 @@
   /* TIPOGRAFIA */
   --base: "Outfit", sans-serif;
   --logo: "Moonbase";
-  --adicional: "Retrogression";
+  --adicional: "Redaction50";
 
   /* TAMANHOS */
   --XG: 8rem;
   --GG: 6rem;
   --G: 4rem;
   --M: 2rem;
-  --P: 1.25rem;
+  --P: 1.35rem;
   --PP: 1rem;
   --footer: 0.8rem;
 }
@@ -40,5 +42,15 @@
 * {
   margin: 0px;
   padding: 0px;
+
   scroll-behavior: smooth;
+
+  caret-color: var(--preto);
+
+  text-wrap: balance;
+}
+
+::selection{
+  background-color: var(--primaria-escura);
+  color: var(--branco);
 }

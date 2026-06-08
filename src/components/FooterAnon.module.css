@@ -1,0 +1,93 @@
+.footer{
+    background-color: var(--primaria);
+    padding: 40px 80px;
+
+    font-family: var(--base);
+
+    border-radius: 40px 40px 0px 0px;
+}
+
+.conteudoFooter{
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img{
+    height: 1.5rem;
+}
+
+.desc{
+    font-size: var(--PP);
+    color: var(--branco);
+}
+
+.links{
+    display: flex;
+    gap: 16px;
+}
+
+.link{
+    display: flex;
+    justify-content: center;
+    background-color: var(--branco);
+    color: var(--primaria);
+    padding: 8px;
+    border-radius: 999px;
+}
+
+.pages{
+    display: flex;
+    flex-direction: row;
+    gap: 240px;
+}
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    color: var(--branco);
+    font-size: var(--PP);
+}
+
+.page h5{
+    font-size: var(--PP);
+    margin-bottom: 8px;
+}
+
+.page a{
+    color: var(--branco);
+    text-decoration: none;
+}
+
+hr{
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    margin: 16px 0px;
+}
+
+.copyright{
+    text-align: center;
+    font-size: var(--footer);
+    font-weight: 500;
+
+    color: var(--branco);
+}

@@ -3,6 +3,7 @@ import styles  from './LandingPage.module.css'
 import { HeaderAnon } from '../components/HeaderAnon'
 import { Btn } from '../components/Btn'
 import { BtnCTA } from '../components/BtnCTA'
+import { FooterAnon } from '../components/FooterAnon'
 
 import imgRegistro from '../assets/img/colagem-cadastro.png'
 import fundoLanding from '../assets/img/fundo landpage.svg'
@@ -22,7 +23,7 @@ export function LandingPage(){
                 <img className={ styles.imgHero } src={ imgHero } />
             </div>
             <div className={ styles.fundoHero }>
-                    <img src={ fundoLanding } />
+                <img src={ fundoLanding } />
             </div>
 
             <div id='registro' className={ styles.registro }>
@@ -64,6 +65,7 @@ export function LandingPage(){
                 </div>
             </div>
 
+            <FooterAnon />
         </div>
     )
 }
