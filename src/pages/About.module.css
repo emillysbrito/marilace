@@ -1,0 +1,134 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40rem;
+}
+
+.chipSobre{
+    position: relative;
+    right: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: var(--rosa);
+    border: 3px solid var(--preto);
+    border-radius: 999px;
+    padding: 8px 16px;
+}
+
+.estrelaChip{
+    background-color: var(--preto);
+
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    width: 12px;
+    height: 12px;
+}
+
+.textoChip{
+    color: var(--preto);
+    font-family: var(--base);
+    font-size: var(--P);
+}
+
+.fundoMain{
+    position: absolute;
+    inset: 0;
+    z-index: -999;
+}
+
+.textoMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+.subtituloMain{
+    font-family: var(--base);
+    font-size: var(--G);
+    color: var(--preto);
+}
+
+.tituloMain{
+    position: relative;
+    left: 200px;
+    bottom: 40px;
+
+    font-family: var(--adicional);
+    font-size: var(--XG);
+    color: var(--primaria-escura);
+}
+
+.florMain{
+    background-color: var(--primaria);
+
+    mask-image: url('../assets/img/flor.svg');
+    -webkit-mask-image: url('../assets/img/flor.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    transform: scaleX(-1);
+    width: 28rem;
+    height: 28rem;
+
+    position: absolute;
+    left: -50px;
+    bottom: 0px;
+}
+
+.moldura{
+    margin-top: 12rem;
+    transform: rotate(4deg);
+}
+
+.imgMoldura{
+    width: 800px;
+    height: 600px;
+
+    border-radius: 32px;
+    border: 6px solid var(--primaria-escura);
+
+    z-index: 111;
+}
+
+.estrelaMoldura1, .estrelaMoldura2{
+    background-color: var(--primaria);
+
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    width: 120px;
+    height: 120px;
+}
+
+
+
+
+.estrelaMoldura1{
+    position: absolute;
+    right: -55px;
+    top: -60px;
+    transform: rotate(10deg);
+
+    z-index: -1;
+}
+
+.estrelaMoldura2{
+    position: absolute;
+    left: -40px;
+    bottom: -40px;
+    transform: rotate(10deg);
+
+    z-index: 111;
+}
