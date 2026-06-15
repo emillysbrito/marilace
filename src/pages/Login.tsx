@@ -33,7 +33,7 @@ export function Login(){
                         <Btn route="/" text="Registrar"/>
 
                     </form>
-                    <Link to={'/login'}
+                    <Link to={'/register'}
                     className={ styles.linkRegistro }
                     >
                         Não tem uma conta? Registre-se <TbUserPlus className={ styles.icon } />
