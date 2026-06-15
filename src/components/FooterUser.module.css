@@ -1,0 +1,58 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    padding: 40px;
+    border-radius: 40px 40px 0 0;
+
+    background-color: var(--primaria);
+}
+
+.conteudoFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.estrela{
+    width: 48px;
+}
+
+.logo{
+    width: 240px;
+}
+
+.links{
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+}
+
+.link{
+    display: flex;
+    justify-content: center;
+    background-color: var(--branco);
+    color: var(--primaria);
+    padding: 8px;
+    border-radius: 999px;
+}
+
+hr{
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    margin: 16px 0px;
+    width: 100%;
+}
+
+.copyright{
+    text-align: center;
+    font-family: var(--base);
+    font-size: var(--footer);
+    font-weight: 500;
+
+    color: var(--branco);
+}
