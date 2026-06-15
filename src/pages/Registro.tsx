@@ -3,6 +3,8 @@ import styles from './Registro.module.css'
 import { Btn } from '../components/Btn'
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
+import { Link } from 'react-router-dom'
+import { FiLogIn } from "react-icons/fi";
 
 import imgRegistro from '../assets/img/colagem-cadastro.png'
 
@@ -40,8 +42,12 @@ export function Registro(){
                         </div>
 
                         <Btn route="/" text="Registrar"/>
-
                     </form>
+                    <Link to={'/login'}
+                    className={ styles.linkLogin }
+                    >
+                        Já tem uma conta? Faça log-in <FiLogIn className={ styles.icon } />
+                    </Link>
 
                     <div className={ styles.estrela1 } />
                     <div className={ styles.estrela2 } />

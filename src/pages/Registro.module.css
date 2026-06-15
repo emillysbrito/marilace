@@ -59,7 +59,7 @@
 
 .formRegistro > div:last-child { 
     font-size: var(--G);
-    width: 240px;
+    width: 280px;
 }
 
 .inputContainer{
@@ -94,6 +94,19 @@
 .inputContainer input:focus{
     outline: 2px solid var(--verde);
     transition: .2s ease;
+}
+
+.linkLogin{
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--branco);
+
+}
+
+.icon path{
+    stroke-width: 3px;
 }
 
 .estrela1, .estrela2 {
