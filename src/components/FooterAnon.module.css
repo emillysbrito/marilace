@@ -42,16 +42,7 @@ main{
 
 .links{
     display: flex;
-    gap: 16px;
-}
-
-.link{
-    display: flex;
-    justify-content: center;
-    background-color: var(--branco);
-    color: var(--primaria);
-    padding: 8px;
-    border-radius: 999px;
+    gap: 12px;
 }
 
 .pages{
