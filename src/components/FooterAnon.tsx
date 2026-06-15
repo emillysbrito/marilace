@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/logo.svg';
 import estrela from '../assets/estrela.svg';
 
-import { FiGithub } from "react-icons/fi";
-import { FiTwitter } from "react-icons/fi";
-import { FiInstagram } from "react-icons/fi";
-import { FiMail } from "react-icons/fi";
+import { TbBrandGithub } from "react-icons/tb";
+import { TbBrandTwitter } from "react-icons/tb";
+import { TbBrandInstagram } from "react-icons/tb";
+import { TbMail } from "react-icons/tb";
 
 export function FooterAnon(){
     return(
@@ -25,10 +25,10 @@ export function FooterAnon(){
                         </p>
                     </main>
                     <div className={ styles.links }>
-                        <a href="https://github.com" className={ styles.link }><FiGithub size={18}/></a>
-                        <a href="https://twitter.com" className={ styles.link }><FiTwitter size={18}/></a>
-                        <a href="https://instagram.com" className={ styles.link }><FiInstagram size={18}/></a>
-                        <a href="mailto:marilace@proton.me" className={ styles.link }><FiMail size={18}/></a>
+                        <a href="https://github.com" className={ styles.link }><TbBrandGithub size={18}/></a>
+                        <a href="https://twitter.com" className={ styles.link }><TbBrandTwitter size={18}/></a>
+                        <a href="https://instagram.com" className={ styles.link }><TbBrandInstagram size={18}/></a>
+                        <a href="mailto:marilace@proton.me" className={ styles.link }><TbMail size={18}/></a>
                     </div>
                 </div>
                 <div className={ styles.pages }>

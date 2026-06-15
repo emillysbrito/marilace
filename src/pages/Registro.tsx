@@ -4,8 +4,7 @@ import { Btn } from '../components/Btn'
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
 import { Link } from 'react-router-dom'
-import { FiLogIn } from "react-icons/fi";
-
+import { TbLogin2 } from "react-icons/tb";
 import imgRegistro from '../assets/img/colagem-cadastro.png'
 
 export function Registro(){
@@ -46,7 +45,7 @@ export function Registro(){
                     <Link to={'/login'}
                     className={ styles.linkLogin }
                     >
-                        Já tem uma conta? Faça log-in <FiLogIn className={ styles.icon } />
+                        Já tem uma conta? Faça log-in <TbLogin2 className={ styles.icon } size={18} />
                     </Link>
 
                     <div className={ styles.estrela1 } />

@@ -4,7 +4,7 @@ import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
 import { Link } from 'react-router-dom'
 import { Btn } from '../components/Btn'
-import { FiUserPlus } from "react-icons/fi";
+import { TbUserPlus } from "react-icons/tb";
 
 import imgLogin from '../assets/img/colagem-cadastro.png'
 
@@ -34,9 +34,9 @@ export function Login(){
 
                     </form>
                     <Link to={'/login'}
-                    className={ styles.linkLogin }
+                    className={ styles.linkRegistro }
                     >
-                        Não tem uma conta? Registre-se <FiUserPlus className={ styles.icon } />
+                        Não tem uma conta? Registre-se <TbUserPlus className={ styles.icon } />
                     </Link>
 
                     <div className={ styles.estrela1 } />

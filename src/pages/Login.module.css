@@ -97,19 +97,26 @@
     transition: .2s ease;
 }
 
-.linkLogin{
+.linkRegistro{
     font-family: var(--base);
     font-size: var(--PP);
     font-weight: 700;
     text-decoration: none;
     color: var(--branco);
 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    margin-left: 4px;
 }
 
 .icon path{
-    stroke-width: 3px;
+    stroke-width: 2.5px;
 }
-
 .estrela1, .estrela2 {
     background-color: var(--verde);
 
