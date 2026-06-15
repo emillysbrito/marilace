@@ -15,7 +15,7 @@ export function HeaderAnon(){
             </ul>
             <img src={ logo } className={ styles.logo } />
             <div className={ styles.containerBtns }>
-                <Link to={'login'} className={ styles.btnLogin }>Log-In</Link>
+                <Link to={'/login'} className={ styles.btnLogin }>Log-In</Link>
                 <Btn
                     route='/register'
                     text='Registre-se'/>
