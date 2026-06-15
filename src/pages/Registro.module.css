@@ -1,0 +1,124 @@
+.registro{
+    width: 100%;
+    height: auto;
+    background-color: var(--primaria);
+    overflow-x: hidden;
+}
+
+.containerRegistro{
+    background-color: var(--primaria);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    width: 100%;
+    padding: 96px 0px;
+    margin-bottom: 80px;
+
+    position: relative;
+}
+
+.imgRegistro{
+    margin-right: 160px;
+    z-index: 999;
+}
+
+.conteudoRegistro, .formRegistro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudoRegistro{
+    gap: 24px;
+
+    width: 700px;
+    padding: 40px;
+
+    border-radius: 8px;
+
+    z-index: 999;
+}
+
+.tituloRegistro{
+    color: var(--branco);
+
+    font-family: var(--logo);
+    font-size: var(--XG);
+    font-weight: 700;
+}
+
+.formRegistro{
+    gap: 24px;
+    width: 100%;
+}
+
+.formRegistro > div:last-child { 
+    font-size: var(--G);
+    width: 240px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    width: 100%;
+}
+
+.inputContainer label{
+    color: var(--branco);
+
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 500;
+}
+
+.inputContainer input{
+    background-color: var(--branco);
+    color: var(--preto);
+    filter: drop-shadow(0px 8px var(--preto));
+    border: 3px solid var(--preto);
+    border-radius: 999px;
+
+    font-family: var(--base);
+    font-size: var(--P);
+
+    padding: 12px;
+}
+
+.inputContainer input:focus{
+    outline: 2px solid var(--verde);
+    transition: .2s ease;
+}
+
+.estrela1, .estrela2 {
+    background-color: var(--verde);
+
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    width: 120px;
+    height: 120px;
+    z-index: 888;
+}
+
+.estrela1 {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    transform: rotate(32deg);
+}
+
+.estrela2 {
+    position: absolute;
+    bottom: 60px;
+    left: 960px;
+    transform: rotate(-20deg);
+}

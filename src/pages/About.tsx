@@ -2,7 +2,6 @@ import styles from './About.module.css'
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
 
-import estrela from '../assets/estrela.svg'
 import listrado from '../assets/img/listrado.svg'
 
 export function About(){

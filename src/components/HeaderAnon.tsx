@@ -17,7 +17,7 @@ export function HeaderAnon(){
             <div className={ styles.containerBtns }>
                 <Link to={'login'} className={ styles.btnLogin }>Log-In</Link>
                 <Btn
-                    route='#registro'
+                    route='/register'
                     text='Registre-se'/>
             </div>
         </div>

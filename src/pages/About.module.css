@@ -66,6 +66,7 @@
     font-family: var(--adicional);
     font-size: var(--XG);
     color: var(--primaria-escura);
+    font-weight: 200;
 }
 
 .florMain{
@@ -113,7 +114,22 @@
 }
 
 
+.brilhoMain{
+    background-color: var(--primaria);
 
+    mask-image: url('../assets/img/brilho.svg');
+    -webkit-mask-image: url('../assets/img/brilho.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    width: 200px;
+    height: 200px;
+    z-index: -111;
+
+    position: absolute;
+    left: 630px;
+    top: 300px;
+}
 
 .estrelaMoldura1{
     position: absolute;
