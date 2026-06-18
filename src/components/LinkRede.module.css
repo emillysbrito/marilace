@@ -1,0 +1,24 @@
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    width: fit-content;
+    padding: .4rem .8rem;
+    color: var(--branco);
+
+    border-radius: 999px;
+    border: 2px solid transparent;
+
+    font-family: var(--base);
+    font-size: var(--PP);
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: .3s ease;
+}
+
+.link:hover{
+    color: var(--preto);
+    border: 2px solid var(--preto);
+}
