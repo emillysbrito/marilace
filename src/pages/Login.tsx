@@ -2,33 +2,50 @@ import styles from './Login.module.css'
 
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
-import { Link } from 'react-router-dom'
+import { type UsuarioTipo } from '../types/Usuario'
+
+import { Link, useNavigate } from 'react-router-dom'
 import { Btn } from '../components/Btn'
-import { TbUserPlus } from "react-icons/tb";
+import { TbUserPlus, TbAlertCircle } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import imgLogin from '../assets/img/colagem-cadastro.png'
 
+type FormValues = {
+    email: string
+    senha: string
+}
+
 const userSchema =  z.object({
-    email: z.string().min(1, "O e-mail é obrigatório").email("E-mail inválido"),
+    email: z.string().email("E-mail inválido"),
     senha: z.string().min(6, "A senha deve ter pelo menos 6 caracteres")
 });
 
-    type UserFormData = z.infer<typeof userSchema>;
-
-
 export function Login(){
+
     const {
         register, 
         handleSubmit,
         formState: { errors }, 
-    } = useForm<UserFormData>({
-        resolver: zodResolver(userSchema),
-});
-    function onSubmit(data: UserFormData) {
-        console.log(data);
+    } = useForm<FormValues>({
+        resolver: zodResolver(userSchema),}
+    )
+
+    const navegacao = useNavigate()
+
+    const dadosUsuario: UsuarioTipo = {
+        nome: '',
+        email: '',
+        senha: ''
+    }
+
+    const autenticarUsuario = (data: FormValues) => {
+        dadosUsuario.email = data.email
+        dadosUsuario.senha = data.senha
+
+        navegacao('/forum')
     }
 
     return(
@@ -41,28 +58,38 @@ export function Login(){
                 <div className={ styles.conteudoLogin }>
                     <h2 className={ styles.tituloLogin }>Log-in</h2>
 
-                    <form className={ styles.formLogin }>                       
+                    <form 
+                        className={ styles.formLogin }
+                        onSubmit={handleSubmit(autenticarUsuario)}
+                    > 
+
                         <div className={ styles.inputContainer }>
+                            
                             <label htmlFor="email">E-mail:</label>
                             <input 
-                                id='email' 
-                                type="email" 
                                 {...register("email")}
                             />
-                            {errors.email && <p>{errors.email.message}</p>}
+                            {errors.email && <p className={ styles.erro }>
+                                <TbAlertCircle/>{errors.email.message}
+                            </p>}
                         </div>
 
                         <div className={ styles.inputContainer }>
                             <label htmlFor="senha">Senha:</label>
                             <input 
-                                id='senha' 
-                                type="password" 
                                 {...register("senha")}
                             />
-                            {errors.senha && <p>{errors.senha.message}</p>}
+                            {errors.senha && <p className={ styles.erro }>
+                                <TbAlertCircle className={ styles.icon }/>{errors.senha.message}
+                            </p>}
                         </div>
 
-                        <Btn route="/" text="Registrar"/> 
+                        <button
+                            className={ styles.btnForm }
+                            type='submit'
+                        >
+                            Registrar
+                        </button>
 
                     </form>
                     <Link to={'/register'}

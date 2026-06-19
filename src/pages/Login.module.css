@@ -97,6 +97,38 @@
     transition: .2s ease;
 }
 
+.btnForm{
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 700;
+
+    padding: 8px 64px;
+    border-radius: 999px;
+    border: 3px solid var(--preto);
+
+    background-color: var(--verde);
+    color: (--preto);
+    filter: drop-shadow(0px 6px var(--preto));
+
+    cursor: pointer;
+}
+
+.btnForm:active{
+    filter: drop-shadow(0px 6px transparent);
+    transform: translateY(6px);
+}
+
+.erro{
+    display: flex;
+    align-items: center;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 500;
+    margin-top: 8px;
+
+    color: var(--primaria-escura);
+}
+
 .linkRegistro{
     font-family: var(--base);
     font-size: var(--PP);
@@ -111,7 +143,7 @@
 }
 
 .icon{
-    margin-left: 4px;
+    margin: 4px;
 }
 
 .icon path{
@@ -132,14 +164,14 @@
 
 .estrela1 {
     position: absolute;
-    top: 100px;
-    right: 100px;
+    top: 180px;
+    left: 160px;
     transform: rotate(32deg);
 }
 
 .estrela2 {
     position: absolute;
-    bottom: 60px;
-    left: 960px;
+    bottom: 150px;
+    left: 720px;
     transform: rotate(-20deg);
 }
