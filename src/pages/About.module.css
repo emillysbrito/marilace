@@ -1,3 +1,7 @@
+.container{
+    overflow-x: hidden;
+}
+
 .main{
     display: flex;
     flex-direction: row;
@@ -114,17 +118,20 @@
 }
 
 
-.brilhoMain{
-    background-color: var(--primaria);
-
+.brilhoMain, .brilhoObjetivos, .brilhoEquipe{
     mask-image: url('../assets/img/brilho.svg');
     -webkit-mask-image: url('../assets/img/brilho.svg');
     mask-repeat: no-repeat;
     mask-size: contain;
+}
+
+.brilhoMain{
+    background-color: var(--primaria);
 
     width: 200px;
     height: 200px;
     z-index: -111;
+
 
     position: absolute;
     left: 630px;
@@ -183,7 +190,7 @@
     flex-direction: column;
 }
 
-.comoSurgiu{
+.tituloHistoria1 {
     font-family: var(--base);
     font-size: var(--G);
     text-align: start;
@@ -191,7 +198,7 @@
     color: var(--primaria-escura);
 }
 
-.oMarilace{
+.tituloHistoria2 {
     font-family: var(--adicional);
     font-size: var(--G);
     font-weight: 100;
@@ -201,7 +208,7 @@
     color: var(--primaria-escura)
 }
 
-.oMarilace span{
+.tituloHistoria2 span{
     font-family: var(--logo);
     font-size: var(--XG);
 
@@ -221,4 +228,302 @@
     );
     background-size: 100px 100px;
     border: 6px solid var(--rosa);
+}
+
+/* OBJETIVOS */
+
+.tituloObjetivos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: .7;
+}
+
+.tituloObjetivos1 {
+    font-family: var(--base);
+    font-weight: 800;
+    font-size: var(--G);
+    color: var(--primaria-escura);
+}
+
+.tituloObjetivos2{
+    display: flex;
+    align-items: center;
+    font-family: var(--adicional);
+    font-weight: 500;
+    font-size: var(--G);
+
+    color: var(--primaria);
+}
+
+.pontilhado {
+    height: 0px;
+    width: 240px;
+    border: 2px dashed var(--rosa);
+    margin-right: 1.5rem;
+}
+
+.brilhoObjetivos {
+    background-color: var(--verde);
+
+    width: 100px;
+    height: 100px;
+    z-index: -111;
+
+    position: relative;
+    left: 260px;
+    bottom: 130px;
+}
+
+.conteudoObjetvos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.player{
+    position: relative;
+    top: -50px;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 3px solid var(--preto);
+    filter: drop-shadow(0px 6px var(--preto));
+}
+
+/* CARDS */
+.cards{
+    display: flex;
+    margin-bottom: 3rem;
+    justify-content: center;
+    height: 640px;
+}
+
+.linhaCards{
+    border: 2px solid var(--verde);
+    margin-inline: 6rem;
+    border-radius: 999px;
+}
+
+/* EQUIPE */
+.equipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 4rem;
+}
+
+.tituloEquipe{
+    line-height: .5;
+    width: 12rem;
+}
+
+.tituloEquipe1{
+    font-family: var(--base);
+    font-size: var(--M);
+    color: var(--preto);
+}
+
+.tituloEquipe2{
+    font-family: var(--logo);
+    font-size: var(--G);
+    color: var(--verde);
+    text-align: end;
+}
+
+.brilhoEquipe {
+    background-color: var(--rosa);
+
+    width: 80px;
+    height: 80px;
+    z-index: -111;
+
+    position: relative;
+    left: 90px;
+    bottom: 90px;
+}
+
+.ana, .emilly, .fernanda, .guilherme{
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    margin-block: 4rem;
+}
+
+.nome{
+    font-family: var(--base);
+    font-size: var(--XG);
+    color: var(--primaria-escura);
+    text-shadow:
+    6px 6px 0 var(--branco),
+    -6px 6px 0 var(--branco),
+    -6px -6px 0 var(--branco),
+    6px -6px 0 var(--branco);
+}
+
+.tituloAna, .tituloEmilly, .tituloFernanda, .tituloGuilherme{
+    display: flex;
+    flex-direction: column;
+    line-height: .6;
+
+    position: relative;
+    bottom: -6rem;
+}
+
+.sub{
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+}
+
+.sobrenome{
+    font-family: var(--adicional);
+    font-size: var(--XG);
+    font-weight: 100;
+    text-shadow:
+    6px 6px 0 var(--branco),
+    -6px 6px 0 var(--branco),
+    -6px -6px 0 var(--branco),
+    6px -6px 0 var(--branco);
+    color: var(--primaria);
+}
+
+.links{
+    display: flex;
+    margin-block: 1rem;
+    gap: 1.5rem;
+
+    position: relative;
+    bottom: 6rem;
+}
+
+.conteudoAna p, .conteudoEmilly p, .conteudoFernanda p, .conteudoGuilherme p{
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 500;
+    text-align: justify;
+
+    max-width: 900px;
+    position: relative;
+    bottom: 5rem;
+}
+
+.estrelaAna, .estrelaEmilly, .estrelaFernanda, .estrelaGuilherme{
+    background-color: var(--verde);
+
+    mask-image: url('../assets/img/estrelaHalftone.svg');
+    -webkit-mask-image: url('../assets/img/estrelaHalftone.svg');
+    mask-repeat: no-repeat; 
+    mask-size: contain;
+
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+
+    position: relative;
+    bottom: 14rem;
+}
+
+.estrelaAna{
+    left: 11rem;
+}
+
+.estrelaEmilly{
+    left: 19rem;
+}
+
+.estrelaFernanda{
+    left: 30rem;
+}
+
+.estrelaGuilherme{
+    left: 34rem;
+}
+
+.molduraAna, .molduraEmilly, .molduraFernanda, .molduraGuilherme{
+    display: flex;
+}
+
+.molduraEmilly, .molduraGuilherme{
+    order: 1;
+}
+
+.conteudoEmilly, .conteudoGuilherme{
+    order: 2;
+}
+
+.imgAna, .imgFernanda{
+    height: 600px;
+    width: 450px;
+    object-fit: cover; 
+    border-radius: 64px;
+    transform: rotate(-5deg);
+
+    z-index: 333;
+    order: 2;
+}
+
+.imgAna{
+    border: 12px dashed var(--rosa);
+}
+
+.imgFernanda{
+    border: 12px dashed var(--primaria);
+}
+
+.imgEmilly, .imgGuilherme{
+    height: 600px;
+    width: 450px;
+    object-fit: cover; 
+    border-radius: 64px;
+    transform: rotate(5deg);
+
+    z-index: 333;
+}
+
+.imgEmilly{
+    border: 12px dashed var(--verde);
+}
+
+.imgGuilherme{
+    border: 12px dashed var(--primaria-escura);
+}
+
+.asciiAna, .asciiFernanda{
+    font-weight: 900;
+    order: 1;
+    transform: rotate(-5deg);
+
+    position: relative;
+    left: 40px;
+    bottom: -40px;
+}
+
+.asciiAna{
+    color: var(--verde);
+}
+
+.asciiFernanda{
+    color: var(--primaria-escura);
+}
+
+
+.asciiEmilly, .asciiGuilherme{
+    font-weight: 900;
+    transform: rotate(5deg);
+
+    position: relative;
+    left: -60px;
+    bottom: -40px;
+
+    z-index: 111;
+}
+
+.asciiEmilly{
+    color: var(--rosa);
+}
+
+.asciiGuilherme{
+    color: var(--primaria);
 }

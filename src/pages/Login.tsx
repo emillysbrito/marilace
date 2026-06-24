@@ -70,7 +70,7 @@ export function Login(){
                                 {...register("email")}
                             />
                             {errors.email && <p className={ styles.erro }>
-                                <TbAlertCircle/>{errors.email.message}
+                                <TbAlertCircle className={ styles.icon }/>{errors.email.message}
                             </p>}
                         </div>
 
