@@ -1,3 +1,5 @@
+/* CONFIGURAÇÕES GERAIS & LAYOUT */
+
 .container{
     overflow-x: hidden;
 }
@@ -8,38 +10,6 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 10rem;
-}
-
-.chipSobre{
-    position: relative;
-    right: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    background-color: var(--rosa);
-    border: 3px solid var(--preto);
-    border-radius: 999px;
-    padding: 8px 16px;
-}
-
-.estrelaChip{
-    background-color: var(--preto);
-
-    mask-image: url('../assets/estrela.svg');
-    -webkit-mask-image: url('../assets/estrela.svg');
-    mask-repeat: no-repeat;
-    mask-size: contain;
-
-    width: 12px;
-    height: 12px;
-}
-
-.textoChip{
-    color: var(--preto);
-    font-family: var(--base);
-    font-size: var(--P);
 }
 
 .fundoMain{
@@ -56,6 +26,82 @@
     margin-top: 10rem;
 }
 
+/* MÁSCARAS */
+.estrelaChip, 
+.estrelaMoldura1, 
+.estrelaMoldura2,
+.florMain,
+.brilhoMain, 
+.brilhoObjetivos, 
+.brilhoEquipe,
+.estrelaAna, 
+.estrelaEmilly, 
+.estrelaFernanda, 
+.estrelaGuilherme {
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+}
+
+/* ESTRELAS */
+.estrelaChip, 
+.estrelaMoldura1, 
+.estrelaMoldura2 {
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+}
+
+/* BRILHOS */
+.brilhoMain, 
+.brilhoObjetivos, 
+.brilhoEquipe {
+    mask-image: url('../assets/img/brilho.svg');
+    -webkit-mask-image: url('../assets/img/brilho.svg');
+}
+
+/* ESTRELAS HALFTONE */
+.estrelaAna, 
+.estrelaEmilly, 
+.estrelaFernanda, 
+.estrelaGuilherme {
+    background-color: var(--verde);
+    mask-image: url('../assets/img/estrelaHalftone.svg');
+    -webkit-mask-image: url('../assets/img/estrelaHalftone.svg');
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    position: relative;
+    bottom: 14rem;
+}
+
+/* MAIN */
+
+.chipSobre{
+    position: relative;
+    right: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--rosa);
+    border: 3px solid var(--preto);
+    border-radius: 999px;
+    padding: 8px 16px;
+}
+
+.estrelaChip{
+    background-color: var(--preto);
+    width: 12px;
+    height: 12px;
+}
+
+.textoChip{
+    color: var(--preto);
+    font-family: var(--base);
+    font-size: var(--P);
+}
+
 .subtituloMain{
     font-family: var(--base);
     font-size: var(--G);
@@ -66,7 +112,6 @@
     position: relative;
     left: 200px;
     bottom: 40px;
-
     font-family: var(--adicional);
     font-size: var(--XG);
     color: var(--primaria-escura);
@@ -75,21 +120,17 @@
 
 .florMain{
     background-color: var(--primaria);
-
     mask-image: url('../assets/img/flor.svg');
     -webkit-mask-image: url('../assets/img/flor.svg');
-    mask-repeat: no-repeat;
-    mask-size: contain;
-
     transform: scaleX(-1);
     width: 28rem;
     height: 28rem;
-
     position: absolute;
     left: -50px;
     bottom: 0px;
 }
 
+/* MOLDURA - MAIN */
 .moldura{
     margin-top: 12rem;
     transform: rotate(4deg);
@@ -98,44 +139,16 @@
 .imgMoldura{
     width: 800px;
     height: 600px;
-
     border-radius: 32px;
     border: 6px solid var(--primaria-escura);
-
     z-index: 111;
 }
 
-.estrelaMoldura1, .estrelaMoldura2{
+.estrelaMoldura1,
+.estrelaMoldura2{
     background-color: var(--primaria);
-
-    mask-image: url('../assets/estrela.svg');
-    -webkit-mask-image: url('../assets/estrela.svg');
-    mask-repeat: no-repeat;
-    mask-size: contain;
-
     width: 120px;
     height: 120px;
-}
-
-
-.brilhoMain, .brilhoObjetivos, .brilhoEquipe{
-    mask-image: url('../assets/img/brilho.svg');
-    -webkit-mask-image: url('../assets/img/brilho.svg');
-    mask-repeat: no-repeat;
-    mask-size: contain;
-}
-
-.brilhoMain{
-    background-color: var(--primaria);
-
-    width: 200px;
-    height: 200px;
-    z-index: -111;
-
-
-    position: absolute;
-    left: 630px;
-    top: 300px;
 }
 
 .estrelaMoldura1{
@@ -143,7 +156,6 @@
     right: -55px;
     top: -60px;
     transform: rotate(10deg);
-
     z-index: -1;
 }
 
@@ -152,8 +164,18 @@
     left: -40px;
     bottom: -40px;
     transform: rotate(10deg);
-
     z-index: 111;
+}
+
+
+.brilhoMain{
+    background-color: var(--primaria);
+    width: 200px;
+    height: 200px;
+    z-index: -111;
+    position: absolute;
+    left: 630px;
+    top: 300px;
 }
 
 /* HISTÓRIA */
@@ -171,7 +193,6 @@
     justify-content: center;
     align-items: center;
     gap: 80px;
-
     max-width: 900px;
 }
 
@@ -180,7 +201,6 @@
     font-size: var(--P);
     font-weight: 500;
     text-align: justify;
-
     color: var(--preto);
 }
 
@@ -194,7 +214,6 @@
     font-family: var(--base);
     font-size: var(--G);
     text-align: start;
-
     color: var(--primaria-escura);
 }
 
@@ -204,14 +223,12 @@
     font-weight: 100;
     text-align: end;
     line-height: 0.1;
-
     color: var(--primaria-escura)
 }
 
 .tituloHistoria2 span{
     font-family: var(--logo);
     font-size: var(--XG);
-
     color: var(--primaria);
 }
 
@@ -219,19 +236,17 @@
     width: 100%;
     height: 100px;
     margin: 80px 0px;
-
     background: conic-gradient(
-    var(--branco) 90deg, 
-    var(--rosa) 90deg 180deg, 
-    var(--branco) 180deg 270deg, 
-    var(--rosa) 270deg
+        var(--branco) 90deg, 
+        var(--rosa) 90deg 180deg, 
+        var(--branco) 180deg 270deg, 
+        var(--rosa) 270deg
     );
     background-size: 100px 100px;
     border: 6px solid var(--rosa);
 }
 
 /* OBJETIVOS */
-
 .tituloObjetivos{
     display: flex;
     flex-direction: column;
@@ -253,7 +268,6 @@
     font-family: var(--adicional);
     font-weight: 500;
     font-size: var(--G);
-
     color: var(--primaria);
 }
 
@@ -266,11 +280,9 @@
 
 .brilhoObjetivos {
     background-color: var(--verde);
-
     width: 100px;
     height: 100px;
     z-index: -111;
-
     position: relative;
     left: 260px;
     bottom: 130px;
@@ -334,21 +346,34 @@
 
 .brilhoEquipe {
     background-color: var(--rosa);
-
     width: 80px;
     height: 80px;
     z-index: -111;
-
     position: relative;
     left: 90px;
     bottom: 90px;
 }
 
-.ana, .emilly, .fernanda, .guilherme{
+/* EQUIPE - Integrantes */
+.ana, 
+.emilly, 
+.fernanda, 
+.guilherme{
     display: flex;
     align-items: center;
     gap: 64px;
     margin-block: 4rem;
+}
+
+.tituloAna, 
+.tituloEmilly, 
+.tituloFernanda, 
+.tituloGuilherme{
+    display: flex;
+    flex-direction: column;
+    line-height: .6;
+    position: relative;
+    bottom: -6rem;
 }
 
 .nome{
@@ -356,19 +381,10 @@
     font-size: var(--XG);
     color: var(--primaria-escura);
     text-shadow:
-    6px 6px 0 var(--branco),
-    -6px 6px 0 var(--branco),
-    -6px -6px 0 var(--branco),
-    6px -6px 0 var(--branco);
-}
-
-.tituloAna, .tituloEmilly, .tituloFernanda, .tituloGuilherme{
-    display: flex;
-    flex-direction: column;
-    line-height: .6;
-
-    position: relative;
-    bottom: -6rem;
+        6px 6px 0 var(--branco),
+        -6px 6px 0 var(--branco),
+        -6px -6px 0 var(--branco),
+        6px -6px 0 var(--branco);
 }
 
 .sub{
@@ -382,10 +398,10 @@
     font-size: var(--XG);
     font-weight: 100;
     text-shadow:
-    6px 6px 0 var(--branco),
-    -6px 6px 0 var(--branco),
-    -6px -6px 0 var(--branco),
-    6px -6px 0 var(--branco);
+        6px 6px 0 var(--branco),
+        -6px 6px 0 var(--branco),
+        -6px -6px 0 var(--branco),
+        6px -6px 0 var(--branco);
     color: var(--primaria);
 }
 
@@ -393,137 +409,105 @@
     display: flex;
     margin-block: 1rem;
     gap: 1.5rem;
-
     position: relative;
     bottom: 6rem;
 }
 
-.conteudoAna p, .conteudoEmilly p, .conteudoFernanda p, .conteudoGuilherme p{
+.conteudoAna p, 
+.conteudoEmilly p, 
+.conteudoFernanda p, 
+.conteudoGuilherme p{
     font-family: var(--base);
     font-size: var(--P);
     font-weight: 500;
     text-align: justify;
-
     max-width: 900px;
     position: relative;
     bottom: 5rem;
 }
 
-.estrelaAna, .estrelaEmilly, .estrelaFernanda, .estrelaGuilherme{
-    background-color: var(--verde);
-
-    mask-image: url('../assets/img/estrelaHalftone.svg');
-    -webkit-mask-image: url('../assets/img/estrelaHalftone.svg');
-    mask-repeat: no-repeat; 
-    mask-size: contain;
-
-    width: 200px;
-    height: 200px;
-    z-index: -1;
-
-    position: relative;
-    bottom: 14rem;
+.conteudoEmilly, 
+.conteudoGuilherme{
+    order: 2;
 }
 
-.estrelaAna{
-    left: 11rem;
-}
+/* EQUIPE - Posicionamento das estrelas */
+.estrelaAna{ left: 11rem; }
+.estrelaEmilly{ left: 19rem; }
+.estrelaFernanda{ left: 30rem; }
+.estrelaGuilherme{ left: 34rem; }
 
-.estrelaEmilly{
-    left: 19rem;
-}
-
-.estrelaFernanda{
-    left: 30rem;
-}
-
-.estrelaGuilherme{
-    left: 34rem;
-}
-
-.molduraAna, .molduraEmilly, .molduraFernanda, .molduraGuilherme{
+/* EQUIPE - Molduras */
+.molduraAna, 
+.molduraEmilly, 
+.molduraFernanda, 
+.molduraGuilherme{
     display: flex;
 }
 
-.molduraEmilly, .molduraGuilherme{
+.molduraEmilly, 
+.molduraGuilherme{
     order: 1;
 }
 
-.conteudoEmilly, .conteudoGuilherme{
-    order: 2;
-}
-
-.imgAna, .imgFernanda{
+/* EQUIPE - Imagens */
+.imgAna, 
+.imgEmilly, 
+.imgFernanda, 
+.imgGuilherme {
     height: 600px;
     width: 450px;
     object-fit: cover; 
     border-radius: 64px;
-    transform: rotate(-5deg);
-
     z-index: 333;
-    order: 2;
 }
 
-.imgAna{
-    border: 12px dashed var(--rosa);
-}
-
+.imgAna, 
 .imgFernanda{
-    border: 12px dashed var(--primaria);
-}
-
-.imgEmilly, .imgGuilherme{
-    height: 600px;
-    width: 450px;
-    object-fit: cover; 
-    border-radius: 64px;
-    transform: rotate(5deg);
-
-    z-index: 333;
-}
-
-.imgEmilly{
-    border: 12px dashed var(--verde);
-}
-
-.imgGuilherme{
-    border: 12px dashed var(--primaria-escura);
-}
-
-.asciiAna, .asciiFernanda{
-    font-weight: 900;
-    order: 1;
     transform: rotate(-5deg);
+    order: 2;
+}
 
+.imgAna{ border: 12px dashed var(--rosa); }
+.imgFernanda{ border: 12px dashed var(--primaria); }
+
+.imgEmilly, 
+.imgGuilherme{
+    transform: rotate(5deg);
+}
+
+.imgEmilly{ border: 12px dashed var(--verde); }
+
+.imgGuilherme{ border: 12px dashed var(--primaria-escura); }
+
+/* EQUIPE - ASCII */
+.asciiAna, 
+.asciiEmilly, 
+.asciiFernanda, 
+.asciiGuilherme {
+    font-weight: 900;
     position: relative;
-    left: 40px;
     bottom: -40px;
 }
 
-.asciiAna{
-    color: var(--verde);
+.asciiAna, 
+.asciiFernanda{
+    order: 1;
+    transform: rotate(-5deg);
+    left: 40px;
 }
 
-.asciiFernanda{
-    color: var(--primaria-escura);
-}
+.asciiAna{ color: var(--verde); }
+
+.asciiFernanda{ color: var(--primaria-escura); }
 
 
 .asciiEmilly, .asciiGuilherme{
-    font-weight: 900;
     transform: rotate(5deg);
-
-    position: relative;
     left: -60px;
-    bottom: -40px;
-
     z-index: 111;
 }
 
-.asciiEmilly{
-    color: var(--rosa);
-}
+.asciiEmilly{ color: var(--rosa); }
 
-.asciiGuilherme{
-    color: var(--primaria);
-}
+.asciiGuilherme{ color: var(--primaria); }
