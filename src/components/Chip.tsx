@@ -1,5 +1,4 @@
 import styles from './Chip.module.css'
-import estrela from '../assets/estrela.svg'
 
 interface ChipProps{
     texto: string;

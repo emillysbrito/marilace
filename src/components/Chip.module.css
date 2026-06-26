@@ -12,6 +12,7 @@
 .texto{
     font-family: var(--base);
     font-size: var(--P);
+    color: var(--preto);
     font-weight: 600;
 }
 

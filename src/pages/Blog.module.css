@@ -1,0 +1,224 @@
+.destaques {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 3rem 3rem 3rem; 
+    box-sizing: border-box;
+}
+
+.tituloDestaques{
+    font-family: var(--base);
+    font-size: var(--M);
+    font-weight: 600;
+    color: var(--primaria-escura);
+    text-shadow:
+        4px 4px 0 var(--branco),
+        -4px 4px 0 var(--branco),
+        -4px -4px 0 var(--branco),
+        4px -4px 0 var(--branco);
+    margin-bottom: 8px;
+}
+
+.tituloDestaques span{
+    font-family: var(--logo);
+    color: var(--primaria);
+    font-size: var(--G);
+}
+
+.icon{
+    margin-left: 8px;
+}
+.icon path{
+    stroke-width: 4px;
+}
+
+.artigosDestaque {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 36px;
+    flex: 1;
+}
+
+.artigo1,
+.artigo2,
+.artigo3 {
+    background-color: var(--branco);
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.artigo1:hover,
+.artigo2:hover,
+.artigo3:hover{
+    transform: scale(1.01);
+    transition: .3s ease;
+}
+
+.artigo1 span,
+.artigo2 span,
+.artigo3 span{
+    font-family: var(--base);
+    font-size: var(--M);
+    font-weight: 700;
+    color: var(--preto);
+}
+
+.artigo1 p,
+.artigo2 p,
+.artigo3 p{
+    font-family: var(--base);
+    font-size: var(--P);
+    color: var(--cinza);
+    padding-block: 8px;
+}
+
+.artigo1 {
+    grid-column: span 3 / span 3;
+    grid-row: span 6 / span 6;
+    padding: 16px;
+}
+
+.artigo1 img{
+    height: 32rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.artigo2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+}
+
+.artigo3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+.artigo2,
+.artigo3 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+}
+
+.artigo2 img,
+.artigo3 img {
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.conteudoArtigo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.artigo2 .containerChip > div,
+.artigo3 .containerChip > div {
+    padding: 4px 10px !important;
+}
+
+.containerChip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.containerChip > div {
+    padding: 6px 14px !important; 
+    gap: 6px !important;
+}
+
+.containerChip span {
+    font-size: var(--PP) !important;
+    font-weight: 700;
+}
+
+.divisoria{
+    background-color: var(--primaria);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+}
+
+.divisoria img{
+    width: 10%;
+}
+
+.artigos{
+    margin: 6rem 2rem;
+}
+
+.flexArtigos{
+    display: flex;
+}
+
+.imgMegafone{
+    width: 25%;
+    position: relative;
+    top: -4rem;
+    right: -5rem;
+}
+
+.tituloArtigos{
+    display: flex;
+    flex-direction: column;
+    line-height: .5;
+    width: 25rem;
+}
+
+.tituloArtigos h2{
+    font-family: var(--base);
+    font-size: var(--G);
+    color: var(--primaria-escura);
+}
+
+.tituloArtigos span{
+    font-family: var(--adicional);
+    font-size: var(--G);
+    color: var(--preto);
+    text-shadow:
+        4px 4px 0 var(--branco),
+        -4px 4px 0 var(--branco),
+        -4px -4px 0 var(--branco),
+        4px -4px 0 var(--branco);
+    align-self: end;
+}
+
+.imgTelefone{
+    width: 28rem;
+    position: relative;
+    top: -1.4rem;
+    right: -10.5rem;
+    margin-bottom: 32px;
+    z-index: -999;
+}
+
+.tituloCategoria{
+    font-family: var(--base);
+    font-size: var(--M);
+    font-weight: 600;
+    color: var(--primaria-escura);
+    margin: 32px;
+}
+
+.artigosCategoria{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
