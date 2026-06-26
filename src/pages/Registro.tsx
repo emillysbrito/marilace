@@ -1,13 +1,47 @@
 import styles from './Registro.module.css'
 
-import { Btn } from '../components/Btn'
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
-import { Link } from 'react-router-dom'
-import { TbLogin2 } from "react-icons/tb";
+import { Link, useNavigate } from 'react-router-dom'
+import { TbLogin2, TbAlertCircle } from "react-icons/tb";
+import { z } from "zod";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+
 import imgRegistro from '../assets/img/colagem-cadastro.png'
 
+const userSchema = z 
+    .object({
+        nome: z.string().min(3, "Informe seu nome"),
+        email: z.string().email("Email inválido"),
+        senha: z.string().min(6, "A senha deve ter pelo 6 caracteres"),
+        confirmarSenha: z.string(),
+    })
+        .refine((data) => data.senha === data.confirmarSenha, {
+            message: "As senhas não coincidem",
+            path: ["confirmarSenha"],
+        });
+
+    type FormValues = z.infer<typeof userSchema>;
+
 export function Registro(){
+
+    const navigate = useNavigate();
+
+    const{
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormValues>({ 
+        resolver: zodResolver (userSchema),
+    });
+    
+    const autenticarUsuario = (data: FormValues) => {
+
+        navigate('/login')
+    };
+
     return(
         <div className={styles.registro}>
             <HeaderAnon/>
@@ -18,29 +52,64 @@ export function Registro(){
                 <div className={ styles.conteudoRegistro }>
                     <h2 className={ styles.tituloRegistro }>Registre-se</h2>
 
-                    <form className={ styles.formRegistro }>
+                    <form className={ styles.formRegistro }
+                        onSubmit = {handleSubmit(autenticarUsuario)}
+                        >
 
                         <div className={ styles.inputContainer }>
                             <label htmlFor="nome">Seu nome completo:</label>
-                            <input id='nome' type="text" />
+                            <input 
+                                id='nome' 
+                                type="text" 
+                                {...register("nome")}
+                            />
+                            {errors.nome && <p className={ styles.erro } >
+                                <TbAlertCircle className={ styles.icon }/>{errors.nome.message}
+                            </p>}
                         </div>
                             
                         <div className={ styles.inputContainer }>
                             <label htmlFor="email">Seu e-mail:</label>
-                            <input id='email' type="email" />
+                            <input 
+                                id='email' 
+                                type="email" 
+                                {...register("email")}
+                            />
+                            {errors.email && <p className={ styles.erro }>
+                                <TbAlertCircle className={ styles.icon }/>{errors.email.message}
+                            </p>}
                         </div>
 
                         <div className={ styles.inputContainer }>
                             <label htmlFor="senha">Senha:</label>
-                            <input id='senha' type="password" />
+                            <input 
+                                id='senha'
+                                type="password" 
+                                {...register("senha")}
+                            />
+                            {errors.senha && <p className={ styles.erro }>
+                                <TbAlertCircle className={ styles.icon }/>{errors.senha.message}
+                            </p>}
                         </div>
 
                         <div className={ styles.inputContainer }>
                             <label htmlFor="confirmarSenha">Confirme sua senha:</label>
-                            <input id='confirmarSenha' type="password" />
+                            <input 
+                            id='confirmarSenha' 
+                            type="password" 
+                            {...register("confirmarSenha")}
+                        />
+                        {errors.confirmarSenha && <p className={ styles.erro }>
+                            <TbAlertCircle className={ styles.icon }/>{errors.confirmarSenha.message}
+                        </p>}
                         </div>
 
-                        <Btn route="/" text="Registrar"/>
+                        <button
+                            className={ styles.btnForm }
+                            type='submit'
+                        >
+                            Registrar
+                        </button>
                     </form>
                     <Link to={'/login'}
                     className={ styles.linkLogin }

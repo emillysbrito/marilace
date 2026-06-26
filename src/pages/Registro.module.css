@@ -144,3 +144,43 @@
     left: 960px;
     transform: rotate(-20deg);
 }
+
+.erro{
+    display: flex;
+    align-items: center;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 500;
+    margin-top: 8px;
+
+    color: var(--primaria-escura);
+}
+
+.icon{
+    margin: 4px;
+}
+
+.icon path{
+    stroke-width: 2.5px;
+}
+
+.btnForm{
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 700;
+
+    padding: 8px 64px;
+    border-radius: 999px;
+    border: 3px solid var(--preto);
+
+    background-color: var(--verde);
+    color: var(--preto);
+    filter: drop-shadow(0px 6px var(--preto));
+
+    cursor: pointer;
+}
+
+.btnForm:active{
+    filter: drop-shadow(0px 6px transparent);
+    transform: translateY(6px);
+}

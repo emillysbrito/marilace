@@ -3,9 +3,7 @@ import styles from './Login.module.css'
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
 import { type UsuarioTipo } from '../types/Usuario'
-
 import { Link, useNavigate } from 'react-router-dom'
-import { Btn } from '../components/Btn'
 import { TbUserPlus, TbAlertCircle } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
@@ -88,7 +86,7 @@ export function Login(){
                             className={ styles.btnForm }
                             type='submit'
                         >
-                            Registrar
+                            Entrar
                         </button>
 
                     </form>
