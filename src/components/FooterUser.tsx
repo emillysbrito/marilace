@@ -14,7 +14,7 @@ export function FooterUser(){
                 <img src={ estrela } className={ styles.estrela } />
                 <img src={ logo } className={ styles.logo } />
                 <div className={ styles.links }>
-                    <LinkCompacto href="https://github.com" icon={TbBrandGithub}/>
+                    <LinkCompacto href="https://github.com/emillysbrito/marilace" icon={TbBrandGithub}/>
                     <LinkCompacto href="https://twitter.com" icon={TbBrandTwitter}/>
                     <LinkCompacto href="https://instagram.com" icon={TbBrandInstagram}/>
                     <LinkCompacto href="mailto:marilace@proton.me" icon={TbMail}/>

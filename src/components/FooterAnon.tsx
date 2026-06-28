@@ -23,7 +23,7 @@ export function FooterAnon(){
                         </p>
                     </main>
                     <div className={ styles.links }>
-                        <LinkCompacto href="https://github.com" icon={TbBrandGithub}/>
+                        <LinkCompacto href="https://github.com/emillysbrito/marilace" icon={TbBrandGithub}/>
                         <LinkCompacto href="https://twitter.com" icon={TbBrandTwitter}/>
                         <LinkCompacto href="https://instagram.com" icon={TbBrandInstagram}/>
                         <LinkCompacto href="mailto:marilace@proton.me" icon={TbMail}/>
