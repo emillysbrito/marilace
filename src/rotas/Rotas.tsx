@@ -5,6 +5,8 @@ import { Blog } from '../pages/Blog.tsx'
 import { Login } from '../pages/Login.tsx'
 import { Registro } from '../pages/Registro.tsx'
 import { Forum } from '../pages/Forum.tsx'
+import { Profile } from '../pages/Profile.tsx'
+import { Principal } from '../components/layout/Principal.tsx'
 
 export function Rotas(){
     return(
@@ -15,7 +17,10 @@ export function Rotas(){
                 <Route path='blog' element={ <Blog/> }/>
                 <Route path='login' element={ <Login/> }/>
                 <Route path='register' element={ <Registro/> }/>
-                <Route path='forum' element={ <Forum/> }/>
+                <Route path='forum' element={ <Principal/> }>
+                    <Route index element={ <Forum/> }/>
+                </Route>
+                <Route path='profile' element={ <Profile/> }/>
             </Routes>
         </BrowserRouter>
     )

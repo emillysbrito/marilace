@@ -1,0 +1,118 @@
+.card {
+    font-family: var(--base);
+    background-color: var(--branco);
+    color: var(--preto);
+    border: 2px solid var(--preto);
+    border-radius: 20px;
+    padding: 16px 20px;
+    filter: drop-shadow(0px 6px var(--preto));
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.headerInfo {
+    flex: 1;
+}
+
+.nomeLinha {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nome {
+    font-size: var(--PP);
+    font-weight: 600;
+}
+
+.badgeVerificado{
+    width: 18px;
+}
+
+.badgeS,
+.badgeT,
+.badgeE,
+.badgeM{
+    font-family: var(--logo);
+    font-size: var(--M);
+}
+
+.badgeS { color: var(--verde) }
+.badgeT { color: var(--primaria-escura) }
+.badgeE { color: var(--primaria) }
+.badgeM { color: var(--rosa) }
+
+
+.usernameLinha {
+    font-size: var(--PP);
+    color: var(--cinza);
+}
+
+.menuBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.conteudo {
+    margin: 16px 16px 24px 58px;
+    font-size: var(--PP);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acoes {
+    display: flex;
+    gap: 18px;
+    margin-left: 58px;
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--PP);
+    font-weight: 500;
+    color: var(--preto);
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    transition: transform 0.2s ease;
+}
+
+.iconBtn:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.iconFavorito {
+    color: var(--primaria);
+}
+
+.iconSalvo {
+    color: var(--primaria-escura);
+}

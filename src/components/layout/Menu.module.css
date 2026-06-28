@@ -1,0 +1,35 @@
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+.itemContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.itemContainer hr{
+    border: 1px solid var(--primaria);
+    margin-inline: 0.75rem;
+}
+
+.item{
+    text-decoration: none;
+    display: flex;
+    gap: 12px;
+    transition: .3s ease;
+    padding-block: 0.5rem;
+}
+
+.item:hover{
+    transform: scale(1.02);
+    transition: .3s ease;
+}
+
+.rotulo{
+    font-family: var(--base);
+    font-size: var(--M);
+}

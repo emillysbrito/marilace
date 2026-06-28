@@ -30,13 +30,13 @@
   --adicional: "Redaction50";
 
   /* TAMANHOS */
-  --XG: 8rem;
-  --GG: 6rem;
-  --G: 4rem;
-  --M: 2rem;
-  --P: 1.25rem;
-  --PP: 1rem;
-  --footer: 0.8rem;
+  --XG: clamp(4rem, 8vw, 8rem);
+  --GG: clamp(3rem, 6vw, 6rem);
+  --G: clamp(2rem, 4vw, 4rem);
+  --M: clamp(1.25rem, 1.75vw, 1.75rem);
+  --P: clamp(1rem, 1.25vw, 1.25rem);
+  --PP: clamp(0.875rem, 1vw, 1rem);
+  --footer: clamp(0.75rem, 0.8vw, 0.8rem);
 }
 
 * {

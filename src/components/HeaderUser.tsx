@@ -18,7 +18,9 @@ export function HeaderUser(){
 
     return(
     <header className={ styles.container }>
-        <img src={ logo } className={ styles.logo } />
+        <Link to='/forum'>
+            <img src={ logo } className={ styles.logo } />
+        </Link>
 
         <div className={ styles.barraPesquisa}>
             <input type="text" placeholder='Pesquisar...' className={ styles.pesquisa } />

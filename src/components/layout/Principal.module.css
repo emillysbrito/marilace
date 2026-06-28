@@ -1,0 +1,27 @@
+.principal{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.gridContainer{
+    background-color: var(--branco);
+    flex: 1;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: clamp(220px, 15vw, 280px) 1fr;
+    grid-template-areas: 'lateral conteudo';
+
+    min-height: 0;
+    overflow: hidden;
+}
+
+aside{
+    grid-area: lateral;
+}
+
+main{
+    grid-area: conteudo;
+    overflow-y: auto;
+    min-height: 0;
+}

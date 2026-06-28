@@ -1,0 +1,70 @@
+.forum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 20%;
+}
+
+.inputPost{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--branco);
+    padding: 8px 12px;
+    border-radius: 40px;
+    border: 6px solid var(--rosa);
+    margin: 1rem;
+    width: 70%;
+}
+
+.iconPerfil{
+    padding: 8px;
+    border-radius: 999px;
+    border: 2px solid;
+}
+
+.iconPerfil{
+    color: var(--rosa);
+}
+
+.inputPost input{
+    background-color: transparent;
+    color: var(--preto);
+    border: none;
+    font-family: var(--base);
+    font-size: var(--PP);
+    padding: 4px;
+    width: calc(100% - 44px);
+}
+
+.inputPost input::placeholder{
+    color: var(--cinza);
+    opacity: 1;
+}
+
+.inputPost input:focus{
+    outline: none;
+}
+
+.containerPosts{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin-block: 1rem;
+}
+
+.forYou{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--base);
+    font-weight: 500;
+    font-size: var(--P);
+    color: var(--preto);
+    padding: 8px;
+    margin-block: 8px;
+    border: 2px dashed var(--primaria);
+    width: fit-content;
+}
