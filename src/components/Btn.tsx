@@ -11,7 +11,7 @@ export function Btn({ route, text, className }: BtnProps){
     return(
         <div className={`${styles.container} ${className}`}>
             <Link to={ route } className={ styles.link }>
-                { text }
+                <span>{ text }</span>
             </Link>
         </div>
     )

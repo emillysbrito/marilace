@@ -1,0 +1,149 @@
+.page {
+    min-height: calc(100vh - 66px);
+    background-color: var(--branco);
+    font-family: var(--base);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+}
+
+/* FUNDO */
+
+.linhasFundo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.linhasFundo path {
+    stroke: var(--primaria);
+    opacity: 0.25;
+}
+
+.forma {
+    position: absolute;
+    z-index: 0;
+}
+
+.nuvem {
+    width: 140px;
+    height: 90px;
+    background-color: var(--rosa);
+    border-radius: 50px;
+    top: 12%;
+    left: 8%;
+    opacity: 0.8;
+}
+
+.blobVerde {
+    width: 110px;
+    height: 110px;
+    background-color: var(--verde);
+    border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
+    bottom: 10%;
+    right: 10%;
+    opacity: 0.85;
+}
+
+.estrela1,
+.estrela2 {
+    width: 14px;
+    height: 14px;
+    background-color: var(--primaria-escura);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.estrela1 {
+    top: 20%;
+    right: 18%;
+}
+
+.estrela2 {
+    bottom: 18%;
+    left: 14%;
+}
+
+/* --- conteúdo central --- */
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 560px;
+}
+
+.etiqueta {
+    transform: rotate(-4deg);
+    margin-bottom: 28px;
+}
+
+.iconeBlob {
+    margin-bottom: 24px;
+}
+
+.circuloPontilhado {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px dashed var(--primaria-escura);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--branco);
+}
+
+.icone {
+    font-size: 2.5rem;
+    color: var(--primaria-escura);
+    animation: girar 6s linear infinite;
+}
+
+.titulo {
+    font-family: var(--logo);
+    font-size: var(--GG);
+    color: var(--primaria-escura);
+    margin-bottom: 8px;
+}
+
+.descricao {
+    font-size: var(--P);
+    color: var(--preto);
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+.botao{
+    transition: .3s ease;
+}
+
+.botao:hover {
+    transform: translateY(-4px);
+    transform: .3s ease;
+}
+
+.botao > div{
+    padding: 12px 24px !important;
+}
+
+.botao span{
+    font-size: var(--P) !important;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

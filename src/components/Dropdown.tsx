@@ -30,14 +30,14 @@ export function Dropdown({
                     </Link>
 
                     <Link
-                        to="/forum"
+                        to="/notificacoes"
                         className={estilos.item}
                     >
                         <TbBell size={16}/>Notificações
                     </Link>
 
                     <Link
-                        to="/forum"
+                        to="/configuracoes"
                         className={estilos.item}
                     >
                         <TbSettings2 size={16}/>Configurações

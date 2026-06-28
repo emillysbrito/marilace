@@ -4,7 +4,7 @@ import { Chip } from '../components/Chip';
 import { TbTools } from "react-icons/tb";
 import { Btn } from '../components/Btn';
 
-export function Profile(){
+export function Notificacoes(){
     return (
         <div className={ styles.page }>
 

@@ -1,14 +1,11 @@
 import styles from './Construcao.module.css'
-import { HeaderUser } from '../components/HeaderUser'
 import { Chip } from '../components/Chip';
 import { TbTools } from "react-icons/tb";
 import { Btn } from '../components/Btn';
 
-export function Profile(){
+export function Oportunidades(){
     return (
         <div className={ styles.page }>
-
-            <HeaderUser/>
 
             <main className={ styles.main }>
                 <svg className={ styles.linhasFundo } viewBox="0 0 1000 700" preserveAspectRatio="none">
