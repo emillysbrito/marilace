@@ -13,7 +13,7 @@
     background-color: var(--branco);
     padding: 8px 12px;
     border-radius: 40px;
-    border: 6px solid var(--rosa);
+    border: 2px solid var(--primaria);
     margin: 1rem;
     width: 70%;
 }
@@ -25,7 +25,7 @@
 }
 
 .iconPerfil{
-    color: var(--rosa);
+    color: var(--primaria);
 }
 
 .inputPost input{
@@ -58,13 +58,16 @@
 .forYou{
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    align-self: flex-start;
     font-family: var(--base);
-    font-weight: 500;
     font-size: var(--P);
-    color: var(--preto);
-    padding: 8px;
-    margin-block: 8px;
-    border: 2px dashed var(--primaria);
-    width: fit-content;
+    font-weight: 500  ;
+    color: var(--primaria-escura);
+    background-color: var(--branco);
+    border: 2px solid var(--primaria);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 8px;
+    cursor: pointer;
 }

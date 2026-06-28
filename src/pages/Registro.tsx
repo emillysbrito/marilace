@@ -2,11 +2,14 @@ import styles from './Registro.module.css'
 
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
+import { ModalMensagem } from '../components/ModalMensagem'
 import { Link, useNavigate } from 'react-router-dom'
 import { TbLogin2, TbAlertCircle } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+import { type UsuarioTipo } from '../types/Usuario';
 
 
 import imgRegistro from '../assets/img/colagem-cadastro.png'
@@ -27,6 +30,10 @@ const userSchema = z
 
 export function Registro(){
 
+    const [modalMensagemVisivel, setModalMensagemVisivel] = useState(false)
+    const [modalMensagemTitulo, setModalMensagemTitulo] = useState('')
+    const [modalMensagemTexto, setModalMensagemTexto] = useState('')
+
     const navigate = useNavigate();
 
     const{
@@ -37,10 +44,30 @@ export function Registro(){
         resolver: zodResolver (userSchema),
     });
     
-    const autenticarUsuario = (data: FormValues) => {
+    const dadosUsuario: UsuarioTipo = {
+        nome: '',
+        email: '',
+        senha: ''
+    }
 
-        navigate('/login')
+    const autenticarUsuario = (data: FormValues) => {
+        dadosUsuario.nome = data.nome
+        dadosUsuario.email = data.email
+        dadosUsuario.senha = data.senha
+
+        setModalMensagemTexto(`Bom te ver aqui, ${dadosUsuario.nome}! :)`)
+        exibirModal()
     };
+
+        const exibirModal = () => {
+        setModalMensagemTitulo('Nova usuária')
+        setModalMensagemVisivel(true)
+    }
+
+    const ocultarModal = () => {
+        setModalMensagemVisivel(false)
+        navigate('/login')
+    }
 
     return(
         <div className={styles.registro}>
@@ -122,6 +149,13 @@ export function Registro(){
 
                 </div>
             </div>
+
+            <ModalMensagem 
+                exibir={modalMensagemVisivel}
+                ocultar={() => ocultarModal()}
+                titulo={modalMensagemTitulo}
+                texto={modalMensagemTexto}
+            />
             
             <FooterAnon/>
         </div>
