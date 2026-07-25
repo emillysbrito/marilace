@@ -33,3 +33,22 @@
     font-family: var(--base);
     font-size: var(--M);
 }
+
+@media (max-width: 768px){
+    .rotulo{
+        display: none;
+    }
+
+    .icon{
+        width: 24px;
+    }
+
+    .item{
+        justify-content: center;
+        padding: 0;
+    }
+
+    .itemContainer hr{
+        margin-inline: 0.5rem;
+    }
+}

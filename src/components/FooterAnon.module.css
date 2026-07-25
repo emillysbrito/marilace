@@ -1,9 +1,7 @@
 .footer{
     background-color: var(--primaria);
     padding: 40px 80px;
-
     font-family: var(--base);
-
     border-radius: 40px 40px 0px 0px;
 }
 
@@ -62,6 +60,7 @@ main{
 .page h5{
     font-size: var(--PP);
     margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 .page a{
@@ -81,4 +80,29 @@ hr{
     font-weight: 500;
 
     color: var(--branco);
+}
+
+/* TABLET */
+@media (max-width: 1200px){
+    .pages{
+        gap: 10%;
+    }
+}
+
+@media (max-width: 768px){
+    .conteudoFooter,
+    .mainContainer main,
+    .links{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mainContainer{
+        gap: 16px;
+    }
+
+    .pages{
+        display: none;
+    }
 }

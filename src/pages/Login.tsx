@@ -8,6 +8,8 @@ import { TbUserPlus, TbAlertCircle } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ModalMensagem } from '../components/ModalMensagem'
+import { useState } from 'react'
 
 import imgLogin from '../assets/img/colagem-cadastro.png'
 
@@ -22,6 +24,7 @@ const userSchema =  z.object({
 });
 
 export function Login(){
+    const [modalAberto, setModalAberto] = useState(false);
 
     const {
         register, 
@@ -42,8 +45,9 @@ export function Login(){
     const autenticarUsuario = (data: FormValues) => {
         dadosUsuario.email = data.email
         dadosUsuario.senha = data.senha
-
-        navegacao('/forum')
+        console.log(data);
+        setModalAberto(true)
+    
     }
 
     return(
@@ -64,7 +68,7 @@ export function Login(){
                         <div className={ styles.inputContainer }>
                             
                             <label htmlFor="email">E-mail:</label>
-                            <input 
+                            <input type='email'
                                 {...register("email")}
                             />
                             {errors.email && <p className={ styles.erro }>
@@ -74,7 +78,7 @@ export function Login(){
 
                         <div className={ styles.inputContainer }>
                             <label htmlFor="senha">Senha:</label>
-                            <input 
+                            <input type='password'
                                 {...register("senha")}
                             />
                             {errors.senha && <p className={ styles.erro }>
@@ -93,15 +97,24 @@ export function Login(){
                     <Link to={'/register'}
                     className={ styles.linkRegistro }
                     >
-                        Não tem uma conta? Registre-se <TbUserPlus className={ styles.icon } />
+                        Não tem uma conta? Registre-se 
+                        <TbUserPlus className={ styles.icon } aria-hidden="true" />
                     </Link>
 
-                    <div className={ styles.estrela1 } />
-                    <div className={ styles.estrela2 } />
+                    <div className={ styles.estrela1 } aria-hidden="true" />
+                    <div className={ styles.estrela2 } aria-hidden="true" />
 
                 </div>
             </div>
-
+                <ModalMensagem
+                    aberto={modalAberto}
+                    titulo="Login realizado!"
+                    mensagem="Bem-vindo(a)! Você será redirecionado para o fórum."
+                    fechar={() => {
+                        setModalAberto(false);
+                        navegacao("/forum");
+                    }}
+                />
             <FooterAnon/>
         </div>
     )

@@ -21,7 +21,7 @@ export function Menu(){
                     }}
                     to='/forum'
                 >
-                    <TbHome size={30}/>
+                    <TbHome size={30} className={ styles.icon }/>
                     <span className={ styles.rotulo }>Início</span>
                 </Link>
                 <hr />
@@ -34,7 +34,7 @@ export function Menu(){
                     }}
                     to='chat'
                 >
-                    <TbMessages size={30}/>
+                    <TbMessages size={30} className={ styles.icon }/>
                     <span className={ styles.rotulo }>Chat</span>
                 </Link>
                 <hr />
@@ -47,7 +47,7 @@ export function Menu(){
                     }}
                     to='oportunidades'
                 >
-                    <TbClipboardSmile size={30}/>
+                    <TbClipboardSmile size={30} className={ styles.icon }/>
                     <span className={ styles.rotulo }>Oportunidades</span>
                 </Link>
                 <hr />
@@ -60,7 +60,7 @@ export function Menu(){
                     }}
                     to='salvos'
                 >
-                    <TbBookmark size={30}/>
+                    <TbBookmark size={30} className={ styles.icon }/>
                     <span className={ styles.rotulo }>Salvos</span>
                 </Link>
             </nav>

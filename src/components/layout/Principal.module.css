@@ -25,3 +25,9 @@ main{
     overflow-y: auto;
     min-height: 0;
 }
+
+@media (max-width: 768px){
+    .gridContainer{
+        grid-template-columns: 70px 1fr;
+    }
+}

@@ -1,33 +1,58 @@
+@keyframes aparecerErro {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes girar{
+    from {
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 .login{
     width: 100%;
-    height: auto;
+    height: 100vh;
     background-color: var(--primaria);
     overflow-x: hidden;
 }
 
 .containerLogin{
     background-color: var(--primaria);
-
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-
+    gap: 8rem;
     width: 100%;
-    padding: 96px 0px;
-    margin-bottom: 80px;
-
+    max-width: 1400px;
+    padding: 96px 24px;
+    margin: 0 auto 80px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .imgLogin{
-    margin-left: 160px;
     z-index: 999;
     order: 2;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
 }
 
-.conteudoLogin, .formLogin{
+.conteudoLogin, 
+.formLogin{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,18 +61,16 @@
 
 .conteudoLogin{
     gap: 24px;
-
-    width: 560px;
+    width: 100%;
+    max-width: 700px;
     padding: 40px;
-
     border-radius: 8px;
-
     z-index: 999;
+    box-sizing: border-box;
 }
 
 .tituloLogin{
     color: var(--branco);
-
     font-family: var(--logo);
     font-size: var(--XG);
     font-weight: 700;
@@ -60,20 +83,19 @@
 
 .formLogin > div:last-child { 
     font-size: var(--G);
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
 }
 
 .inputContainer{
     display: flex;
     flex-direction: column;
     gap: 6px;
-
     width: 100%;
 }
 
 .inputContainer label{
     color: var(--branco);
-
     font-family: var(--base);
     font-size: var(--P);
     font-weight: 500;
@@ -85,11 +107,11 @@
     filter: drop-shadow(0px 8px var(--preto));
     border: 3px solid var(--preto);
     border-radius: 999px;
-
     font-family: var(--base);
     font-size: var(--P);
-
     padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .inputContainer input:focus{
@@ -101,16 +123,14 @@
     font-family: var(--base);
     font-size: var(--P);
     font-weight: 700;
-
     padding: 8px 64px;
     border-radius: 999px;
     border: 3px solid var(--preto);
-
     background-color: var(--verde);
     color: var(--preto);
     filter: drop-shadow(0px 6px var(--preto));
-
     cursor: pointer;
+    max-width: 100%;
 }
 
 .btnForm:active{
@@ -125,8 +145,8 @@
     font-size: var(--PP);
     font-weight: 500;
     margin-top: 8px;
-
     color: var(--primaria-escura);
+    animation: aparecerErro 0.3s ease-out;
 }
 
 .linkRegistro{
@@ -135,11 +155,11 @@
     font-weight: 700;
     text-decoration: none;
     color: var(--branco);
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .icon{
@@ -149,29 +169,88 @@
 .icon path{
     stroke-width: 2.5px;
 }
-.estrela1, .estrela2 {
-    background-color: var(--verde);
 
+.estrela1, 
+.estrela2 {
+    background-color: var(--verde);
     mask-image: url('../assets/estrela.svg');
     -webkit-mask-image: url('../assets/estrela.svg');
     mask-repeat: no-repeat;
     mask-size: contain;
-
     width: 120px;
     height: 120px;
     z-index: 888;
+    animation: girar 40s linear infinite;
+    transform-origin: center;
+    position: absolute;
 }
 
 .estrela1 {
-    position: absolute;
-    top: 180px;
-    left: 160px;
+    top: 10%;
+    left: 5%;
     transform: rotate(32deg);
 }
 
 .estrela2 {
-    position: absolute;
-    bottom: 150px;
-    left: 720px;
+    bottom: 8%;
+    right: 5%;
     transform: rotate(-20deg);
+}
+
+/* Para usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .estrela1,
+    .estrela2 {
+        animation: none;
+    }
+    .erro {
+        animation: none;
+    }
+    }
+
+    /* TABLETS */
+    @media (max-width: 1024px) {
+    .containerLogin {
+        padding: 64px 24px;
+    }
+
+    .estrela1,
+    .estrela2 {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .containerLogin {
+        flex-direction: column;
+        padding: 48px 16px;
+        margin-bottom: 40px;
+    }
+
+    .imgLogin {
+        order: 1;
+        max-width: 280px;
+        margin-top: 2rem
+    }
+
+    .conteudoLogin {
+        order: 2;
+        padding: 24px 16px;
+    }
+
+    .estrela1,
+    .estrela2 {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* TELAS PEQUENAS */
+@media (max-width: 400px) {
+    .btnForm {
+        padding: 8px 32px;
+        width: 100%;
+    }
 }

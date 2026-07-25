@@ -5,7 +5,7 @@
     border: 2px solid var(--preto);
     border-radius: 20px;
     padding: 16px 20px;
-    filter: drop-shadow(0px 6px var(--preto));
+    filter: drop-shadow(0px 4px var(--preto));
 }
 
 .header {
@@ -105,7 +105,7 @@
 }
 
 .iconBtn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.2s ease;
 }
 
@@ -115,4 +115,28 @@
 
 .iconSalvo {
     color: var(--primaria-escura);
+}
+
+@media (max-width: 400px) {
+    .card {
+        padding: 12px 16px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .badgeVerificado {
+        width: 16px;
+    }
+
+    .conteudo {
+        margin: 12px 12px 20px 48px;
+    }
+
+    .acoes {
+        gap: 12px;
+        margin-left: 48px;
+    }
 }

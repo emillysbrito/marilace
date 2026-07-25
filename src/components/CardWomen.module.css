@@ -3,6 +3,11 @@
     place-items: center;
     margin-inline: 1rem;
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
 }
 
 .cardImg{

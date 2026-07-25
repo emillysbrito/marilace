@@ -6,6 +6,7 @@
     padding: 8px;
     overflow: hidden;
     font-family: var(--base);
+    text-overflow: ellipsis;
     cursor: pointer;
     transition: transform 0.2s ease;
 }

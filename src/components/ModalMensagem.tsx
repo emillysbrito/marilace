@@ -1,31 +1,38 @@
-import styles from './ModalMensagem.module.css'
+import styles from "./ModalMensagem.module.css"
+import { TbCircleCheckFilled } from "react-icons/tb";
 
-interface ModalMensagemProps {
-    exibir: boolean
-    titulo: string
-    texto: string
-    ocultar: () => void
-}
+type ModalProps = {
+    aberto: boolean;
+    titulo: string;
+    mensagem: string;
+    fechar: () => void;
+};
 
-export function ModalMensagem({exibir, ocultar, titulo, texto}: ModalMensagemProps) {
+export function ModalMensagem ({
+    aberto,
+    titulo,
+    mensagem,
+    fechar,
+} : ModalProps) {
+    if (!aberto) return null;
 
-    if (exibir) {
+    return(
+        <div className={styles.modalOverlay}>
+            <div className={styles.modal}>
 
-        return(
-            <div className={ styles.overlay }>
-                <div className={ styles.container }>
-                    <p className={ styles.titulo }>{titulo}</p>
-
-                    <div className={ styles.containerMensagem }>
-                        <p className={ styles.mensagem }>{texto}</p>
-                    </div>
-                    
-                    <button 
-                        className={ styles.botao }
-                        onClick={ocultar}
-                    >Fechar</button>
+                <div className={styles.estrela1}></div>
+                <div className={styles.estrela2}></div>
+                
+                <div className={styles.icone}>
+                    <TbCircleCheckFilled size={70}/>
                 </div>
+
+                <h2>{titulo}</h2>
+                <p>{mensagem}</p>
+                <button onClick={fechar}>Okay!</button>
+
+                    <div className={styles.bolha}></div>
             </div>
-        )    
-    }
+        </div>
+    );
 }

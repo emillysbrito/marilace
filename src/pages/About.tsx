@@ -9,6 +9,10 @@ import { TbBrandGithub, TbBrandInstagram, TbBrandLinkedin } from "react-icons/tb
 
 import listrado from '../assets/img/listrado.svg'
 import ada from '../assets/img/adaLovelace.png'
+import ana from '../assets/img/ana.jpg'
+import fefe from '../assets/img/fefe.jpg'
+import gui from '../assets/img/gui.jpeg'
+import emilly from '../assets/img/emilly.jpeg'
 
 export function About(){
     return(
@@ -17,37 +21,39 @@ export function About(){
         <main className={ styles.main }>
             <div className={ styles.textoMain }>
                 <div className={ styles.chipSobre}>
-                    <div className={ styles.estrelaChip }/>
+                    <div className={ styles.estrelaChip } aria-hidden="true" />
                     <h3 className={styles.textoChip}>SOBRE</h3>
-                    <div className={ styles.estrelaChip }/> 
+                    <div className={ styles.estrelaChip } aria-hidden="true"/> 
                 </div>
                 <h1 className={ styles.subtituloMain }>CONHEÇA NOSSA</h1>
                 <h1 className={ styles.tituloMain }>história</h1>
-                <div className={ styles.brilhoMain }/>
-                <div className={ styles.florMain }/>
+                <div className={ styles.brilhoMain } aria-hidden="true"/>
+                {/* <div className={ styles.florMain }/> */}
 
             </div>
             <div className={ styles.moldura }>
-                <div className={ styles.estrelaMoldura1 }/>
-                <img src="https://i.pinimg.com/736x/21/a2/10/21a2101bdb2ed16e10ec4641797dc15a.jpg" className={ styles.imgMoldura } />
-                <div className={ styles.estrelaMoldura2 }/>
+                <div className={ styles.estrelaMoldura1 } aria-hidden="true"/>
+                <img src="https://i.imgur.com/KCqzbMb.png" className={ styles.imgMoldura } alt='Imagem do grupo MariLace'/>
+                <div className={ styles.estrelaMoldura2 } aria-hidden="true"/>
             </div>
-            <img src={listrado} className={ styles.fundoMain }/>
+            <img src={listrado} className={ styles.fundoMain } aria-hidden="true"/>
         </main>
 
         <section className={ styles.historia }>
-            <img src={ ada } />
+            <img src={ ada } alt="Ilustração estilizada em tons de rosa e verde do perfil de Ada Lovelace, com legenda 'Ada Lovelace (1815-1852)'"/>
             <div className={ styles.conteudoHistoria }>
                 <div className={ styles.tituloHistoria }>
                     <h2 className={ styles.tituloHistoria1 }>COMO SURGIU</h2>
                     <h2 className={ styles.tituloHistoria2 }>o <span>marilace?</span></h2>
                 </div>
-                <p>&emsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet,  mauris vitae mollis scelerisque, nulla ante malesuada nunc, in ultrices  sapien elit egestas nulla. Nulla elementum lacus eget sapien venenatis,  eget facilisis ligula consectetur. Donec in nulla nec ligula tristique  laoreet quis et nisi. Duis sed metus in odio sagittis pellentesque in  nec ligula. Nam in lorem lobortis, efficitur ipsum non, semper eros.  Nunc sed tellus iaculis, ultricies risus et, mattis nisi. Maecenas sed  turpis mollis, rhoncus urna eu, euismod metus. Maecenas malesuada luctus justo, in blandit elit molestie vitae.<br/>
-                &emsp;Suspendisse vestibulum, urna non pellentesque condimentum, est justo  cursus dui, id sollicitudin lectus nunc quis felis. Morbi ultricies sit  amet augue non molestie. Integer vestibulum dui orci, quis venenatis  erat viverra semper. Nunc blandit, ante sed tempus congue, ligula libero viverra metus, dignissim semper orci eros condimentum lacus. Sed  venenatis tempor ante et rutrum.</p>
+                <p>Somos um grupo formado por quatro estudantes do 3º ano do curso Técnico em Desenvolvimento de Sistemas da ETEC de Hortolândia, sendo três meninas e um menino. Esta plataforma foi desenvolvida como nosso Trabalho de Conclusão de Curso (TCC) e nasceu com o propósito de criar um espaço colaborativo voltado para mulheres. <br /> <br />
+                A ideia surgiu ao percebermos a grande diferença entre a quantidade de homens e mulheres em nossa turma. Essa realidade nos fez refletir sobre os desafios enfrentados por muitas mulheres, especialmente na área da tecnologia, e despertou em nós o desejo de desenvolver um projeto que pudesse incentivar a conexão, a troca de experiências e o apoio entre elas.
+
+                Com este projeto, buscamos contribuir para a construção de um ambiente mais acolhedor, onde a colaboração e a representatividade possam incentivar cada vez mais mulheres a compartilhar conhecimentos, encontrar oportunidades e fortalecer umas às outras.</p>
                 </div>
         </section>
 
-        <div className={ styles.quadriculado }></div>
+        <div className={ styles.quadriculado } aria-hidden="true"></div>
 
         <section className={ styles.objetivos }>
             <div className={ styles.tituloObjetivos }>
@@ -55,20 +61,23 @@ export function About(){
                     QUAL O NOSSO
                 </h2>
                 <h2 className={ styles.tituloObjetivos2 }>
-                    <div className={ styles.pontilhado }/> objetivo?
+                    <div className={ styles.pontilhado } aria-hidden="true"/> objetivo?
                 </h2>
-                <div className={ styles.brilhoObjetivos }/>
+                <div className={ styles.brilhoObjetivos } aria-hidden="true"/>
             </div>
             
-            <div className={ styles.conteudoObjetvos }>
-                <ReactPlayer src='https://www.youtube.com/watch?v=BqYByiaAwL0'
-                style={{ width: '60%', height: 'auto', aspectRatio: '16/9' }} className={ styles.player} />
+            <div className={ styles.conteudoObjetvos } aria-label="Vídeo explicando o objetivo do Marilace">
+                <ReactPlayer 
+                    src='https://www.youtube.com/watch?v=BqYByiaAwL0'
+                    style={{ width: '60%', height: 'auto', aspectRatio: '16/9' }}
+                    className={ styles.player } 
+                />
             </div>
         </section>
 
-        <div className={ styles.linhaCards }/>
+        <div className={ styles.linhaCards } aria-hidden="true"/>
 
-        <section className={ styles.cards }>
+        <section className={ styles.cards } aria-label="Mulheres inspiradoras da tecnologia">
             <CardWomen 
                 src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/960px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg'
                 nome='Grace Hooper'
@@ -98,14 +107,14 @@ export function About(){
             />
         </section>
 
-        <div className={ styles.linhaCards }/>
+        <div className={ styles.linhaCards } aria-hidden="true"/>
 
         <section className={ styles.equipe }>
 
             <div className={ styles.tituloEquipe }>
                 <h2 className={ styles.tituloEquipe1 }>NOSSA</h2>
                 <h2 className={ styles.tituloEquipe2 }>equipe</h2>
-                <div className={ styles.brilhoEquipe }/>
+                <div className={ styles.brilhoEquipe } aria-hidden="true"/>
             </div>
 
             <article className={ styles.ana }>
@@ -118,7 +127,7 @@ export function About(){
                             <Chip texto='Dev Back-end' cor='var(--rosa)'/>
                             <h3 className={ styles.sobrenome }>Clara</h3>
                         </div>
-                        <div className={ styles.estrelaAna }/>
+                        <div className={ styles.estrelaAna } aria-hidden="true"/>
                     </div>
 
                     <div className={ styles.links }>
@@ -141,12 +150,12 @@ export function About(){
                             texto='fclaraana_'
                         />
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet,  mauris vitae mollis scelerisque, nulla ante malesuada nunc, in ultrices  sapien elit egestas nulla. Nulla elementum lacus eget sapien venenatis,  eget facilisis ligula consectetur. Donec in nulla nec ligula tristique  laoreet quis et nisi. Duis sed metus in odio sagittis pellentesque in  nec ligula. Nam in lorem lobortis, efficitur ipsum non, semper eros.  Nunc sed tellus iaculis, ultricies risus et, mattis nisi. Maecenas sed  turpis mollis, rhoncus urna eu, euismod metus. Maecenas malesuada luctus justo, in blandit elit molestie vitae.</p>
+                    <p>Meu nome é Ana Clara e sou uma pessoa curiosa, dedicada e sempre em busca de aprender coisas novas. Um dos meus maiores sonhos é viajar o mundo, conhecer diferentes culturas, idiomas e formas de viver, pois acredito que essas experiências ampliam nossa visão e nos fazem crescer como pessoas. Além disso, pretendo cursar Química, uma área que desperta meu interesse por unir conhecimento, pesquisa e inovação. Espero construir uma carreira que me permita contribuir para a sociedade, continuar aprendendo constantemente e, quem sabe, unir minha profissão à oportunidade de conhecer diversos lugares ao redor do mundo.</p>
                 </div>
 
                 <div className={ styles.molduraAna }>
-                    <img src="https://i.pinimg.com/736x/e4/3a/41/e43a41f149cbbe28eb0a584654637363.jpg" className={ styles.imgAna} />
-                    <p className={ styles.asciiAna }>⠀⠀⠀⢈⣁⠆⡀⠀⠀⠀⠀⣄⠀⠀<br />
+                    <img src={ana} className={ styles.imgAna} alt='Foto de Ana Clara'/>
+                    <p className={ styles.asciiAna } aria-hidden="true">⠀⠀⠀⢈⣁⠆⡀⠀⠀⠀⠀⣄⠀⠀<br />
                         ⠀⠀⠀⢳⢹⠁⠀⠱⡀⠀⠀⢈⠆⠀<br />
                         ⠀⠀⠀⠠⢾⣆⠀⠞⠁⠀⣠⠮⡤⡀<br />
                         ⠀⠀⠀⠀⠐⠹⢦⡀⠀⠰⠁⡀⢰⡁<br />
@@ -184,7 +193,7 @@ export function About(){
                             <Chip texto='Dev Front-end' cor='var(--rosa)'/>
                             <h3 className={ styles.sobrenome }>Brito</h3>
                         </div>
-                        <div className={ styles.estrelaEmilly }/>
+                        <div className={ styles.estrelaEmilly } aria-hidden="true"/>
                     </div>
 
                     <div className={ styles.links }>
@@ -195,7 +204,7 @@ export function About(){
                             texto='emillysbrito'
                         />
                         <LinkRede 
-                            href='https://https://www.linkedin.com/in/emillydesousabrito/'
+                            href='https://www.linkedin.com/in/emillydesousabrito/'
                             cor='var(--primaria)'
                             icon={ TbBrandLinkedin }
                             texto='emillydesousabrito'
@@ -207,12 +216,12 @@ export function About(){
                             texto='esbluet'
                         />
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet,  mauris vitae mollis scelerisque, nulla ante malesuada nunc, in ultrices  sapien elit egestas nulla. Nulla elementum lacus eget sapien venenatis,  eget facilisis ligula consectetur. Donec in nulla nec ligula tristique  laoreet quis et nisi. Duis sed metus in odio sagittis pellentesque in  nec ligula. Nam in lorem lobortis, efficitur ipsum non, semper eros.  Nunc sed tellus iaculis, ultricies risus et, mattis nisi. Maecenas sed  turpis mollis, rhoncus urna eu, euismod metus. Maecenas malesuada luctus justo, in blandit elit molestie vitae.</p>
+                    <p>Meu nome é Emilly e amo criar minhas próprias coisas, sempre estou rocurando uma nova maneira de expressar minha criatividade e dar vida à um novo projeto! Por isso, quero cursar Design Gráfico e usar meus conhecimentos em tecnologia para me tornar UI/UX Designer. Meu objetivo de vida é ajudar as pessoas com minhas criações e ampliar cada vez mais minhas habilidades artísticas.</p>
                 </div>
 
                 <div className={ styles.molduraEmilly }>
-                    <img src="https://i.pinimg.com/736x/8f/ef/2b/8fef2bb31cf0d4b419638b57ff4c47b3.jpg" className={ styles.imgEmilly } />
-                    <p className={ styles.asciiEmilly }>⠀⠀⠀⢈⣁⠆⡀⠀⠀⠀⠀⣄⠀⠀<br />
+                    <img src={emilly} className={ styles.imgEmilly } alt='Foto de Emilly Brito' />
+                    <p className={ styles.asciiEmilly } aria-hidden="true">⠀⠀⠀⢈⣁⠆⡀⠀⠀⠀⠀⣄⠀⠀<br />
                         ⠀⠀⠀⢳⢹⠁⠀⠱⡀⠀⠀⢈⠆⠀<br />
                         ⠀⠀⠀⠠⢾⣆⠀⠞⠁⠀⣠⠮⡤⡀<br />
                         ⠀⠀⠀⠀⠐⠹⢦⡀⠀⠰⠁⡀⢰⡁<br />
@@ -250,7 +259,7 @@ export function About(){
                             <Chip texto='Banco de Dados' cor='var(--rosa)'/>
                             <h3 className={ styles.sobrenome }>Leal</h3>
                         </div>
-                        <div className={ styles.estrelaFernanda }/>
+                        <div className={ styles.estrelaFernanda } aria-hidden="true"/>
                     </div>
 
                     <div className={ styles.links }>
@@ -267,17 +276,17 @@ export function About(){
                             texto='fernandaleal'
                         />
                         <LinkRede 
-                            href='https://https://www.instagram.com/nandalealz/'
+                            href='https://www.instagram.com/nandalealz/'
                             cor='var(--rosa)'
                             icon={ TbBrandInstagram }
                             texto='nandalealz'
                         />
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet,  mauris vitae mollis scelerisque, nulla ante malesuada nunc, in ultrices  sapien elit egestas nulla. Nulla elementum lacus eget sapien venenatis,  eget facilisis ligula consectetur. Donec in nulla nec ligula tristique  laoreet quis et nisi. Duis sed metus in odio sagittis pellentesque in  nec ligula. Nam in lorem lobortis, efficitur ipsum non, semper eros.  Nunc sed tellus iaculis, ultricies risus et, mattis nisi. Maecenas sed  turpis mollis, rhoncus urna eu, euismod metus. Maecenas malesuada luctus justo, in blandit elit molestie vitae.</p>
+                    <p>Me chamo Fernanda Clara e sou uma pessoa alegre, focada, que almeja grandes conquistas. Sonho em vivenciar diversas culturas, conhecer o mundo ao lado de pessoas importantes na minha vida, e me tornar uma profissional na área dos esportes que sempre foi minha paixão. Quero cursar Educação física, e continuar buscanddo me tornar uma atleta profissional. Espero ter a oportunidade de levar o esporte e as artes marciais para crianças e jovens, assim como fizeram comigo, acredito que seja importante manter o legado e compartilhar conhecimento e vivências.</p>
                 </div>
 
                 <div className={ styles.molduraFernanda }>
-                    <img src="https://i.pinimg.com/1200x/2e/b1/ca/2eb1cabc77e388e6ad66e2910770e42b.jpg" className={ styles.imgFernanda} />
+                    <img src={fefe} className={ styles.imgFernanda} alt='Foto de Fernanda Leal' />
                     <p className={ styles.asciiFernanda }>⠀⠀⠀⢈⣁⠆⡀⠀⠀⠀⠀⣄⠀⠀<br />
                         ⠀⠀⠀⢳⢹⠁⠀⠱⡀⠀⠀⢈⠆⠀<br />
                         ⠀⠀⠀⠠⢾⣆⠀⠞⠁⠀⣠⠮⡤⡀<br />
@@ -316,7 +325,7 @@ export function About(){
                             <Chip texto='Banco de Dados' cor='var(--rosa)'/>
                             <h3 className={ styles.sobrenome }>Martins</h3>
                         </div>
-                        <div className={ styles.estrelaGuilherme }/>
+                        <div className={ styles.estrelaGuilherme } aria-hidden="true"/>
                     </div>
 
                     <div className={ styles.links }>
@@ -339,11 +348,11 @@ export function About(){
                             texto='mart1ns_gui'
                         />
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet,  mauris vitae mollis scelerisque, nulla ante malesuada nunc, in ultrices  sapien elit egestas nulla. Nulla elementum lacus eget sapien venenatis,  eget facilisis ligula consectetur. Donec in nulla nec ligula tristique  laoreet quis et nisi. Duis sed metus in odio sagittis pellentesque in  nec ligula. Nam in lorem lobortis, efficitur ipsum non, semper eros.  Nunc sed tellus iaculis, ultricies risus et, mattis nisi. Maecenas sed  turpis mollis, rhoncus urna eu, euismod metus. Maecenas malesuada luctus justo, in blandit elit molestie vitae.</p>
+                    <p>Meu nome é Guilherme Martins, e sou um garoto espontâneo, instintivo e explorador. Uma das coisas que mais amo em minha vida é fazer os outros se divertirem e se sentirem bem. Minha expectativa para o futuro é viver em um mundo melhor, onde todos possam ser quem realmente são. Para contribuir com isso, pretendo cursas psicologia e ajudar todos que precisarem.</p>
                 </div>
 
                 <div className={ styles.molduraGuilherme }>
-                    <img src="https://i.pinimg.com/736x/e4/63/c3/e463c397d8d0011b15139277bf4c20d0.jpg" className={ styles.imgGuilherme } />
+                    <img src={gui} className={ styles.imgGuilherme } alt='Foto de Guilherme Martins' />
                     <p className={ styles.asciiGuilherme }>⠀⠀⠀⢈⣁⠆⡀⠀⠀⠀⠀⣄⠀⠀<br />
                         ⠀⠀⠀⢳⢹⠁⠀⠱⡀⠀⠀⢈⠆⠀<br />
                         ⠀⠀⠀⠠⢾⣆⠀⠞⠁⠀⣠⠮⡤⡀<br />

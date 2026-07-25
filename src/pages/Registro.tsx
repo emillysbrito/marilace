@@ -2,17 +2,16 @@ import styles from './Registro.module.css'
 
 import { HeaderAnon } from '../components/HeaderAnon'
 import { FooterAnon } from '../components/FooterAnon'
-import { ModalMensagem } from '../components/ModalMensagem'
 import { Link, useNavigate } from 'react-router-dom'
 import { TbLogin2, TbAlertCircle } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
-import { type UsuarioTipo } from '../types/Usuario';
+import { ModalMensagem } from '../components/ModalMensagem'
 
 
 import imgRegistro from '../assets/img/colagem-cadastro.png'
+import { useState } from 'react';
 
 const userSchema = z 
     .object({
@@ -30,11 +29,8 @@ const userSchema = z
 
 export function Registro(){
 
-    const [modalMensagemVisivel, setModalMensagemVisivel] = useState(false)
-    const [modalMensagemTitulo, setModalMensagemTitulo] = useState('')
-    const [modalMensagemTexto, setModalMensagemTexto] = useState('')
-
     const navigate = useNavigate();
+    const [modalAberto, setModalAberto] = useState(false);
 
     const{
         register,
@@ -44,37 +40,22 @@ export function Registro(){
         resolver: zodResolver (userSchema),
     });
     
-    const dadosUsuario: UsuarioTipo = {
-        nome: '',
-        email: '',
-        senha: ''
-    }
-
     const autenticarUsuario = (data: FormValues) => {
-        dadosUsuario.nome = data.nome
-        dadosUsuario.email = data.email
-        dadosUsuario.senha = data.senha
-
-        setModalMensagemTexto(`Bom te ver aqui, ${dadosUsuario.nome}! :)`)
-        exibirModal()
+        console.log(data);
+        setModalAberto(true)
     };
-
-        const exibirModal = () => {
-        setModalMensagemTitulo('Nova usuária')
-        setModalMensagemVisivel(true)
-    }
-
-    const ocultarModal = () => {
-        setModalMensagemVisivel(false)
-        navigate('/login')
-    }
 
     return(
         <div className={styles.registro}>
             <HeaderAnon/>
 
             <div className={ styles.containerRegistro }>
-                <img src={ imgRegistro } className={ styles.imgRegistro } />
+                <img
+                    src={ imgRegistro }
+                    className={ styles.imgRegistro }
+                    alt="Colagem ilustrada de uma pessoa apoiada sobre um teclado, com elementos gráficos de um relógio e um caderno com coração, sobre fundo rosa"
+                />
+
 
                 <div className={ styles.conteudoRegistro }>
                     <h2 className={ styles.tituloRegistro }>Registre-se</h2>
@@ -90,8 +71,9 @@ export function Registro(){
                                 type="text" 
                                 {...register("nome")}
                             />
-                            {errors.nome && <p className={ styles.erro } >
-                                <TbAlertCircle className={ styles.icon }/>{errors.nome.message}
+                            {errors.nome && <p className={ styles.erro } role='alert'>
+                                <TbAlertCircle className={ styles.icon } aria-hidden="true" />
+                                {errors.nome.message}
                             </p>}
                         </div>
                             
@@ -102,8 +84,9 @@ export function Registro(){
                                 type="email" 
                                 {...register("email")}
                             />
-                            {errors.email && <p className={ styles.erro }>
-                                <TbAlertCircle className={ styles.icon }/>{errors.email.message}
+                            {errors.email && <p className={ styles.erro } role='alert'>
+                                <TbAlertCircle className={ styles.icon } aria-hidden="true" />
+                                {errors.email.message}
                             </p>}
                         </div>
 
@@ -114,8 +97,9 @@ export function Registro(){
                                 type="password" 
                                 {...register("senha")}
                             />
-                            {errors.senha && <p className={ styles.erro }>
-                                <TbAlertCircle className={ styles.icon }/>{errors.senha.message}
+                            {errors.senha && <p className={ styles.erro } role='alert'>
+                                <TbAlertCircle className={ styles.icon } aria-hidden="true" />
+                                {errors.senha.message}
                             </p>}
                         </div>
 
@@ -126,8 +110,9 @@ export function Registro(){
                             type="password" 
                             {...register("confirmarSenha")}
                         />
-                        {errors.confirmarSenha && <p className={ styles.erro }>
-                            <TbAlertCircle className={ styles.icon }/>{errors.confirmarSenha.message}
+                        {errors.confirmarSenha && <p className={ styles.erro } role='alert'>
+                            <TbAlertCircle className={ styles.icon } aria-hidden="true" />
+                            {errors.confirmarSenha.message}
                         </p>}
                         </div>
 
@@ -141,22 +126,24 @@ export function Registro(){
                     <Link to={'/login'}
                     className={ styles.linkLogin }
                     >
-                        Já tem uma conta? Faça log-in <TbLogin2 className={ styles.icon } size={18} />
+                        Já tem uma conta? Faça log-in 
+                        <TbLogin2 className={ styles.icon } size={18} aria-hidden="true" />
                     </Link>
 
-                    <div className={ styles.estrela1 } />
-                    <div className={ styles.estrela2 } />
+                    <div className={ styles.estrela1 } aria-hidden="true" />
+                    <div className={ styles.estrela2 } aria-hidden="true" />
 
                 </div>
             </div>
-
-            <ModalMensagem 
-                exibir={modalMensagemVisivel}
-                ocultar={() => ocultarModal()}
-                titulo={modalMensagemTitulo}
-                texto={modalMensagemTexto}
-            />
-            
+                <ModalMensagem
+                    aberto={modalAberto}
+                    titulo="Cadastro realizado!"
+                    mensagem="Seu cadastro foi realizado com sucesso!"
+                    fechar={() => {
+                        setModalAberto(false);
+                        navigate("/Login");
+                    }}
+                />
             <FooterAnon/>
         </div>
 

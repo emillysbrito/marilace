@@ -1,21 +1,30 @@
 /* CONFIGURAÇÕES GERAIS & LAYOUT */
 
 .container{
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .main{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 10rem;
+    gap: 2rem;
+    margin-bottom: 6rem;
+    overflow: hidden;
+    height: calc(100vh - 160px);
+    padding: 2rem 1rem;
+    box-sizing: border-box;
 }
 
 .fundoMain{
     position: absolute;
     inset: 0;
     z-index: -999;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .textoMain{
@@ -23,6 +32,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin-top: 10rem;
 }
 
@@ -88,6 +98,7 @@
     border: 3px solid var(--preto);
     border-radius: 999px;
     padding: 8px 16px;
+    transform: rotate(-5deg);
 }
 
 .estrelaChip{
@@ -134,11 +145,16 @@
 .moldura{
     margin-top: 12rem;
     transform: rotate(4deg);
+    position: relative;
+    max-width: 100%;
 }
 
 .imgMoldura{
-    width: 800px;
-    height: 600px;
+    height: auto;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 32px;
     border: 6px solid var(--primaria-escura);
     z-index: 111;
@@ -153,16 +169,16 @@
 
 .estrelaMoldura1{
     position: absolute;
-    right: -55px;
-    top: -60px;
+    right: -30px;
+    top: -40px;
     transform: rotate(10deg);
     z-index: -1;
 }
 
 .estrelaMoldura2{
     position: absolute;
-    left: -40px;
-    bottom: -40px;
+    left: -20px;
+    bottom: -20px;
     transform: rotate(10deg);
     z-index: 111;
 }
@@ -174,17 +190,26 @@
     height: 200px;
     z-index: -111;
     position: absolute;
-    left: 630px;
-    top: 300px;
+    left: 35%;
+    top: 30%;
 }
 
 /* HISTÓRIA */
 .historia{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10%;
+    gap: 4rem;
+    padding: 3rem 1.5rem;
+}
+
+.historia > img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
 }
 
 .conteudoHistoria{
@@ -192,8 +217,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 2.5rem;
     max-width: 900px;
+    width: 100%;
 }
 
 .conteudoHistoria p{
@@ -205,7 +231,8 @@
 }
 
 .tituloHistoria{
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
 }
@@ -252,10 +279,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height: .7;
+    line-height: 0.7;
+    text-align: center;
 }
 
 .tituloObjetivos1 {
+    display: block;
     font-family: var(--base);
     font-weight: 800;
     font-size: var(--G);
@@ -265,6 +294,7 @@
 .tituloObjetivos2{
     display: flex;
     align-items: center;
+    justify-content: center;
     font-family: var(--adicional);
     font-weight: 500;
     font-size: var(--G);
@@ -284,21 +314,24 @@
     height: 100px;
     z-index: -111;
     position: relative;
-    left: 260px;
-    bottom: 130px;
+    left: 16%;
+    bottom: 120px;
 }
 
 .conteudoObjetvos{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 2rem;
+    padding: 0 1rem;
+    margin-top: 2rem;
 }
 
 .player{
+    min-width: 400px;
     position: relative;
     top: -50px;
-    border-radius: 40px;
+    border-radius: 32px;
     overflow: hidden;
     border: 3px solid var(--preto);
     filter: drop-shadow(0px 6px var(--preto));
@@ -323,7 +356,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 4rem;
+    padding: 4rem 1rem;
+    overflow: hidden;
 }
 
 .tituloEquipe{
@@ -350,7 +384,7 @@
     height: 80px;
     z-index: -111;
     position: relative;
-    left: 90px;
+    left: 40%;
     bottom: 90px;
 }
 
@@ -360,9 +394,12 @@
 .fernanda, 
 .guilherme{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 64px;
-    margin-block: 4rem;
+    justify-content: center;
+    gap: 2rem;
+    margin-block: 2rem;
+    max-width: 1600px;
 }
 
 .tituloAna, 
@@ -413,6 +450,17 @@
     bottom: 6rem;
 }
 
+.conteudoAna,
+.conteudoEmilly,
+.conteudoFernanda,
+.conteudoGuilherme {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1 1 720px;
+    max-width: 800px;
+}
+
 .conteudoAna p, 
 .conteudoEmilly p, 
 .conteudoFernanda p, 
@@ -421,7 +469,7 @@
     font-size: var(--P);
     font-weight: 500;
     text-align: justify;
-    max-width: 900px;
+    max-width: 800px;
     position: relative;
     bottom: 5rem;
 }
@@ -432,10 +480,10 @@
 }
 
 /* EQUIPE - Posicionamento das estrelas */
-.estrelaAna{ left: 11rem; }
-.estrelaEmilly{ left: 19rem; }
-.estrelaFernanda{ left: 30rem; }
-.estrelaGuilherme{ left: 34rem; }
+.estrelaAna{ left: 0; }
+.estrelaEmilly{ left: 0; }
+.estrelaFernanda{ left: 0; }
+.estrelaGuilherme{ left: 0; }
 
 /* EQUIPE - Molduras */
 .molduraAna, 
@@ -443,6 +491,9 @@
 .molduraFernanda, 
 .molduraGuilherme{
     display: flex;
+    justify-content: center;
+    flex: 1 1 350px;
+    max-width: 450px;
 }
 
 .molduraEmilly, 
@@ -485,29 +536,286 @@
 .asciiEmilly, 
 .asciiFernanda, 
 .asciiGuilherme {
-    font-weight: 900;
-    position: relative;
-    bottom: -40px;
+    display: none;
 }
 
-.asciiAna, 
-.asciiFernanda{
-    order: 1;
-    transform: rotate(-5deg);
-    left: 40px;
+/* ===================== MEDIA QUERIES ===================== */
+
+/* DESKTOP GRANDE */
+@media (min-width: 1280px) {
+    .main {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    .chipSobre {
+        position: relative;
+        right: 220px;
+    }
+
+    .historia {
+        flex-wrap: nowrap;
+        gap: 6%;
+    }
+
+    .historia > img {
+        max-width: 450px;
+    }
+
+    .ana,
+    .emilly,
+    .fernanda,
+    .guilherme {
+        flex-wrap: nowrap;
+        gap: 4rem;
+    }
+
+    .conteudoAna,
+    .conteudoEmilly,
+    .conteudoFernanda,
+    .conteudoGuilherme {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .conteudoAna p,
+    .conteudoEmilly p,
+    .conteudoFernanda p,
+    .conteudoGuilherme p {
+        text-align: justify;
+    }
+
+    .estrelaAna { left: 7rem; }
+    .estrelaEmilly { left: 16rem; }
+    .estrelaFernanda { left: 30rem; }
+    .estrelaGuilherme { left: 32rem; }
+
+    .asciiAna,
+    .asciiEmilly,
+    .asciiFernanda,
+    .asciiGuilherme {
+        display: block;
+        font-weight: 900;
+                z-index: -111;
+    }
+
+    .asciiAna,
+    .asciiFernanda {
+        transform: rotate(-5deg);
+    }
+    .asciiAna { color: var(--verde); }
+    .asciiFernanda { color: var(--primaria-escura); }
+
+    .asciiEmilly,
+    .asciiGuilherme {
+        transform: rotate(5deg);
+    }
+    .asciiEmilly { color: var(--rosa); }
+    .asciiGuilherme { color: var(--primaria); }
 }
 
-.asciiAna{ color: var(--verde); }
+/* TABLET */
+@media (max-width: 1200px) {
+    .main {
+        max-width: 850px;
+        margin: auto;
+        margin-bottom: 8rem;
+        min-height: 100vh;
+    }
 
-.asciiFernanda{ color: var(--primaria-escura); }
+    .chipSobre{
+        right: 40%;
+    }
+
+    .tituloMain{
+        bottom: 24px;
+        left: 140px;
+    }
 
 
-.asciiEmilly, .asciiGuilherme{
-    transform: rotate(5deg);
-    left: -60px;
-    z-index: 111;
+    .brilhoMain {
+        left: 65%;
+        top: 22%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .moldura{
+        margin-top: -2rem;;
+    }
+
+    .imgMoldura {
+        max-width: 600px;
+    }
+
+    .brilhoMain {
+        width: 120px;
+        height: 120px;
+    }
+
+    .florMain {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .tituloHistoria{
+        max-width: 400px;
+    }
+
+    .tituloEquipe{
+        width: 8rem;
+    }
+
+    .brilhoEquipe{
+    width: 60px;
+    height: 60px;
+    left: 40%;
+    bottom: 70px;
+    }
+
+    .molduraEmilly,
+    .molduraGuilherme{
+        order: 2;
+    }
 }
 
-.asciiEmilly{ color: var(--rosa); }
+/* MOBILE */
+@media (max-width: 768px) {
+    .main {
+        padding: 1.5rem 1rem;
+        margin-bottom: 3rem;
+        min-height: auto;
+    }
 
-.asciiGuilherme{ color: var(--primaria); }
+    .tituloMain{
+        left: 0;
+        bottom: 10px;
+    }
+
+    .moldura {
+        margin-block: 2rem;
+        transform: rotate(2deg);
+    }
+
+    .imgMoldura {
+        max-width: 350px;
+    }
+
+    .estrelaMoldura1,
+    .estrelaMoldura2 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .estrelaMoldura1 {
+        right: -10px;
+        top: -20px;
+    }
+
+    .estrelaMoldura2 {
+        left: -10px;
+        bottom: -10px;
+    }
+    
+
+    .florMain {
+        width: 12rem;
+        height: 12rem;
+        left: -30px;
+    }
+
+    .brilhoMain {
+        display: none; /* decoração perde o efeito em telas pequenas e pode sobrepor texto */
+    }
+
+    .historia {
+        gap: 2rem;
+        padding: 0 1rem;
+        margin-top: 10rem;
+    }
+
+    .historia > img {
+        max-width: 250px;
+    }
+
+    .tituloHistoria1,
+    .tituloHistoria2 {
+        text-align: center;
+    }
+
+    .quadriculado {
+        height: 60px;
+        background-size: 60px 60px;
+        margin: 3rem 0;
+    }
+
+    .pontilhado {
+        width: 120px;
+        margin-right: 1rem;
+    }
+
+    .conteudoObjetvos {
+        margin-top: 1rem;
+    }
+
+    .cards {
+        gap: 1rem;
+    }
+
+    .linhaCards {
+        margin-inline: 1rem;
+    }
+
+    .estrelaAna,
+    .estrelaEmilly,
+    .estrelaFernanda,
+    .estrelaGuilherme {
+        width: 100px;
+        height: 100px;
+        bottom: 9rem;
+    }
+
+    .estrelaAna { left: 5rem; }
+    .estrelaEmilly { left: 8.5rem; }
+    .estrelaFernanda { left: 15rem; }
+    .estrelaGuilherme { left: 16.5rem; }
+
+    .imgAna,
+    .imgEmilly,
+    .imgFernanda,
+    .imgGuilherme {
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .conteudoAna,
+    .conteudoEmilly,
+    .conteudoFernanda,
+    .conteudoGuilherme {
+        gap: 3rem;
+        max-width: 400px;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .tituloAna, 
+    .tituloEmilly, 
+    .tituloFernanda, 
+    .tituloGuilherme{
+        line-height: .9;
+    }
+
+    .links{
+        bottom: 2.5rem;
+        gap: .4rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* PREFERÊNCIA POR MENOS MOVIMENTO (se algum componente filho tiver transições) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+        scroll-behavior: auto !important;
+    }
+}

@@ -222,3 +222,166 @@
     justify-content: center;
     gap: 40px;
 }
+
+/* TABLET (até 1024px) */
+@media (max-width: 1024px) {
+    .destaques {
+        height: auto;
+        min-height: 100vh;
+        padding: 4rem 2rem 2rem 2rem;
+    }
+
+    .artigosDestaque {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .artigo1 {
+        grid-column: span 2 / span 2;
+        grid-row: auto;
+    }
+
+    .artigo1 img {
+        height: 22rem;
+    }
+
+    .artigo2,
+    .artigo3 {
+        grid-column: span 1 / span 1;
+        grid-row: auto;
+        grid-column-start: auto;
+        grid-row-start: auto;
+        max-height: 400px;
+        text-overflow: ellipsis;
+    }
+
+    .flexArtigos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imgMegafone {
+        width: 40%;
+        top: 0;
+        right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .tituloArtigos {
+        width: auto;
+        text-align: center;
+        align-items: center;
+    }
+
+    .tituloArtigos span {
+        align-self: center;
+    }
+
+    .imgTelefone {
+        width: 20rem;
+        top: 0;
+        right: 0;
+        display: block;
+        margin: 0 auto 32px auto;
+    }
+
+    .artigosCategoria {
+        flex-wrap: wrap;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .tituloDestaques {
+        font-size: var(--P);
+    }
+
+    .artigosDestaque {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .artigo1 {
+        grid-column: span 1 / span 1;
+    }
+
+    .artigo1 img {
+        height: 16rem;
+    }
+
+    .artigo2,
+    .artigo3 {
+        flex-direction: column;
+    }
+
+    .artigo2 img,
+    .artigo3 img {
+        width: 100%;
+        height: 12rem;
+    }
+
+    .divisoria {
+        padding: 2rem;
+    }
+
+    .divisoria img {
+        width: 30%;
+    }
+
+    .artigos {
+        margin: 3rem 1rem;
+    }
+
+    .tituloArtigos{
+        line-height: .8;
+    }
+
+    .tituloCategoria {
+        font-size: var(--P);
+        margin: 24px 8px;
+        text-align: center;
+    }
+
+    .artigosCategoria {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .imgMegafone{
+        display: none;
+    }
+
+    .imgTelefone{
+        width: 12rem;
+        left: 3rem;
+        top: -0.5rem;
+    }
+}
+
+/* MOBILE PEQUENO */
+    @media (max-width: 480px) {
+    .destaques {
+        padding: 3rem 1rem 1.5rem 1rem;
+    }
+
+    .containerChip {
+        gap: 6px;
+    }
+
+    .containerChip > div {
+        padding: 4px 10px !important;
+    }
+
+    .imgTelefone {
+        width: 14rem;
+    }
+
+    .artigosCategoria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .artigosCategoria > div {
+        width: calc(100% - 1rem);
+    }
+}

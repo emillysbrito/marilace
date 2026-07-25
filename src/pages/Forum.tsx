@@ -13,7 +13,7 @@ export function Forum(){
             <div className={ styles.containerPosts }>
 
                 <span className={ styles.forYou }>
-                    Para você <TbChevronDown size={24}/>
+                    Para você <TbChevronDown size={20}/>
                 </span>
 
                 <Post

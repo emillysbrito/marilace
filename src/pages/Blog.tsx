@@ -72,7 +72,11 @@
                 <div className={ styles.artigos }>
 
                     <div className={ styles.flexArtigos }>
-                        <img src={ mulherMegafone } className={ styles.imgMegafone }/>
+                        <img
+                            src={ mulherMegafone } 
+                            className={ styles.imgMegafone }
+                            alt="Ilustração em preto e branco de uma mulher com vestido longo falando em um megafone grande"
+                        />
 
                         <div className={ styles.headingArtigos }>
 

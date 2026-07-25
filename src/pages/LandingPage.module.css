@@ -10,12 +10,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8rem;
-
-    margin: 24px;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
+    margin: 24px auto;
     width: 100%;
     min-height: 100vh;
-
+    box-sizing: border-box;
     position: absolute;
 }
 
@@ -23,9 +24,8 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-
     max-width: 800px;
-
+    width: 100%;
     z-index: 999;
 }
 
@@ -35,7 +35,6 @@
 
 .tituloHero{
     color: var(--preto);
-
     font-family: var(--base);
     font-size: var(--GG);
     font-weight: 900;
@@ -47,21 +46,21 @@
 
 .descHero{
     color: var(--preto);
-
     font-family: var(--base);
     font-size: var(--P);
     font-weight: 500;
 }
 
 .imgHero{
-    width: 40rem;
+    width: clamp(240px, 40vw, 600px);
+    max-width: 100%;
+    height: auto;
     z-index: 999;
 }
 
 .fundoHero{
     background-color: var(--branco);
     height: 100vh;
-
     z-index: -999;
 }
 
@@ -69,4 +68,62 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* TABLETS */
+@media (max-width: 1200px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .textoHero {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .imgHero {
+        width: 50vw;
+        order: -1;
+    }
+}
+
+/* MOBILE - empilha conteúdo */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        margin: 16px auto;
+        min-height: auto;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    .textoHero {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .imgHero {
+        width: 60vw;
+    }
+
+    .fundoHero {
+        height: auto;
+        min-height: 100%;
+    }
+}
+
+/* TELAS PEQUENAS */
+@media (max-width: 400px) {
+    .tituloHero {
+        font-size: clamp(1.5rem, 8vw, var(--GG));
+    }
+
+    .descHero {
+        font-size: clamp(0.9rem, 4vw, var(--P));
+    }
 }

@@ -9,7 +9,7 @@
 }
 
 .logo{
-    width: 8em;
+    width: clamp(100px, 14vw, 150px);
 }
 
 .barraPesquisa{
