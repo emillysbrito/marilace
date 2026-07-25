@@ -1,8 +1,8 @@
     import styles from './Blog.module.css'
-    import { HeaderAnon } from '../components/HeaderAnon'
-    import { FooterAnon } from '../components/FooterAnon'
-    import { Chip } from '../components/Chip';
-    import { ArtigoBlog } from '../components/ArtigoBlog';
+    import { HeaderAnon } from '../components/headers/HeaderAnon'
+    import { FooterAnon } from '../components/footers/FooterAnon'
+    import { Chip } from '../components/misc/Chip';
+    import { ArtigoBlog } from '../components/posts/ArtigoBlog';
     import { TbChevronRight } from "react-icons/tb";
 
     import logoComp from '../assets/img/logo-compacta.svg'

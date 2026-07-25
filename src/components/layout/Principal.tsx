@@ -1,6 +1,6 @@
 import styles from './Principal.module.css'
 import { Menu } from './Menu'
-import { HeaderUser } from '../HeaderUser'
+import { HeaderUser } from '../headers/HeaderUser'
 import { Outlet } from 'react-router-dom'
 
 export function Principal(){

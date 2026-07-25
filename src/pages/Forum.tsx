@@ -1,6 +1,6 @@
 import styles from './Forum.module.css'
 import { TbUser, TbChevronDown } from "react-icons/tb";
-import { Post } from '../components/Post';
+import { Post } from '../components/posts/Post';
 
 export function Forum(){
     return(

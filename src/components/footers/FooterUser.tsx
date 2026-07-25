@@ -1,9 +1,9 @@
 import styles from './FooterUser.module.css'
 
-import logo from '../assets/logo.svg';
-import estrela from '../assets/estrela.svg';
+import logo from '../../assets/logo.svg';
+import estrela from '../../assets/estrela.svg';
 
-import { LinkCompacto } from './LinkCompacto'
+import { LinkCompacto } from '../links/LinkCompacto'
 
 import { TbBrandGithub, TbBrandTwitter, TbBrandInstagram, TbMail } from "react-icons/tb";
 

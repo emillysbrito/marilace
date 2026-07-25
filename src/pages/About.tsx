@@ -1,10 +1,10 @@
 import styles from './About.module.css'
 import ReactPlayer from 'react-player'
-import { HeaderAnon } from '../components/HeaderAnon'
-import { FooterAnon } from '../components/FooterAnon'
-import { CardWomen } from '../components/CardWomen'
-import { Chip } from '../components/Chip'
-import { LinkRede } from '../components/LinkRede'
+import { HeaderAnon } from '../components/headers/HeaderAnon'
+import { FooterAnon } from '../components/footers/FooterAnon'
+import { CardWomen } from '../components/misc/CardWomen'
+import { Chip } from '../components/misc/Chip'
+import { LinkRede } from '../components/links/LinkRede'
 import { TbBrandGithub, TbBrandInstagram, TbBrandLinkedin } from "react-icons/tb";
 
 import listrado from '../assets/img/listrado.svg'

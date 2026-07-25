@@ -1,9 +1,9 @@
 import styles from './HeaderUser.module.css'
-import logo from '../assets/logo.svg'
+import logo from '../../assets/logo.svg'
 import { TbSearch, TbUser, TbCaretDown } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Dropdown } from './Dropdown';
+import { Dropdown } from '../modais/Dropdown';
 
 export function HeaderUser(){
     const [dropdownAberto, setDropdownAberto] = useState(false)

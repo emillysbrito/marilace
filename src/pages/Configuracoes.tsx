@@ -1,8 +1,8 @@
 import styles from './Construcao.module.css'
-import { HeaderUser } from '../components/HeaderUser'
-import { Chip } from '../components/Chip';
+import { HeaderUser } from '../components/headers/HeaderUser'
+import { Chip } from '../components/misc/Chip';
 import { TbTools } from "react-icons/tb";
-import { Btn } from '../components/Btn';
+import { Btn } from '../components/buttons/Btn';
 
 export function Configuracoes(){
     return (

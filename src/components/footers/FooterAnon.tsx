@@ -1,10 +1,10 @@
 import styles from './FooterAnon.module.css';
 
 import { Link } from 'react-router-dom'
-import { LinkCompacto } from './LinkCompacto'
+import { LinkCompacto } from '../links/LinkCompacto'
 
-import logo from '../assets/logo.svg';
-import estrela from '../assets/estrela.svg';
+import logo from '../../assets/logo.svg';
+import estrela from '../../assets/estrela.svg';
 
 import { TbBrandGithub, TbBrandTwitter, TbBrandInstagram, TbMail } from "react-icons/tb";
 

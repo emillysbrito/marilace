@@ -1,7 +1,7 @@
 import styles from "./Post.module.css";
 import { TbStar, TbStarFilled, TbBookmark, TbBookmarkFilled, TbMessage, TbShare, TbDots } from "react-icons/tb";
 import { useState } from "react";
-import badgeVerificado from '../assets/img/verificado.png'
+import badgeVerificado from '../../assets/img/verificado.png';
 
 interface PostProps {
     avatarSrc: string;

@@ -1,8 +1,8 @@
 import styles from './HeaderAnon.module.css'
-import logo from '../assets/logo.svg'
+import logo from '../../assets/logo.svg'
 
 import { Link } from 'react-router-dom'
-import { Btn } from './Btn'
+import { Btn } from '../buttons/Btn'
 
 export function HeaderAnon(){
     return(

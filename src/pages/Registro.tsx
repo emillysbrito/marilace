@@ -1,13 +1,13 @@
 import styles from './Registro.module.css'
 
-import { HeaderAnon } from '../components/HeaderAnon'
-import { FooterAnon } from '../components/FooterAnon'
+import { HeaderAnon } from '../components/headers/HeaderAnon'
+import { FooterAnon } from '../components/footers/FooterAnon'
 import { Link, useNavigate } from 'react-router-dom'
 import { TbLogin2, TbAlertCircle } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ModalMensagem } from '../components/ModalMensagem'
+import { ModalMensagem } from '../components/modais/ModalMensagem'
 
 
 import imgRegistro from '../assets/img/colagem-cadastro.png'

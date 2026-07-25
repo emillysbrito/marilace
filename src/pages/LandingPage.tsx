@@ -1,8 +1,8 @@
 import styles  from './LandingPage.module.css'
 
-import { HeaderAnon } from '../components/HeaderAnon'
-import { BtnCTA } from '../components/BtnCTA'
-import { FooterAnon } from '../components/FooterAnon'
+import { HeaderAnon } from '../components/headers/HeaderAnon'
+import { BtnCTA } from '../components/buttons/BtnCTA'
+import { FooterAnon } from '../components/footers/FooterAnon'
 
 import fundoLanding from '../assets/img/fundo landpage.svg'
 import imgHero from '../assets/img/marie curie.png'
