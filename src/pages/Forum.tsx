@@ -1,14 +1,18 @@
 import styles from './Forum.module.css'
+import { useState } from 'react';
 import { TbUser, TbChevronDown } from "react-icons/tb";
 import { Post } from '../components/posts/Post';
+import { ModalPostagem } from '../components/modais/ModalPostagem';
 
 export function Forum(){
+    const [modalAberto, setModalAberto] = useState(false);
+
     return(
         <main className={ styles.forum }>
-            <div className={ styles.inputPost }>
+            <button className={ styles.inputPost } onClick={() => setModalAberto(true)}>
                 <TbUser size={24} className={ styles.iconPerfil } />
-                <input type="text" placeholder='O que você está pensando?' />
-            </div>
+                <span>O que você está pensando?</span>
+            </button>
 
             <div className={ styles.containerPosts }>
 
@@ -87,6 +91,11 @@ export function Forum(){
                 />
 
             </div>
+
+            <ModalPostagem
+                aberto={modalAberto}
+                fechar={() => setModalAberto(false)}
+            />
         </main>
     )
 }

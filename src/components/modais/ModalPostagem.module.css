@@ -1,0 +1,148 @@
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.modalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.container{
+    background-color: var(--branco);
+    font-family: var(--base);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 18px;
+    border-radius: 32px;
+    border: 6px solid var(--rosa);
+    width: 80%;
+    max-width: 600px;
+    animation: aparecer .3s ease;
+    z-index: 1000;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.iconPerfil{
+    flex-shrink: 0;
+    padding: 8px;
+    border-radius: 999px;
+    border: 2px solid;
+    color: var(--primaria);
+}
+
+.containerInput{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: .5rem;
+    flex: 1;
+    height: 140px;
+    overflow: hidden;
+}
+
+.containerInput span{
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 500;
+    color: var(--preto);
+}
+
+.inputPostagem{
+    resize: none;
+    border: none;
+    background-color: transparent;
+    font-family: var(--base);
+    font-size: var(--PP);
+    flex: 1;
+    min-height: 0;
+}
+
+.inputPostagem::placeholder{
+    color: var(--cinza);
+}
+
+.inputPostagem:focus{
+    outline: none;
+}
+
+.containerAcoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.acoesPostagem{
+    display: flex;
+    gap: 4px;
+}
+
+.acao{
+    color: var(--preto);
+    padding: 4px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+.acao:hover{
+    background-color: var(--rosa);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+.btnsPostagem{
+    display: flex;
+    gap: 8px;
+}
+
+.btnCancelar{
+    font-family: var(--base);
+    font-size: var(--PP);
+    background-color: transparent;
+    color: var(--cinza);
+    border: none;
+    padding: 2px 6px;
+    border-radius: 999px;
+    transition: all .3s ease;
+}
+
+.btnCancelar:hover{
+    color: var(--branco);
+    background-color: var(--rosa);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnPostar{
+    background-color: var(--verde);
+    padding: 6px 12px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 500;
+    border-radius: 999px;
+    border: 2px solid var(--preto);
+    cursor: pointer;
+}
