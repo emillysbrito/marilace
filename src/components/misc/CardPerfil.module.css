@@ -2,6 +2,7 @@
     font-family: var(--base);
     display: flex;
     gap: 8px;
+    width: 380px;
 }
 
 .info{
@@ -13,7 +14,6 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    width: calc(100% - 80px);
 }
 
 .badgeVerificado{
@@ -60,6 +60,7 @@
     filter: drop-shadow(0px 4px var(--preto));
     cursor: pointer;
     transition: .1s ease;
+    margin-left: auto;
 }
 
 .btnSeguir.ativo{
