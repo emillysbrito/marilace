@@ -7,6 +7,7 @@ import { Registro } from '../pages/Registro.tsx'
 import { Forum } from '../pages/Forum.tsx'
 import { Profile } from '../pages/Profile.tsx'
 import { Principal } from '../components/layout/Principal.tsx'
+import { PerfilLayout } from '../components/layout/PerfilLayout.tsx'
 import { Chat } from '../pages/Chat.tsx'
 import { Oportunidades } from '../pages/Oportunidades.tsx'
 import { Salvos } from '../pages/Salvos.tsx'
@@ -28,7 +29,9 @@ export function Rotas(){
                     <Route path='oportunidades' element={ <Oportunidades/> }/>
                     <Route path='salvos' element={ <Salvos/> }/>
                 </Route>
-                <Route path='profile' element={ <Profile/> }/>
+                <Route path='profile' element={ <PerfilLayout/> }>
+                    <Route index element={ <Profile/> }/>
+                </Route>
                 <Route path='notificacoes' element={ <Notificacoes/> }/>
                 <Route path='configuracoes' element={ <Configuracoes/> }/>
             </Routes>

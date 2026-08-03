@@ -1,0 +1,163 @@
+.perfilLayout{
+    background-color: var(--branco);
+    color: var(--preto);
+    font-family: var(--base);
+}
+
+.mainPerfil{
+    margin: 16px 40px;
+    display: flex;
+    gap: 24px;
+}
+
+.headerPerfil{
+    width: 100%;
+}
+
+.fundo{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 24px 24px 0px 0px;
+}
+
+.avatarSeguidores{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 24px;
+    position: relative;
+    top: -4rem;
+}
+
+.avatar{
+    padding: 24px;
+    aspect-ratio: 1/1;
+    border: 4px solid var(--branco);
+    background-color: var(--branco);
+    color: var(--primaria);
+    border-radius: 999px;
+}
+
+.seguidores{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 1rem;
+    font-size: var(--P);
+    font-weight: 500;
+    color: var(--primaria);
+}
+
+.seguidores span{
+    color: var(--preto);
+    font-weight: 600;
+}
+
+.separador{
+    background-color: var(--verde);
+    mask-image: url('../../assets/estrela.svg');
+    -webkit-mask-image: url('../../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    height: 8px;
+    width: 8px;
+}
+
+.infoPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: -3rem;
+    margin-inline: 24px;
+}
+
+.mainInfo h1{
+    font-size: var(--M);
+    font-weight: 600;
+}
+
+.mainInfo h2{
+    font-size: var(--P);
+    font-weight: 400;
+    color: var(--cinza);
+}
+
+.bio{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bio p{
+    font-size: var(--P);
+}
+
+.btnLinks{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 2px solid var(--cinza);
+    background-color: var(--branco);
+    color: var(--cinza);
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 400;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.btnEditar{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 40px;
+    border-radius: 999px;
+    border: 2px solid var(--preto);
+    background-color: var(--cinza);
+    color: var(--preto);
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 500;
+    width: fit-content;
+    margin-block: 8px;
+    filter: drop-shadow(0px 6px var(--preto));
+    transition: .2s ease;
+    cursor: pointer;
+}
+
+.btnEditar:hover{
+    filter: drop-shadow(0px 4px var(--preto));
+    transform: translateY(2px);
+}
+
+.btnEditar:active{
+    filter: drop-shadow(0px 0px var(--preto));
+    transform: translateY(6px);
+}
+
+.iconEditar path{
+    stroke-width: 2.5px;
+}
+
+.navPerfil{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-block: 64px 40px;
+}
+
+.item{
+    font-size: var(--P);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--primaria);
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.item:hover{
+    transform: translateY(-4px);
+}

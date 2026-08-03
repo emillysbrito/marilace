@@ -1,0 +1,21 @@
+.container{
+    background-color: var(--branco);
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-block: 8rem;
+    color: var(--cinza);
+}
+
+.profile h1{
+    font-size: var(--M)
+}
+
+.profile h2{
+    font-size: var(--P);
+    margin-top: -1rem;
+}

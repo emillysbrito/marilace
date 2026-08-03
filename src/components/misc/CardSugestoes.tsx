@@ -19,7 +19,7 @@ export function CardSugestoes(){
                 nome='Emilly Brito'
                 username='emillybrito'
                 verificado
-                emblemaS
+                emblemaT
                 emblemaE
                 />
 
