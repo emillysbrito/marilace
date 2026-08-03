@@ -5,6 +5,22 @@
     padding-inline: 15%;
 }
 
+.btnPost {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: var(--primaria);
+    color: var(--branco);
+    padding: 16px;
+    border-radius: 999px;
+    z-index: 999;
+    cursor: pointer;
+}
+
 .inputPost{
     display: flex;
     justify-content: space-between;

@@ -1,6 +1,6 @@
 import styles from './Forum.module.css'
 import { useState } from 'react';
-import { TbUser, TbChevronDown } from "react-icons/tb";
+import { TbUser, TbChevronDown, TbPencilStar } from "react-icons/tb";
 import { Post } from '../components/posts/Post';
 import { ModalPostagem } from '../components/modais/ModalPostagem';
 
@@ -9,6 +9,9 @@ export function Forum(){
 
     return(
         <main className={ styles.forum }>
+            <button className={ styles.btnPost } onClick={() => setModalAberto(true)}>
+                <TbPencilStar size={ 40 }/>
+            </button>
             <button className={ styles.inputPost } onClick={() => setModalAberto(true)}>
                 <TbUser size={24} className={ styles.iconPerfil } />
                 <span>O que você está pensando?</span>
