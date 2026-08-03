@@ -1,6 +1,4 @@
 import styles from './Profile.module.css'
-import { HeaderUser } from '../components/headers/HeaderUser'
-import { CardSugestoes } from '../components/misc/CardSugestoes'
 import { TbMoodConfuzed } from "react-icons/tb";
 
 export function Profile(){

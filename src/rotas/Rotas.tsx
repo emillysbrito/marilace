@@ -1,18 +1,25 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import { LandingPage } from '../pages/LandingPage.tsx'
 import { About } from '../pages/About.tsx'
 import { Blog } from '../pages/Blog.tsx'
+
 import { Login } from '../pages/Login.tsx'
 import { Registro } from '../pages/Registro.tsx'
-import { Forum } from '../pages/Forum.tsx'
-import { Profile } from '../pages/Profile.tsx'
+
 import { Principal } from '../components/layout/Principal.tsx'
-import { PerfilLayout } from '../components/layout/PerfilLayout.tsx'
+import { Forum } from '../pages/Forum.tsx'
 import { Chat } from '../pages/Chat.tsx'
 import { Oportunidades } from '../pages/Oportunidades.tsx'
 import { Salvos } from '../pages/Salvos.tsx'
+
 import { Notificacoes } from '../pages/Notificacoes.tsx'
 import { Configuracoes } from '../pages/Configuracoes.tsx'
+
+import { PerfilLayout } from '../components/layout/PerfilLayout.tsx'
+import { Profile } from '../pages/Profile.tsx'
+import { Portfolio } from '../pages/Portfolio.tsx'
+
 
 export function Rotas(){
     return(
@@ -31,6 +38,7 @@ export function Rotas(){
                 </Route>
                 <Route path='profile' element={ <PerfilLayout/> }>
                     <Route index element={ <Profile/> }/>
+                    <Route path='portfolio' element={ <Portfolio/> }/>
                 </Route>
                 <Route path='notificacoes' element={ <Notificacoes/> }/>
                 <Route path='configuracoes' element={ <Configuracoes/> }/>
