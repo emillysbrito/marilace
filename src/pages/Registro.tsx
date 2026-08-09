@@ -3,13 +3,11 @@ import styles from './Registro.module.css'
 import { HeaderAnon } from '../components/headers/HeaderAnon'
 import { FooterAnon } from '../components/footers/FooterAnon'
 import { Link, useNavigate } from 'react-router-dom'
-import { TbLogin2, TbAlertCircle } from "react-icons/tb";
+import { TbLogin2, TbAlertCircle, TbX, TbCheck } from "react-icons/tb";
 import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ModalMensagem } from '../components/modais/ModalMensagem'
-
-
 import imgRegistro from '../assets/img/colagem-cadastro.png'
 import { useState } from 'react';
 
@@ -17,7 +15,14 @@ const userSchema = z
     .object({
         nome: z.string().min(3, "Informe seu nome"),
         email: z.string().email("Email inválido"),
-        senha: z.string().min(6, "A senha deve ter pelo 6 caracteres"),
+        senha: z.string()
+        .min(8, "A senha deve ter no mínimo 8 caracteres")
+        .max(64, "A senha deve ter no máximo 64 caracteres")
+        .regex(/[a-z]/, "A senha deve conter ao menos uma letra minúscula")
+        .regex(/[A-Z]/, "A senha deve conter ao menos uma letra maiúscula")
+        .regex(/[0-9]/, "A senha deve conter ao menos um número")
+        .regex(/[^A-Za-z0-9]/, "A senha deve conter ao menos um caractere especial (ex: !@#$%)"),
+
         confirmarSenha: z.string(),
     })
         .refine((data) => data.senha === data.confirmarSenha, {
@@ -27,6 +32,14 @@ const userSchema = z
 
     type FormValues = z.infer<typeof userSchema>;
 
+const regrasSenha = [
+    { label: "Mínimo de 8 caracteres", teste: (v: string) => v.length >= 8 },
+    { label: "Ao menos uma letra minúscula", teste: (v: string) => /[a-z]/.test(v) },
+    { label: "Ao menos uma letra maiúscula", teste: (v: string) => /[A-Z]/.test(v) },
+    { label: "Ao menos um número", teste: (v: string) => /[0-9]/.test(v) },
+    { label: "Ao menos um caractere especial (ex: !@#$%)", teste: (v: string) => /[^A-Za-z0-9]/.test(v) },
+];
+
 export function Registro(){
 
     const navigate = useNavigate();
@@ -35,10 +48,14 @@ export function Registro(){
     const{
         register,
         handleSubmit,
+        watch,
         formState: { errors },
     } = useForm<FormValues>({ 
         resolver: zodResolver (userSchema),
+        mode: "onChange",
     });
+
+    const senhaAtual = watch("senha", "");
     
     const autenticarUsuario = (data: FormValues) => {
         console.log(data);
@@ -96,11 +113,34 @@ export function Registro(){
                                 id='senha'
                                 type="password" 
                                 {...register("senha")}
+                                aria-describedby="senha-requisitos"
                             />
-                            {errors.senha && <p className={ styles.erro } role='alert'>
-                                <TbAlertCircle className={ styles.icon } aria-hidden="true" />
-                                {errors.senha.message}
-                            </p>}
+
+                            {senhaAtual.length > 0 && (
+                                <>
+                                    <ul id="senha-requisitos" className={ styles.checklistSenha }>
+                                        {regrasSenha.map((regra, index) => {
+                                            const atendida = regra.teste(senhaAtual);
+                                            return (
+                                                <li
+                                                    key={index}
+                                                    className={`${styles.requisitoItem} ${atendida ? styles.requisitoOk : styles.requisitoPendente}`}
+                                                >
+                                                    <TbX className={ styles.icon } aria-hidden="true" />
+                                                    {regra.label}
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+
+                                    {regrasSenha.every((regra) => regra.teste(senhaAtual)) && (
+                                        <p className={ styles.senhaForte } role="status">
+                                            <TbCheck className={ styles.icon } aria-hidden="true" />
+                                            Senha forte!
+                                        </p>
+                                    )}
+                                </>
+                            )}
                         </div>
 
                         <div className={ styles.inputContainer }>

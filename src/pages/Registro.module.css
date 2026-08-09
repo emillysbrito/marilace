@@ -174,9 +174,48 @@
     font-size: var(--PP);
     font-weight: 500;
     margin-top: 8px;
+    color: var(--primaria-escura);
+    animation: aparecerErro 0.3s ease-out;
+}
 
+.checklistSenha{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.requisitoItem{
+    display: flex;
+    align-items: center;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 500;
     color: var(--primaria-escura);
 
+    max-height: 32px;
+    opacity: 1;
+    margin-bottom: 4px;
+    overflow: hidden;
+
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin-bottom 0.3s ease, transform 0.3s ease;
+}
+
+.requisitoOk{
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+    transform: translateX(8px);
+}
+
+.senhaForte{
+    display: flex;
+    align-items: center;
+    font-family: var(--base);
+    font-size: var(--PP);
+    color: var(--primaria-escura);
+    font-weight: 500;
     animation: aparecerErro 0.3s ease-out;
 }
 
