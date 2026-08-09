@@ -1,11 +1,27 @@
 import styles from './PerfilLayout.module.css'
 import { HeaderUser } from '../headers/HeaderUser'
-import { Outlet } from 'react-router-dom'
+import { useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { CardSugestoes } from '../misc/CardSugestoes'
 import { TbUser, TbLink, TbUserEdit } from 'react-icons/tb'
+import { EMBLEMAS_DISPONIVEIS } from '../../types/Emblemas'
 
 export function PerfilLayout(){
+
+    const location = useLocation()
+
+    const [emblemasAtivos, setEmblemasAtivos] = useState<string[]>([]);
+
+    function toggleEmblema(id: string) {
+        setEmblemasAtivos((atuais) =>
+        atuais.includes(id)
+            ? atuais.filter((emblemaId) => emblemaId !== id)
+            : [...atuais, id]
+        );
+    }
+
+
     return(
         <div className={ styles.perfilLayout }>
             <HeaderUser/>
@@ -28,7 +44,24 @@ export function PerfilLayout(){
                     <div className={ styles.infoPerfil }>
 
                         <div className={ styles.mainInfo}>
-                            <h1>Usuário</h1>
+                            <div className={styles.nomeEmblemas}>
+                                <h1>Usuário</h1>
+                                <div className={ styles.emblemas }>
+                                    {EMBLEMAS_DISPONIVEIS
+                                    .filter((emblema) => emblemasAtivos.includes(emblema.id))
+                                    .map((emblema) => (
+                                        <span
+                                        key={emblema.id}
+                                        className={ styles.emblema }
+                                        style={{ color: emblema.cor }}
+                                        title={emblema.texto}
+                                        >
+                                        {emblema.letra}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
                             <h2>@user</h2>
                         </div>
 
@@ -79,7 +112,7 @@ export function PerfilLayout(){
                         </Link>
                     </nav>
 
-                    <Outlet />
+                    <Outlet context={{ emblemasAtivos, toggleEmblema }} />
 
                 </div>
                 <CardSugestoes />

@@ -161,3 +161,19 @@
 .item:hover{
     transform: translateY(-4px);
 }
+
+.nomeEmblemas{
+    display: flex;
+    align-items: end;
+    gap: 8px;
+}
+
+.emblemas{
+    display: flex;
+    gap: 4px;
+}
+
+.emblema {
+    font-family: var(--logo);
+    font-size: var(--M);
+}

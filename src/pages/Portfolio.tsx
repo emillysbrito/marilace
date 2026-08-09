@@ -9,6 +9,7 @@ export function Portfolio(){
                     <h1>Currículo</h1>
                     <button className={ styles.btnNovo }>
                         <TbPlus size={20} className={ styles.btnNovoIcon }/>
+                        <span className={styles.btnNovoText}>Novo</span>
                     </button>
                 </div>
             </section>
@@ -18,6 +19,7 @@ export function Portfolio(){
                     <h1>Experiências</h1>
                     <button className={ styles.btnNovo }>
                         <TbPlus size={20} className={ styles.btnNovoIcon }/>
+                        <span className={styles.btnNovoText}>Novo</span>
                     </button>
                 </div>
             </section>
@@ -27,6 +29,7 @@ export function Portfolio(){
                     <h1>Projetos</h1>
                     <button className={ styles.btnNovo }>
                         <TbPlus size={20} className={ styles.btnNovoIcon }/>
+                        <span className={styles.btnNovoText}>Novo</span>
                     </button>
                 </div>
             </section>

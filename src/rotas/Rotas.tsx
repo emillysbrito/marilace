@@ -19,6 +19,7 @@ import { Configuracoes } from '../pages/Configuracoes.tsx'
 import { PerfilLayout } from '../components/layout/PerfilLayout.tsx'
 import { Profile } from '../pages/Profile.tsx'
 import { Portfolio } from '../pages/Portfolio.tsx'
+import { SobrePerfil } from '../pages/SobrePerfil.tsx'
 
 
 export function Rotas(){
@@ -39,6 +40,7 @@ export function Rotas(){
                 <Route path='profile' element={ <PerfilLayout/> }>
                     <Route index element={ <Profile/> }/>
                     <Route path='portfolio' element={ <Portfolio/> }/>
+                    <Route path='sobre' element={ <SobrePerfil/> }/>
                 </Route>
                 <Route path='notificacoes' element={ <Notificacoes/> }/>
                 <Route path='configuracoes' element={ <Configuracoes/> }/>

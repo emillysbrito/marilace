@@ -1,0 +1,47 @@
+.chip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 8px 24px;
+    border-radius: 999px;
+    border: 3px solid var(--preto);
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.chip:hover {
+    transform: translateY(-3px);
+    filter: brightness(0.95);
+}
+
+.chip:active {
+    transform: translateY(0);
+}
+
+.chip:focus-visible {
+    box-shadow: 0 0 0 3px var(--primaria);
+}
+
+.chip.ativo {
+    transform: translateY(-1px);
+}
+
+.texto {
+    font-family: var(--base);
+    font-size: var(--P);
+    color: var(--preto);
+    font-weight: 600;
+}
+
+.estrela {
+    background-color: var(--preto);
+    mask-image: url('../../assets/estrela.svg');
+    -webkit-mask-image: url('../../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    width: 8px;
+    height: 8px;
+}
