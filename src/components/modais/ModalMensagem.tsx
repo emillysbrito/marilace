@@ -14,25 +14,25 @@ export function ModalMensagem ({
     mensagem,
     fechar,
 } : ModalProps) {
-    if (!aberto) return null;
+    if (aberto){
+        return(
+            <div className={styles.modalOverlay}>
+                <div className={styles.modal}>
 
-    return(
-        <div className={styles.modalOverlay}>
-            <div className={styles.modal}>
+                    <div className={styles.estrela1}></div>
+                    <div className={styles.estrela2}></div>
+                    
+                    <div className={styles.icone}>
+                        <TbCircleCheckFilled size={70}/>
+                    </div>
 
-                <div className={styles.estrela1}></div>
-                <div className={styles.estrela2}></div>
-                
-                <div className={styles.icone}>
-                    <TbCircleCheckFilled size={70}/>
+                    <h2>{titulo}</h2>
+                    <p>{mensagem}</p>
+                    <button onClick={fechar}>Okay!</button>
+
+                        <div className={styles.bolha}></div>
                 </div>
-
-                <h2>{titulo}</h2>
-                <p>{mensagem}</p>
-                <button onClick={fechar}>Okay!</button>
-
-                    <div className={styles.bolha}></div>
             </div>
-        </div>
-    );
+        );
+    }
 }

@@ -1,5 +1,6 @@
 export type UsuarioTipo = {
-    nome: string
-    email: string
-    senha: string
+    codigo?: string
+    nome?: string
+    email?: string
+    senha?: string
 }

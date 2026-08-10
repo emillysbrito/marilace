@@ -1,7 +1,8 @@
 import estilos from './Dropdown.module.css'
 import { Link } from 'react-router-dom'
-
 import { TbBell, TbSettings2, TbUser, TbLogout } from 'react-icons/tb'
+import { useAutenticacao } from '../../hooks/useAutenticacao'
+import { useNavigate } from 'react-router-dom'
 
 interface DropdownProps {
     exibir: boolean
@@ -12,6 +13,16 @@ export function Dropdown({
     exibir,
     ocultar
 }: DropdownProps) {
+
+    const navegacao = useNavigate()
+
+    const {deslogar} = useAutenticacao()
+
+    const sair = async () => {
+        await deslogar()
+        navegacao('/')
+    }
+
 
     if (exibir) {
         return (
@@ -43,12 +54,12 @@ export function Dropdown({
                         <TbSettings2 size={16}/>Configurações
                     </Link>
 
-                    <Link
-                        to="/"
-                        className={estilos.item}
+                    <button
+                        onClick={sair}
+                        className={estilos.deslogar}
                     >
                         <TbLogout size={16}/>Sair
-                    </Link>
+                    </button>
                 </div>
             </>
         )

@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ModalMensagem } from '../components/modais/ModalMensagem'
 import { useState } from 'react'
+import { useAutenticacao } from '../hooks/useAutenticacao'
 
 import imgLogin from '../assets/img/colagem-cadastro.png'
 
@@ -20,11 +21,20 @@ type FormValues = {
 
 const userSchema =  z.object({
     email: z.string().email("E-mail inválido"),
-    senha: z.string().min(6, "A senha deve ter pelo menos 6 caracteres")
+    senha: z.string().min(8, "A senha deve ter pelo menos 8 caracteres")
 });
 
 export function Login(){
-    const [modalAberto, setModalAberto] = useState(false);
+    const [modalMensagemVisivel, setModalMensagemVisivel] = useState(false)
+    const [modalMensagemTitulo, setModalMensagemTitulo] = useState('')
+    const [modalMensagemTexto, setModalMensagemTexto] = useState('')
+
+    const exibirModal = () => {
+        setModalMensagemTitulo('Autenticação')
+        setModalMensagemVisivel(true)
+    }
+
+    const ocultarModal = () => setModalMensagemVisivel(false)
 
     const {
         register, 
@@ -37,17 +47,24 @@ export function Login(){
     const navegacao = useNavigate()
 
     const dadosUsuario: UsuarioTipo = {
-        nome: '',
         email: '',
         senha: ''
     }
 
-    const autenticarUsuario = (data: FormValues) => {
+    const autenticacao = useAutenticacao()
+
+    const autenticarUsuario = async (data: FormValues) => {
         dadosUsuario.email = data.email
         dadosUsuario.senha = data.senha
-        console.log(data);
-        setModalAberto(true)
-    
+
+        let retorno = await autenticacao.validarUsuario(data.email, data.senha)
+
+        if(retorno == 'sucesso'){
+            navegacao('/forum')
+        }else{
+            setModalMensagemTexto(retorno)
+            exibirModal()
+        }
     }
 
     return(
@@ -107,12 +124,11 @@ export function Login(){
                 </div>
             </div>
                 <ModalMensagem
-                    aberto={modalAberto}
-                    titulo="Login realizado!"
-                    mensagem="Bem-vindo(a)! Você será redirecionado para o fórum."
+                    aberto={modalMensagemVisivel}
+                    titulo={modalMensagemTitulo}
+                    mensagem={modalMensagemTexto}
                     fechar={() => {
-                        setModalAberto(false);
-                        navegacao("/forum");
+                        ocultarModal()
                     }}
                 />
             <FooterAnon/>

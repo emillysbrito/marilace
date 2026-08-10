@@ -1,5 +1,4 @@
 import styles from './Registro.module.css'
-
 import { HeaderAnon } from '../components/headers/HeaderAnon'
 import { FooterAnon } from '../components/footers/FooterAnon'
 import { Link, useNavigate } from 'react-router-dom'
@@ -10,9 +9,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ModalMensagem } from '../components/modais/ModalMensagem'
 import imgRegistro from '../assets/img/colagem-cadastro.png'
 import { useState } from 'react';
+import { type UsuarioTipo } from '../types/Usuario';
+import { useAutenticacao } from '../hooks/useAutenticacao';
 
-const userSchema = z 
-    .object({
+const userSchema = z.object({
         nome: z.string().min(3, "Informe seu nome"),
         email: z.string().email("Email inválido"),
         senha: z.string()
@@ -42,8 +42,9 @@ const regrasSenha = [
 
 export function Registro(){
 
-    const navigate = useNavigate();
-    const [modalAberto, setModalAberto] = useState(false);
+    const [modalMensagemVisivel, setModalMensagemVisivel] = useState(false)
+    const [modalMensagemTitulo, setModalMensagemTitulo] = useState('')
+    const [modalMensagemTexto, setModalMensagemTexto] = useState('')
 
     const{
         register,
@@ -56,11 +57,47 @@ export function Registro(){
     });
 
     const senhaAtual = watch("senha", "");
-    
-    const autenticarUsuario = (data: FormValues) => {
-        console.log(data);
-        setModalAberto(true)
-    };
+
+    const navegacao = useNavigate();
+
+
+    const dadosUsuario: UsuarioTipo = {
+        nome: '',
+        email: '',
+        senha: ''
+    }
+
+    const {criarAutenticacaoUsuario, deslogar} = useAutenticacao()
+
+    const adicionarUsuario = async (data: FormValues) => {
+
+        dadosUsuario.nome = data.nome
+        dadosUsuario.email = data.email
+        dadosUsuario.senha = data.senha
+
+        // Cria a autenticação do usuário (Authentication)
+        let retorno = await criarAutenticacaoUsuario(data.email, data.senha)
+
+        if (retorno == 'sucesso') {
+            setModalMensagemTexto(`Seja bem-vindo ${dadosUsuario.nome}!`)
+        }else {
+            setModalMensagemTexto(retorno)
+        }
+
+        exibirModal()
+    }
+
+    const exibirModal = () => {
+        setModalMensagemTitulo('Novo usuário')
+        setModalMensagemVisivel(true)
+    }
+
+    const ocultarModal = async () => {
+        setModalMensagemVisivel(false)
+        // Garente que ao logar os dados estarão completos
+        await deslogar()
+        navegacao('/login')
+    }
 
     return(
         <div className={styles.registro}>
@@ -78,7 +115,7 @@ export function Registro(){
                     <h2 className={ styles.tituloRegistro }>Registre-se</h2>
 
                     <form className={ styles.formRegistro }
-                        onSubmit = {handleSubmit(autenticarUsuario)}
+                        onSubmit = {handleSubmit(adicionarUsuario)}
                         >
 
                         <div className={ styles.inputContainer }>
@@ -176,12 +213,11 @@ export function Registro(){
                 </div>
             </div>
                 <ModalMensagem
-                    aberto={modalAberto}
-                    titulo="Cadastro realizado!"
-                    mensagem="Seu cadastro foi realizado com sucesso!"
+                    aberto={modalMensagemVisivel}
+                    titulo={modalMensagemTitulo}
+                    mensagem={modalMensagemTexto}
                     fechar={() => {
-                        setModalAberto(false);
-                        navigate("/Login");
+                        ocultarModal()
                     }}
                 />
             <FooterAnon/>

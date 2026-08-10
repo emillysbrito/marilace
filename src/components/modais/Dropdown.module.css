@@ -11,39 +11,36 @@
     position: absolute;
     top: 70px;
     right: 20px;
-
     display: flex;
     flex-direction: column;
-
     padding: .5rem;
-
     background-color: white;
     border-radius: 12px;
     border: 2px solid var(--primaria);
-
     z-index: 999;
 }
 
-.item{
+.item,
+.deslogar{
     display: flex;
     gap: 8px;
     padding: 6px 8px;
-
     font-family: var(--base);
     font-size: var(--PP);
     text-decoration: none;
-
     color: var(--primaria-escura);
-
     transition: .3s ease;
 }
 
-.item:last-child{
+.deslogar{
+    background-color: transparent;
+    border: none;
     border-top: 1.5px solid var(--primaria);
     padding-top: .8rem;
     margin-top: .4rem;
 }
 
-.item:hover{
+.item:hover,
+.deslogar:hover{
     color: var(--primaria)
 }

@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom'
 import { CardSugestoes } from '../misc/CardSugestoes'
 import { TbUser, TbLink, TbUserEdit } from 'react-icons/tb'
 import { EMBLEMAS_DISPONIVEIS } from '../../types/Emblemas'
+import { useAutenticacao } from '../../hooks/useAutenticacao'
 
 export function PerfilLayout(){
+    const { usuario } = useAutenticacao()
 
     const location = useLocation()
 
@@ -45,7 +47,7 @@ export function PerfilLayout(){
 
                         <div className={ styles.mainInfo}>
                             <div className={styles.nomeEmblemas}>
-                                <h1>Usuário</h1>
+                                <h1>{usuario?.email}</h1>
                                 <div className={ styles.emblemas }>
                                     {EMBLEMAS_DISPONIVEIS
                                     .filter((emblema) => emblemasAtivos.includes(emblema.id))

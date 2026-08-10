@@ -21,6 +21,8 @@ import { Profile } from '../pages/Profile.tsx'
 import { Portfolio } from '../pages/Portfolio.tsx'
 import { SobrePerfil } from '../pages/SobrePerfil.tsx'
 
+import { RotaProtegida } from './RotaProtegida.tsx'
+
 
 export function Rotas(){
     return(
@@ -31,16 +33,16 @@ export function Rotas(){
                 <Route path='blog' element={ <Blog/> }/>
                 <Route path='login' element={ <Login/> }/>
                 <Route path='register' element={ <Registro/> }/>
-                <Route path='forum' element={ <Principal/> }>
-                    <Route index element={ <Forum/> }/>
-                    <Route path='chat' element={ <Chat/> }/>
-                    <Route path='oportunidades' element={ <Oportunidades/> }/>
-                    <Route path='salvos' element={ <Salvos/> }/>
+                <Route path='forum' element={ <RotaProtegida><Principal/></RotaProtegida> }>
+                    <Route index element={ <RotaProtegida><Forum/></RotaProtegida> }/>
+                    <Route path='chat' element={ <RotaProtegida><Chat/></RotaProtegida> }/>
+                    <Route path='oportunidades' element={ <RotaProtegida><Oportunidades/></RotaProtegida> }/>
+                    <Route path='salvos' element={ <RotaProtegida><Salvos/></RotaProtegida> }/>
                 </Route>
-                <Route path='profile' element={ <PerfilLayout/> }>
-                    <Route index element={ <Profile/> }/>
-                    <Route path='portfolio' element={ <Portfolio/> }/>
-                    <Route path='sobre' element={ <SobrePerfil/> }/>
+                <Route path='profile' element={ <RotaProtegida><PerfilLayout/></RotaProtegida> }>
+                    <Route index element={ <RotaProtegida><Profile/></RotaProtegida> }/>
+                    <Route path='portfolio' element={ <RotaProtegida><Portfolio/></RotaProtegida> }/>
+                    <Route path='sobre' element={ <RotaProtegida><SobrePerfil/></RotaProtegida> }/>
                 </Route>
                 <Route path='notificacoes' element={ <Notificacoes/> }/>
                 <Route path='configuracoes' element={ <Configuracoes/> }/>
