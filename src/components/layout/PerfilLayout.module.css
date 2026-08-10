@@ -177,3 +177,9 @@
     font-family: var(--logo);
     font-size: var(--M);
 }
+
+@media (max-width: 1200px){
+    .sugestoes{
+        display: none;
+    }
+}

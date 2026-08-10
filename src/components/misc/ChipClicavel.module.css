@@ -4,7 +4,7 @@
     align-items: center;
     gap: 8px;
     width: fit-content;
-    padding: 8px 24px;
+    padding: 6px 24px;
     border-radius: 999px;
     border: 3px solid var(--preto);
     cursor: pointer;
@@ -33,7 +33,7 @@
     font-family: var(--base);
     font-size: var(--P);
     color: var(--preto);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .estrela {

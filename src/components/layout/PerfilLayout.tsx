@@ -117,7 +117,9 @@ export function PerfilLayout(){
                     <Outlet context={{ emblemasAtivos, toggleEmblema }} />
 
                 </div>
-                <CardSugestoes />
+                <div className={ styles.sugestoes }>
+                    <CardSugestoes/>
+                </div>
             </main>
         </div>
     )

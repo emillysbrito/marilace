@@ -27,20 +27,22 @@ export function CardPerfil({
 
     return(
         <div className={ styles.container }>
+            <main>
             <TbUser size={24} className={ styles.iconPerfil } />
-            <main className={ styles.info }>
-                <div className={ styles.nomeLinha }>
-                    <span className={ styles.nome }>{nome}</span>
+                <div className={ styles.info }>
+                    <div className={ styles.nomeLinha }>
+                        <span className={ styles.nome }>{nome}</span>
 
-                    {verificado && <img src={badgeVerificado} className={ styles.badgeVerificado }/>}
-                    {emblemaS && <span className={styles.badgeS}>s</span>}
-                    {emblemaT && <span className={styles.badgeT}>t</span>}
-                    {emblemaE && <span className={styles.badgeE}>e</span>}
-                    {emblemaM && <span className={styles.badgeM}>m</span>}
+                        {verificado && <img src={badgeVerificado} className={ styles.badgeVerificado }/>}
+                        {emblemaS && <span className={styles.badgeS}>s</span>}
+                        {emblemaT && <span className={styles.badgeT}>t</span>}
+                        {emblemaE && <span className={styles.badgeE}>e</span>}
+                        {emblemaM && <span className={styles.badgeM}>m</span>}
+                    </div>
+                    <span className={ styles.username }>@{username}</span>
                 </div>
-
-                <span className={ styles.username }>@{username}</span>
             </main>
+
             <button
             className={`${styles.btnSeguir} ${seguindo ? styles.ativo : ''}`}
             onClick={() => setSeguindo(!seguindo)}>

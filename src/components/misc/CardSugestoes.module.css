@@ -44,3 +44,13 @@
 .btnVerTodos:hover{
     color: var(--primaria-escura);
 }
+
+@media (max-width: 1440px){
+    .container{
+        padding: 16px 24px;
+    }
+
+    .linha{
+        margin: 4px;
+    }
+}
