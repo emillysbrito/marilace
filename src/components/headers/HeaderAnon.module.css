@@ -1,16 +1,12 @@
 .container{
     background-color: var(--primaria);
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
     padding: 16px 32px;
     border-radius: 0px 0px 40px 40px;
-
     position: fixed;
-
     width: 100%;
     z-index: 1000;
 

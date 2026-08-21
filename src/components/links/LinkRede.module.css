@@ -6,15 +6,12 @@
     width: fit-content;
     padding: .4rem .8rem;
     color: var(--branco);
-
     border-radius: 999px;
     border: 2px solid transparent;
-
     font-family: var(--base);
     font-size: var(--PP);
     text-decoration: none;
     font-weight: 600;
-
     transition: .3s ease;
 }
 

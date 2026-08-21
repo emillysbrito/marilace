@@ -3,13 +3,10 @@
     justify-content: center;
     align-items: center;
     padding: 8px;
-
     background-color: var(--branco);
     color: var(--primaria);
-
     border-radius: 999px;
     border: 2px solid var(--primaria);
-
     transition: .3s ease;
 }
 

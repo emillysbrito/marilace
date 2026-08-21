@@ -1,27 +1,29 @@
 import styles from './Registro.module.css'
+
 import { HeaderAnon } from '../components/headers/HeaderAnon'
 import { FooterAnon } from '../components/footers/FooterAnon'
-import { Link, useNavigate } from 'react-router-dom'
-import { TbLogin2, TbAlertCircle, TbX, TbCheck } from "react-icons/tb";
-import { z } from "zod";
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { ModalMensagem } from '../components/modais/ModalMensagem'
 import imgRegistro from '../assets/img/colagem-cadastro.png'
-import { useState } from 'react';
-import { type UsuarioTipo } from '../types/Usuario';
 import { useAutenticacao } from '../hooks/useAutenticacao';
+import { type UsuarioTipo } from '../types/Usuario';
+
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
+import { TbLogin2, TbAlertCircle, TbX, TbCheck } from "react-icons/tb";
+import { useForm } from 'react-hook-form';
+import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const userSchema = z.object({
         nome: z.string().min(3, "Informe seu nome"),
         email: z.string().email("Email inválido"),
         senha: z.string()
-        .min(8, "A senha deve ter no mínimo 8 caracteres")
-        .max(64, "A senha deve ter no máximo 64 caracteres")
-        .regex(/[a-z]/, "A senha deve conter ao menos uma letra minúscula")
-        .regex(/[A-Z]/, "A senha deve conter ao menos uma letra maiúscula")
-        .regex(/[0-9]/, "A senha deve conter ao menos um número")
-        .regex(/[^A-Za-z0-9]/, "A senha deve conter ao menos um caractere especial (ex: !@#$%)"),
+            .min(8, "A senha deve ter no mínimo 8 caracteres")
+            .max(64, "A senha deve ter no máximo 64 caracteres")
+            .regex(/[a-z]/, "A senha deve conter ao menos uma letra minúscula")
+            .regex(/[A-Z]/, "A senha deve conter ao menos uma letra maiúscula")
+            .regex(/[0-9]/, "A senha deve conter ao menos um número")
+            .regex(/[^A-Za-z0-9]/, "A senha deve conter ao menos um caractere especial (ex: !@#$%)"),
 
         confirmarSenha: z.string(),
     })
@@ -75,7 +77,6 @@ export function Registro(){
         dadosUsuario.email = data.email
         dadosUsuario.senha = data.senha
 
-        // Cria a autenticação do usuário (Authentication)
         let retorno = await criarAutenticacaoUsuario(data.email, data.senha)
 
         if (retorno == 'sucesso') {
@@ -94,7 +95,6 @@ export function Registro(){
 
     const ocultarModal = async () => {
         setModalMensagemVisivel(false)
-        // Garente que ao logar os dados estarão completos
         await deslogar()
         navegacao('/login')
     }

@@ -1,9 +1,9 @@
+/* ANIMAÇÕES */
 @keyframes aparecerErro {
     from {
         opacity: 0;
         transform: translateY(-8px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -14,12 +14,12 @@
     from {
         transform: rotate(0deg);
     }
-
     to{
         transform: rotate(360deg);
     }
 }
 
+/* CONFIGURAÇÕES GERAIS & LAYOUT */
 .login{
     width: 100%;
     height: 100vh;
@@ -76,6 +76,7 @@
     font-weight: 700;
 }
 
+/* FORMUÁRIO */
 .formLogin{
     gap: 24px;
     width: 100%;
@@ -176,6 +177,7 @@
     stroke-width: 2.5px;
 }
 
+/* DECORAÇÃO */
 .estrela1, 
 .estrela2 {
     background-color: var(--verde);
@@ -203,7 +205,7 @@
     transform: rotate(-20deg);
 }
 
-/* Para usuários que preferem menos movimento */
+/* MOVIMENTO REDUZIDO */
 @media (prefers-reduced-motion: reduce) {
     .estrela1,
     .estrela2 {
@@ -214,8 +216,8 @@
     }
     }
 
-    /* TABLETS */
-    @media (max-width: 1024px) {
+/* TABLETS */
+@media (max-width: 1024px) {
     .containerLogin {
         padding: 64px 24px;
     }

@@ -1,9 +1,9 @@
+/* ANIMAÇÕES */
 @keyframes aparecerErro {
     from {
         opacity: 0;
         transform: translateY(-8px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -15,12 +15,12 @@
     from {
         transform: rotate(0deg);
     }
-
     to{
         transform: rotate(360deg);
     }
 }
 
+/* CONFIGURAÇÕES GERAIS & LAYOUT */
 .registro{
     width: 100%;
     height: auto;
@@ -77,6 +77,7 @@
     font-weight: 700;
 }
 
+/* FORMUÁRIO */
 .formRegistro{
     gap: 24px;
     width: 100%;
@@ -140,33 +141,32 @@
     stroke-width: 2.5px;
 }
 
-.estrela1, 
-.estrela2 {
+.btnForm{
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 700;
+    padding: 8px 64px;
+    border-radius: 999px;
+    border: 3px solid var(--preto);
     background-color: var(--verde);
-    mask-image: url('../assets/estrela.svg');
-    -webkit-mask-image: url('../assets/estrela.svg');
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    width: 120px;
-    height: 120px;
-    z-index: 888;
-    animation: girar 40s linear infinite;
-    transform-origin: center;
-    position: absolute;
+    color: var(--preto);
+    filter: drop-shadow(0px 6px var(--preto));
+    cursor: pointer;
+    max-width: 100%;
+    transition: .2s ease;
 }
 
-.estrela1 {
-    top: 10%;
-    left: 2%;
-    transform: rotate(32deg);
+.btnForm:hover{
+    filter: drop-shadow(0px 3px);
+    transform: translateY(3px);
 }
 
-.estrela2 {
-    bottom: 10%;
-    right: 2%;
-    transform: rotate(-20deg);
+.btnForm:active{
+    filter: drop-shadow(0px 0px);
+    transform: translateY(6px);
 }
 
+/* LISTA DE REQUISITOS - SENHA */
 .erro{
     display: flex;
     align-items: center;
@@ -219,40 +219,35 @@
     animation: aparecerErro 0.3s ease-out;
 }
 
-.icon{
-    margin: 4px;
-}
-
-.icon path{
-    stroke-width: 2.5px;
-}
-
-.btnForm{
-    font-family: var(--base);
-    font-size: var(--P);
-    font-weight: 700;
-    padding: 8px 64px;
-    border-radius: 999px;
-    border: 3px solid var(--preto);
+/* DECORAÇÃO */
+.estrela1, 
+.estrela2 {
     background-color: var(--verde);
-    color: var(--preto);
-    filter: drop-shadow(0px 6px var(--preto));
-    cursor: pointer;
-    max-width: 100%;
-    transition: .2s ease;
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    width: 120px;
+    height: 120px;
+    z-index: 888;
+    animation: girar 40s linear infinite;
+    transform-origin: center;
+    position: absolute;
 }
 
-.btnForm:hover{
-    filter: drop-shadow(0px 3px);
-    transform: translateY(3px);
+.estrela1 {
+    top: 10%;
+    left: 2%;
+    transform: rotate(32deg);
 }
 
-.btnForm:active{
-    filter: drop-shadow(0px 0px);
-    transform: translateY(6px);
+.estrela2 {
+    bottom: 10%;
+    right: 2%;
+    transform: rotate(-20deg);
 }
 
-/* Para usuários que preferem menos movimento */
+/* MOVIMENTO REDUZIDO */
 @media (prefers-reduced-motion: reduce) {
     .estrela1,
     .estrela2 {

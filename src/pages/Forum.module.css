@@ -95,6 +95,7 @@
     cursor: pointer;
 }
 
+/* MOBILE */
 @media (max-width: 768px){
     .forum{
         padding-inline: 4%;

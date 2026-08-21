@@ -39,15 +39,14 @@
   --footer: clamp(0.75rem, 0.8vw, 0.8rem);
 }
 
+/* LAYOUT PADRÃO */
 * {
   margin: 0px;
   padding: 0px;
-
   scroll-behavior: smooth;
-
   caret-color: var(--preto);
-
   text-wrap: balance;
+  font-family: var(--base);
 }
 
 ::selection{

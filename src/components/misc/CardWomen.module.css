@@ -15,7 +15,6 @@
     border-radius: 32px;
     border: 3px solid var(--preto);
     filter: grayscale(100%);
-
 }
 
 .cardInfo{
@@ -25,7 +24,6 @@
     width: 320px;
     padding: 1.5rem 2rem;
     border-radius: 24px;
-
     background-color: var(--branco);
     border: 3px solid var(--preto);
     filter: drop-shadow(0px 6px var(--preto));
@@ -35,9 +33,7 @@
     font-family: var(--base);
     font-size: var(--M);
     line-height: 0.75;
-
     color: var(--preto);
-
     margin-bottom: .75rem;
 }
 
@@ -50,7 +46,6 @@
     font-family: var(--base);
     font-size: var(--PP);
     font-weight: 500;
-
     color: var(--preto);
 }
 
