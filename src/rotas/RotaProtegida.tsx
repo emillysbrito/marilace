@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom'
 import { useAutenticacao } from '../hooks/useAutenticacao'
+import { TelaCarregamento } from '../components/misc/TelaCarregamento'
 import { type ReactNode } from 'react'
 
 interface RotaProtegidaProps {
@@ -11,7 +12,7 @@ export function RotaProtegida({ children }: RotaProtegidaProps) {
     const { usuario, carregando } = useAutenticacao()
 
     if (carregando) {
-        return <div>Carregando segurança...</div>
+        return <TelaCarregamento />
     }
 
     if (!usuario) {

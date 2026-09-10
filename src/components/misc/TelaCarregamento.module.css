@@ -1,0 +1,32 @@
+@keyframes girar{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.telaCarregamento {
+    background-color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.telaCarregamento p {
+    font-size: var(--M);
+    color: var(--primaria);
+    margin-top: 1rem;
+}
+
+.estrela{
+    background-color: var(--primaria);
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    width: 5rem;
+    height: 5rem;
+    animation: girar 2s ease-in-out infinite;
+}
