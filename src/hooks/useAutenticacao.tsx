@@ -1,13 +1,12 @@
-import {FirebaseError} from 'firebase/app'
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
-import {autenticacao} from '../firebase/FirebaseConexao'
+import { FirebaseError } from 'firebase/app'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { autenticacao, banco } from '../firebase/FirebaseConexao'
+import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore'
 import { useContext } from 'react'
 import { AutenticacaoContexto } from '../contexts/AutenticacaoContexto'
 
-// As funções de autenticação serão disponibilizadas como um Custom Hook
 export function useAutenticacao(){
     // Esse hook depende do contexto AutenticacaoContexto para ser executado
-    // Por segurança é recomendável testá-lo antes
 
     const autenticacaoContexto = useContext(AutenticacaoContexto)
 
@@ -15,29 +14,51 @@ export function useAutenticacao(){
         throw new Error('Falta o <AutenticacaoProvider> na aplicação!')
     }
 
-    // Garantida sua existencia, recupera os dados gerados  
     const { usuario, carregando } = autenticacaoContexto
 
-    const criarAutenticacaoUsuario = async (email: string, senha: string): Promise<string> => {
+    const criarAutenticacaoUsuario = async ( email: string, senha: string, username: string, nome: string ): Promise<string> => {
         let retorno = 'sucesso'
+        const usernameFormatado = username.toLowerCase().trim()
+
         try {
-            // Cria a autenticação do usuário e retorna suas credenciais
-            await createUserWithEmailAndPassword(autenticacao, email, senha)
+            // verifica se o username já está em uso
+            const usernameRef = doc(banco, 'usernames', usernameFormatado)
+            const usernameSnap = await getDoc(usernameRef)
+
+            if (usernameSnap.exists()) {
+                return 'Esse nome de usuário já está em uso.'
+            }
+
+            // cria a autenticação do usuário
+            const credenciais = await createUserWithEmailAndPassword(autenticacao, email, senha)
+            const uid = credenciais.user.uid
+
+            // cria o documento do usuário no Firestore
+            await setDoc(doc(banco, 'users', uid), {
+                username: usernameFormatado,
+                displayName: nome,
+                bio: '',
+                area: '',
+                photoURL: '',
+                followersCount: 0,
+                followingCount: 0,
+            })
+
+            // reserva o username
+            await setDoc(usernameRef, { uid })
+
         } catch (error) {
-
             if (error instanceof FirebaseError) {
-
                 switch (error.code) {
                     case 'auth/email-already-in-use':
-                        retorno = `E-mail já utilizado por outra conta. ${error.code}`
-                        break
-
-                default:
+                    retorno = `E-mail já utilizado por outra conta. ${error.code}`
+                    break
+                    default:
                     retorno = `Erro na criação da autenticação do usuário! (${error.code}: ${error.message})`
-                    break          
+                    break
                 }
             } else {
-                    retorno = `Erro imprevisto! (${error})`
+                retorno = `Erro imprevisto! (${error})`
             }
         }
         return retorno
