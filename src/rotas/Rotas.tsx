@@ -39,7 +39,7 @@ export function Rotas(){
                     <Route path='oportunidades' element={ <RotaProtegida><Oportunidades/></RotaProtegida> }/>
                     <Route path='salvos' element={ <RotaProtegida><Salvos/></RotaProtegida> }/>
                 </Route>
-                <Route path='profile' element={ <RotaProtegida><PerfilLayout/></RotaProtegida> }>
+                <Route path='/:username' element={ <RotaProtegida><PerfilLayout/></RotaProtegida> }>
                     <Route index element={ <RotaProtegida><Profile/></RotaProtegida> }/>
                     <Route path='portfolio' element={ <RotaProtegida><Portfolio/></RotaProtegida> }/>
                     <Route path='sobre' element={ <RotaProtegida><SobrePerfil/></RotaProtegida> }/>
