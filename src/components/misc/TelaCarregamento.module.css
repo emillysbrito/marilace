@@ -13,20 +13,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
 }
 
 .telaCarregamento p {
     font-size: var(--M);
     color: var(--primaria);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
 }
 
 .estrela{
     background-color: var(--primaria);
-    mask-image: url('../assets/estrela.svg');
-    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-image: url('../../assets/estrela.svg');
+    -webkit-mask-image: url('../../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
     width: 5rem;
     height: 5rem;
-    animation: girar 2s ease-in-out infinite;
+    animation: girar 1.5s ease-in-out infinite;
 }

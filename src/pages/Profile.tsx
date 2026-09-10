@@ -5,6 +5,7 @@ import { Post } from '../components/posts/Post'
 import { formatarTempo } from '../utils/formatarTempo'
 import { type UsuarioTipo } from '../types/Usuario'
 import { TbMoodConfuzed } from 'react-icons/tb'
+import { TelaCarregamento } from '../components/misc/TelaCarregamento'
 
     type ContextoPerfil = { 
         perfil: UsuarioTipo
@@ -13,7 +14,11 @@ import { TbMoodConfuzed } from 'react-icons/tb'
 export function Profile(){
 
     const { perfil } = useOutletContext<ContextoPerfil>()
-    const { publicacoes } = usePublicacoesDoUsuario(perfil.uid)
+    const { publicacoes, carregando } = usePublicacoesDoUsuario(perfil.uid)
+
+    if (carregando) {
+        return <TelaCarregamento />
+    }
 
     return (
         <div className={styles.container}>

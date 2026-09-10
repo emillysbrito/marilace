@@ -68,27 +68,39 @@ export function useFeed() {
     }
 
     // Hook para posts de um usuário específico (usado na página de perfil)
-    export function usePublicacoesDoUsuario(uid: string | undefined) {
-    const [publicacoes, setPublicacoes] = useState<PublicacaoTipo[]>([])
-    const [carregando, setCarregando] = useState(true)
+export function usePublicacoesDoUsuario(uid: string | undefined) {
+  const [publicacoes, setPublicacoes] = useState<PublicacaoTipo[]>([])
+  const [carregando, setCarregando] = useState(true)
 
-    useEffect(() => {
-        if (!uid) return
+  useEffect(() => {
+    if (!uid) {
+      setCarregando(false)
+      return
+    }
 
-        const q = query(
-        collection(banco, 'posts'),
-        where('authorId', '==', uid),
-        orderBy('createdAt', 'desc')
-        )
+    setCarregando(true)
 
-        const unsubscribe = onSnapshot(q, (snap) => {
+    const q = query(
+      collection(banco, 'posts'),
+      where('authorId', '==', uid),
+      orderBy('createdAt', 'desc')
+    )
+
+    const unsubscribe = onSnapshot(
+      q,
+      (snap) => {
         const lista = snap.docs.map((d) => ({ id: d.id, ...d.data() }) as PublicacaoTipo)
         setPublicacoes(lista)
         setCarregando(false)
-        })
+      },
+      (erro) => {
+        console.error('Erro ao buscar publicações:', erro)
+        setCarregando(false)
+      }
+    )
 
-        return () => unsubscribe()
-    }, [uid])
+    return () => unsubscribe()
+  }, [uid])
 
-    return { publicacoes, carregando }
+  return { publicacoes, carregando }
 }
