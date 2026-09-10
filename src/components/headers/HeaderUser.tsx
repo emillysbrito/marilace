@@ -4,8 +4,12 @@ import { TbSearch, TbUser, TbCaretDown } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Dropdown } from '../modais/Dropdown';
+import { useAutenticacao } from '../../hooks/useAutenticacao';
 
 export function HeaderUser(){
+
+    const { usuario } = useAutenticacao()
+
     const [dropdownAberto, setDropdownAberto] = useState(false)
         
     const exibirDropdown = () => {
@@ -30,7 +34,8 @@ export function HeaderUser(){
         </div>
 
         <div className={ styles.dropdown }>
-            <Link to='/profile'
+            <Link
+            to={usuario ? `/${usuario.username}` : '/'}
             className={ styles.btnPerfil}
             >
                 <TbUser size={18}/>
