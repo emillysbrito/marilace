@@ -9,7 +9,7 @@ import { z } from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ModalMensagem } from '../components/modais/ModalMensagem'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAutenticacao } from '../hooks/useAutenticacao'
 
 import imgLogin from '../assets/img/colagem-cadastro.png'
@@ -45,13 +45,22 @@ export function Login(){
     )
 
     const navegacao = useNavigate()
+    const autenticacao = useAutenticacao()
+    const { usuario, carregando } = autenticacao // pega o usuario atualmente logado e o estado de carregamento da autenticação
 
     const dadosUsuario: UsuarioTipo = {
         email: '',
         senha: ''
     }
 
-    const autenticacao = useAutenticacao()
+// verifica se o usuário está autenticado
+useEffect(() => {
+    // se o carregamento terminou e o usuário está autenticado, redireciona para a página do fórum
+    if (!carregando && usuario) {
+        navegacao('/forum')
+    }
+}, [usuario, carregando])
+
 
     const autenticarUsuario = async (data: FormValues) => {
         dadosUsuario.email = data.email
@@ -60,8 +69,6 @@ export function Login(){
         let retorno = await autenticacao.validarUsuario(data.email, data.senha)
 
         if(retorno == 'sucesso'){
-            navegacao('/forum')
-        }else{
             setModalMensagemTexto(retorno)
             exibirModal()
         }
