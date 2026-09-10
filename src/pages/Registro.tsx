@@ -15,6 +15,7 @@ import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 
 const userSchema = z.object({
+        username: z.string().min(3, "Informe um nome de usuário"),
         nome: z.string().min(3, "Informe seu nome"),
         email: z.string().email("Email inválido"),
         senha: z.string()
@@ -64,20 +65,22 @@ export function Registro(){
 
 
     const dadosUsuario: UsuarioTipo = {
-        nome: '',
+        uid: '',
         email: '',
-        senha: ''
+        senha: '',
+        username: '',
+        nome: '',
     }
 
     const {criarAutenticacaoUsuario, deslogar} = useAutenticacao()
 
     const adicionarUsuario = async (data: FormValues) => {
-
-        dadosUsuario.nome = data.nome
         dadosUsuario.email = data.email
         dadosUsuario.senha = data.senha
+        dadosUsuario.username = data.username
+        dadosUsuario.nome = data.nome
 
-        let retorno = await criarAutenticacaoUsuario(data.email, data.senha)
+        let retorno = await criarAutenticacaoUsuario(data.email, data.senha, data.username, data.nome)
 
         if (retorno == 'sucesso') {
             setModalMensagemTexto(`Seja bem-vindo ${dadosUsuario.nome}!`)
@@ -119,7 +122,7 @@ export function Registro(){
                         >
 
                         <div className={ styles.inputContainer }>
-                            <label htmlFor="nome">Seu nome completo:</label>
+                            <label htmlFor="nome">Seu nome:</label>
                             <input 
                                 id='nome' 
                                 type="text" 
@@ -128,6 +131,19 @@ export function Registro(){
                             {errors.nome && <p className={ styles.erro } role='alert'>
                                 <TbAlertCircle className={ styles.icon } aria-hidden="true" />
                                 {errors.nome.message}
+                            </p>}
+                        </div>
+
+                        <div className={ styles.inputContainer }>
+                            <label htmlFor="username">Nome de usuário:</label>
+                            <input 
+                                id='username' 
+                                type="text" 
+                                {...register("username")}
+                            />
+                            {errors.username && <p className={ styles.erro } role='alert'>
+                                <TbAlertCircle className={ styles.icon } aria-hidden="true" />
+                                {errors.username.message}
                             </p>}
                         </div>
                             

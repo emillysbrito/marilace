@@ -32,7 +32,7 @@
   /* TAMANHOS */
   --XG: clamp(4rem, 8vw, 8rem);
   --GG: clamp(3rem, 6vw, 6rem);
-  --G: clamp(2rem, 4vw, 4rem);
+  --G: clamp(2rem, 3vw, 3.25rem);
   --M: clamp(1.25rem, 1.75vw, 1.75rem);
   --P: clamp(1rem, 1.25vw, 1.25rem);
   --PP: clamp(0.875rem, 1vw, 1rem);

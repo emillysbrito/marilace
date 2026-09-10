@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    gap: 16px;
+    padding: 24px 48px;
+    border-radius: 8px;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--verde);
+    padding: 8px;
+    border-radius: 999px;
+}

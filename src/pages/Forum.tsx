@@ -2,10 +2,16 @@ import styles from './Forum.module.css'
 import { useState } from 'react';
 import { TbUser, TbChevronDown, TbPencilStar } from "react-icons/tb";
 import { Post } from '../components/posts/Post';
+import { useFeed } from '../hooks/usePublicacoes';
+import { formatarTempo } from '../utils/formatarTempo';
+import { TelaCarregamento } from '../components/misc/TelaCarregamento';
 import { ModalPostagem } from '../components/modais/ModalPostagem';
 
 export function Forum(){
+    const { publicacoes, carregando } = useFeed()
     const [modalAberto, setModalAberto] = useState(false);
+
+    if (carregando) return <TelaCarregamento />
 
     return(
         <main className={ styles.forum }>
@@ -23,75 +29,21 @@ export function Forum(){
                     Para você <TbChevronDown size={20}/>
                 </span>
 
-                <Post
-                    avatarSrc="src/assets/img/marilace.png"
-                    nome="MariLace"
-                    username="marilace"
-                    tempo="1d"
-                    conteudo="Oie! Esse post é um teste :)"
-                    curtidas={19}
-                    comentarios={2}
-                    compartilhamentos={4}
-                    verificado
-                    emblemaS
-                    emblemaT
-                    emblemaE
-                    emblemaM
-                />
-
-                <Post
-                    avatarSrc="https://i.imgur.com/wU1Mq6b.png"
-                    nome="Ana Clara"
-                    username="anaclara"
-                    tempo="1d"
-                    conteudo="Oie! Esse post é um teste :)"
-                    curtidas={32}
-                    comentarios={5}
-                    compartilhamentos={9}
-                    verificado
-                    emblemaS
-                    emblemaT
-                />
-
-                <Post
-                    avatarSrc="https://i.imgur.com/8i4YSj0.png"
-                    nome="Emilly Brito"
-                    username="emillybrito"
-                    tempo="1d"
-                    conteudo="Oie! Esse post é um teste :)"
-                    curtidas={27}
-                    comentarios={3}
-                    compartilhamentos={7}
-                    verificado
-                    emblemaT
-                    emblemaE
-                />
-
-                <Post
-                    avatarSrc="https://i.imgur.com/77ClU5Z.png"
-                    nome="Fernanda Leal"
-                    username="fernandaleal"
-                    tempo="1d"
-                    conteudo="Oie! Esse post é um teste :)"
-                    curtidas={30}
-                    comentarios={4}
-                    compartilhamentos={5}
-                    verificado
-                    emblemaT
-                />
-
-                <Post
-                    avatarSrc="https://i.imgur.com/oUp1Sjx.png"
-                    nome="Guilherme Martins"
-                    username="guilhermemartins"
-                    tempo="1d"
-                    conteudo="Oie! Esse post é um teste :)"
-                    curtidas={39}
-                    comentarios={8}
-                    compartilhamentos={11}
-                    verificado
-                    emblemaT
-                />
+                    {publicacoes.map((post) => (
+                        <Post
+                        key={post.id}
+                        postId={post.id}
+                        avatarSrc={post.authorPhotoURL}
+                        nome={post.authorDisplayName}
+                        username={post.authorUsername}
+                        tempo={formatarTempo(post.createdAt)}
+                        conteudo={post.text}
+                        imagemUrl={post.imageURL}
+                        curtidas={post.likesCount}
+                        comentarios={post.commentsCount}
+                        compartilhamentos={0}
+                        />
+                    ))}
 
             </div>
 

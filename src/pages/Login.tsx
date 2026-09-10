@@ -49,6 +49,7 @@ export function Login(){
     const { usuario, carregando } = autenticacao // pega o usuario atualmente logado e o estado de carregamento da autenticação
 
     const dadosUsuario: UsuarioTipo = {
+        uid: '',
         email: '',
         senha: ''
     }

@@ -4,12 +4,18 @@ import { useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { CardSugestoes } from '../misc/CardSugestoes'
-import { TbUser, TbLink, TbUserEdit } from 'react-icons/tb'
+import { TbUser, TbLink, TbUserEdit, TbUserPlus } from 'react-icons/tb'
 import { EMBLEMAS_DISPONIVEIS } from '../../types/Emblemas'
 import { useAutenticacao } from '../../hooks/useAutenticacao'
+import { useParams } from 'react-router-dom'
+import { usePerfil } from '../../hooks/usePerfil'
+
 
 export function PerfilLayout(){
-    const { usuario } = useAutenticacao()
+
+    const { username } = useParams()
+    const { usuario: usuarioLogado } = useAutenticacao()
+    const { perfil, carregando, naoEncontrado } = usePerfil(username)
 
     const location = useLocation()
 
@@ -23,6 +29,11 @@ export function PerfilLayout(){
         );
     }
 
+    if (carregando) return <div>Carregando perfil...</div>
+    if (naoEncontrado) return <div>Esse perfil não existe.</div>
+    if (!perfil) return null
+
+    const meuPerfil = usuarioLogado?.uid === perfil.uid
 
     return(
         <div className={ styles.perfilLayout }>
@@ -33,12 +44,16 @@ export function PerfilLayout(){
                     <img src="https://i.imgur.com/6vAOHB9.png" className={ styles.fundo } />
 
                     <div className={ styles.avatarSeguidores}>
-                        <TbUser size={ 96 } className={ styles.avatar }/>
+                        {perfil.photoURL ? (
+                            <img src={perfil.photoURL} className={ styles.avatar } />
+                        ) : (
+                            <TbUser size={ 96 } className={ styles.avatar }/>
+                        )}
 
                         <div className={ styles.seguidores }>
-                            <p><span>{usuario?.followersCount}</span> seguidores</p>
+                            <p><span>{perfil.followersCount}</span> seguidores</p>
                             <div className={ styles.separador }/>
-                            <p><span>{usuario?.followingCount}</span> seguindo</p>
+                            <p><span>{perfil.followingCount}</span> seguindo</p>
                         </div>
 
                     </div>
@@ -47,7 +62,7 @@ export function PerfilLayout(){
 
                         <div className={ styles.mainInfo}>
                             <div className={styles.nomeEmblemas}>
-                                <h1>{usuario?.nome}</h1>
+                                <h1>{perfil.nome}</h1>
                                 <div className={ styles.emblemas }>
                                     {EMBLEMAS_DISPONIVEIS
                                     .filter((emblema) => emblemasAtivos.includes(emblema.id))
@@ -64,27 +79,34 @@ export function PerfilLayout(){
                                 </div>
                             </div>
 
-                            <h2>@{usuario?.username}</h2>
+                            <h2>@{perfil.username}</h2>
                         </div>
 
                         <div className={ styles.bio }>
-                            <p>{usuario?.bio}</p>
+                            <p>{perfil.bio}</p>
                             <button className={ styles.btnLinks }>
                                 <TbLink /> Ver links
                             </button>
-                            <button className={ styles.btnEditar }>
-                                <TbUserEdit size={22} className={ styles.iconEditar } /> Editar perfil
-                            </button>
+
+                            {meuPerfil ? (
+                                <button className={ styles.btnEditar }>
+                                    <TbUserEdit size={22} className={ styles.iconEditar } /> Editar perfil
+                                </button>
+                            ) : (
+                                <button className={ styles.btnEditar }>
+                                    <TbUserPlus size={22} className={ styles.iconEditar } /> Seguir
+                                </button>
+                            )}
                         </div>
 
                     </div>
 
                     <nav className={ styles.navPerfil }>
                         <Link 
-                        to={usuario ? `/${usuario.username}` : '/'}
+                        to={`/${perfil.username}`}
                         className={ styles.item }
                         style={{
-                        color: location.pathname === `/${usuario?.username}`
+                        color: location.pathname === `/${perfil.username}`
                             ? 'var(--primaria-escura)'
                             : 'var(--primaria)'
                         }}>
@@ -95,7 +117,7 @@ export function PerfilLayout(){
                         to='portfolio'
                         className={ styles.item }
                         style={{
-                        color: location.pathname === `/${usuario?.username}/portfolio`
+                        color: location.pathname === `/${perfil.username}/portfolio`
                             ? 'var(--primaria-escura)'
                             : 'var(--primaria)'
                         }}>
@@ -106,7 +128,7 @@ export function PerfilLayout(){
                         to='sobre'
                         className={ styles.item }
                         style={{
-                        color: location.pathname === `/${usuario?.username}/sobre`
+                        color: location.pathname === `/${perfil.username}/sobre`
                             ? 'var(--primaria-escura)'
                             : 'var(--primaria)'
                         }}>
@@ -114,7 +136,7 @@ export function PerfilLayout(){
                         </Link>
                     </nav>
 
-                    <Outlet context={{ emblemasAtivos, toggleEmblema }} />
+                    <Outlet context={{ perfil, meuPerfil, emblemasAtivos, toggleEmblema }} />
 
                 </div>
                 <div className={ styles.sugestoes }>

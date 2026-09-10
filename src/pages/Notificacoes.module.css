@@ -1,0 +1,45 @@
+.page{
+    background-color: var(--branco);
+}
+
+.container{
+    padding: 1.5rem 2rem;
+    color: var(--preto);
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.titulo h1{
+    font-size: var(--G);
+}
+
+.quantidade {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primaria);
+    color: var(--branco);
+    font-size: var(--P);
+    font-weight: 500;
+    border-radius: 999px;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.filtros > button {
+    padding: 4px 16px !important;
+}

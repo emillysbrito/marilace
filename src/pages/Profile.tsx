@@ -1,14 +1,44 @@
 import styles from './Profile.module.css'
-import { TbMoodConfuzed } from "react-icons/tb";
+import { useOutletContext } from 'react-router-dom'
+import { usePublicacoesDoUsuario } from '../hooks/usePublicacoes'
+import { Post } from '../components/posts/Post'
+import { formatarTempo } from '../utils/formatarTempo'
+import { type UsuarioTipo } from '../types/Usuario'
+import { TbMoodConfuzed } from 'react-icons/tb'
 
+    type ContextoPerfil = { 
+        perfil: UsuarioTipo
+        meuPerfil: boolean 
+    }
 export function Profile(){
+
+    const { perfil } = useOutletContext<ContextoPerfil>()
+    const { publicacoes } = usePublicacoesDoUsuario(perfil.uid)
+
     return (
-        <div className={ styles.container }>
-            <main className={ styles.profile }>
-                <TbMoodConfuzed size={100} className={ styles.icon }/>
-                <h1>Nada aqui ainda!</h1>
-                <h2>Que tal fazer um post?</h2>
-            </main>
+        <div className={styles.container}>
+            {publicacoes.length === 0 ? ( 
+                <main className={styles.default}> 
+                    <TbMoodConfuzed size={100} className={styles.icon} />
+                    <h1>Nada aqui ainda!</h1>
+                </main>
+            ) : ( 
+                publicacoes.map((post) => ( 
+                    <Post
+                        key={post.id}
+                        postId={post.id}
+                        avatarSrc={post.authorPhotoURL}
+                        nome={post.authorDisplayName}
+                        username={post.authorUsername}
+                        tempo={formatarTempo(post.createdAt)}
+                        conteudo={post.text}
+                        imagemUrl={post.imageURL}
+                        curtidas={post.likesCount}
+                        comentarios={post.commentsCount}
+                        compartilhamentos={0}
+                    />
+                ))
+            )} 
         </div>
     )
 }

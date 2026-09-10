@@ -3,8 +3,8 @@ import styles from './ChipClicavel.module.css'
 interface ChipClicavelProps {
     texto: string;
     cor: string;
-    selecionado: boolean;
-    onClick: () => void;
+    selecionado?: boolean;
+    onClick?: () => void;
 }
 
 export function ChipClicavel({
@@ -17,7 +17,7 @@ export function ChipClicavel({
         <button
             type="button"
             className={`${styles.chip} ${selecionado ? styles.ativo : ''}`}
-            style={{ backgroundColor: selecionado ? cor : 'var(--cinza)' }}
+            style={{ backgroundColor: selecionado ? cor : 'var(--branco)' }}
             onClick={onClick}
             aria-pressed={selecionado}
         >
