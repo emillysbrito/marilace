@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { type ReactNode } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { autenticacao } from "../firebase/FirebaseConexao";
+import { doc, onSnapshot } from "firebase/firestore";
+import { autenticacao, banco } from "../firebase/FirebaseConexao";
 import { type UsuarioTipo } from "../types/Usuario";
 
 type AutenticacaoContextoTipo = {
@@ -13,31 +14,53 @@ interface AutenticacaoProviderProps {
     children: ReactNode
 }
 
-export const AutenticacaoContexto = createContext<AutenticacaoContextoTipo| undefined>(undefined)
+export const AutenticacaoContexto = createContext<AutenticacaoContextoTipo | undefined>(undefined)
 
 export function AutenticacaoProvider({ children }: AutenticacaoProviderProps) {
 
+    const [uidAtual, setUidAtual] = useState<string | null>(null)
     const [usuario, setUsuario] = useState<UsuarioTipo | null>(null)
     const [carregando, setCarregando] = useState(true)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(autenticacao, (usuarioFirebase) => {
-
-        if (usuarioFirebase) {
-            const usuarioDados: UsuarioTipo = {
-                codigo: usuarioFirebase.uid,
-                email: usuarioFirebase.email ?? '',
+            if (usuarioFirebase) {
+                setUidAtual(usuarioFirebase.uid)
+            } else {
+                setUidAtual(null)
+                setUsuario(null)
+                setCarregando(false)
             }
-            setUsuario(usuarioDados)
-        } else {
-        setUsuario(null)
-        }
-
-        setCarregando(false)
-
-    })
-    return () => unsubscribe()
+        })
+        return () => unsubscribe()
     }, [])
+
+    useEffect(() => {
+        if (!uidAtual) return
+
+        const usuarioRef = doc(banco, 'users', uidAtual)
+        const unsubscribe = onSnapshot(usuarioRef, (snap) => {
+            if (snap.exists()) {
+                const dados = snap.data()
+                setUsuario({
+                uid: uidAtual,
+                username: dados.username,
+                email: dados.email ?? '',
+                nome: dados.displayName,
+                bio: dados.bio,
+                area: dados.area,
+                photoURL: dados.photoURL,
+                followersCount: dados.followersCount,
+                followingCount: dados.followingCount,
+                })
+            } else {
+                setUsuario(null)
+            }
+            setCarregando(false)
+        })
+
+        return () => unsubscribe()
+    }, [uidAtual])
 
     return (
         <AutenticacaoContexto.Provider value={{ usuario, carregando }}>
