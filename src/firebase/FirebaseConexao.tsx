@@ -1,11 +1,11 @@
 import styles from './FirebaseConexao.module.css'
 import { initializeApp, FirebaseError } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { TbAlertCircleFilled } from "react-icons/tb";
 
-// Protege as credenciais em variáveis de ambiente
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -20,6 +20,7 @@ const firebaseConfig = {
 const conexao = initializeApp(firebaseConfig)
 // Habilita o serviço de Autenticação
 const autenticacao = getAuth(conexao)
+export const banco = getFirestore(conexao);
 // Disponibiliza o serviço
 export {autenticacao}
 
