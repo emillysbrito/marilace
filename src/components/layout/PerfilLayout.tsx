@@ -36,9 +36,9 @@ export function PerfilLayout(){
                         <TbUser size={ 96 } className={ styles.avatar }/>
 
                         <div className={ styles.seguidores }>
-                            <p><span>0</span> seguidores</p>
+                            <p><span>{usuario?.followersCount}</span> seguidores</p>
                             <div className={ styles.separador }/>
-                            <p><span>0</span> seguindo</p>
+                            <p><span>{usuario?.followingCount}</span> seguindo</p>
                         </div>
 
                     </div>
@@ -47,7 +47,7 @@ export function PerfilLayout(){
 
                         <div className={ styles.mainInfo}>
                             <div className={styles.nomeEmblemas}>
-                                <h1>{usuario?.email}</h1>
+                                <h1>{usuario?.nome}</h1>
                                 <div className={ styles.emblemas }>
                                     {EMBLEMAS_DISPONIVEIS
                                     .filter((emblema) => emblemasAtivos.includes(emblema.id))
@@ -64,11 +64,11 @@ export function PerfilLayout(){
                                 </div>
                             </div>
 
-                            <h2>@user</h2>
+                            <h2>@{usuario?.username}</h2>
                         </div>
 
                         <div className={ styles.bio }>
-                            <p>Boas-vindas!</p>
+                            <p>{usuario?.bio}</p>
                             <button className={ styles.btnLinks }>
                                 <TbLink /> Ver links
                             </button>
@@ -81,10 +81,10 @@ export function PerfilLayout(){
 
                     <nav className={ styles.navPerfil }>
                         <Link 
-                        to='/profile'
+                        to={usuario ? `/${usuario.username}` : '/'}
                         className={ styles.item }
                         style={{
-                        color: location.pathname === '/profile'
+                        color: location.pathname === `/${usuario?.username}`
                             ? 'var(--primaria-escura)'
                             : 'var(--primaria)'
                         }}>
@@ -95,7 +95,7 @@ export function PerfilLayout(){
                         to='portfolio'
                         className={ styles.item }
                         style={{
-                        color: location.pathname === '/profile/portfolio'
+                        color: location.pathname === `/${usuario?.username}/portfolio`
                             ? 'var(--primaria-escura)'
                             : 'var(--primaria)'
                         }}>
@@ -106,7 +106,7 @@ export function PerfilLayout(){
                         to='sobre'
                         className={ styles.item }
                         style={{
-                        color: location.pathname === '/profile/sobre'
+                        color: location.pathname === `/${usuario?.username}/sobre`
                             ? 'var(--primaria-escura)'
                             : 'var(--primaria)'
                         }}>
