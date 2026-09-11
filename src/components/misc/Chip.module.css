@@ -19,8 +19,8 @@
 .estrela{
     background-color: var(--preto);
 
-    mask-image: url('../assets/estrela.svg');
-    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-image: url('../../assets/estrela.svg');
+    -webkit-mask-image: url('../../assets/estrela.svg');
     mask-repeat: no-repeat;
     mask-size: contain;
 
