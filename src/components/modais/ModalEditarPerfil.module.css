@@ -1,0 +1,248 @@
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.container {
+    background-color: var(--branco);
+    font-family: var(--base);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 28px;
+    border-radius: 32px;
+    border: 6px solid var(--primaria);
+    width: 90%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: aparecer .3s ease;
+    box-sizing: border-box;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho h2 {
+    font-family: var(--logo);
+    font-size: var(--G);
+    color: var(--primaria-escura);
+}
+
+.btnFechar {
+    background: transparent;
+    border: none;
+    color: var(--preto);
+    cursor: pointer;
+    display: flex;
+    padding: 4px;
+    border-radius: 999px;
+    transition: .2s ease;
+}
+
+.btnFecharIcon path{
+    stroke-width: 2.5px;
+}
+
+.btnFechar:hover {
+    background-color: var(--rosa);
+}
+
+.containerFoto {
+    display: flex;
+    justify-content: center;
+}
+
+.avatarWrapper {
+    position: relative;
+    width: 96px;
+    height: 96px;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 3px solid var(--primaria);
+}
+
+.avatarPadrao {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    background-color: var(--branco);
+    border: 3px dashed var(--primaria);
+    color: var(--primaria);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnTrocarFoto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--verde);
+    color: var(--preto);
+    border: 2px solid var(--preto);
+    border-radius: 999px;
+    padding: 6px;
+    display: flex;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.btnTrocarFoto:hover {
+    transform: scale(1.1);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+.campo label {
+    font-size: var(--PP);
+    font-weight: 600;
+    color: var(--primaria-escura);
+}
+
+.campo input,
+.campo textarea {
+    font-family: var(--base);
+    font-size: var(--PP);
+    padding: 10px 14px;
+    border-radius: 16px;
+    border: 2px solid var(--cinza);
+    background-color: var(--branco);
+    color: var(--preto);
+    resize: none;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border: 2px solid var(--primaria);
+}
+
+.inputComPrefixo {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    border: 2px solid var(--cinza);
+    padding-left: 12px;
+    background-color: var(--branco);
+}
+
+.inputComPrefixo:focus-within {
+    border: 2px solid var(--primaria);
+}
+
+.inputComPrefixo span {
+    color: var(--cinza);
+    font-size: var(--PP);
+    font-weight: 600;
+}
+
+.inputComPrefixo input {
+    border: none;
+    padding-left: 4px;
+}
+
+.inputComPrefixo input:focus {
+    outline: none;
+    border: none;
+}
+
+.contador {
+    align-self: flex-end;
+    font-size: var(--footer);
+    color: var(--cinza);
+}
+
+.erroTexto {
+    font-size: var(--PP);
+    color: var(--rosa);
+    font-weight: 600;
+    background-color: rgba(255, 203, 203, 0.3);
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btnCancelar {
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    background-color: transparent;
+    color: var(--cinza);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.btnCancelar:hover {
+    background-color: var(--rosa);
+    color: var(--branco);
+}
+
+.btnSalvar {
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 700;
+    background-color: var(--verde);
+    color: var(--preto);
+    border: 2px solid var(--preto);
+    padding: 10px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px var(--preto));
+    transition: .2s ease;
+}
+
+.btnSalvar:hover:not(:disabled) {
+    transform: translateY(2px);
+    filter: drop-shadow(0px 2px var(--preto));
+}
+
+.btnSalvar:disabled,
+.btnCancelar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

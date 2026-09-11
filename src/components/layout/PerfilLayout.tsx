@@ -9,6 +9,7 @@ import { EMBLEMAS_DISPONIVEIS } from '../../types/Emblemas'
 import { useAutenticacao } from '../../hooks/useAutenticacao'
 import { useParams } from 'react-router-dom'
 import { usePerfil } from '../../hooks/usePerfil'
+import { ModalEditarPerfil } from '../modais/ModalEditarPerfil'
 
 
 export function PerfilLayout(){
@@ -20,6 +21,7 @@ export function PerfilLayout(){
     const location = useLocation()
 
     const [emblemasAtivos, setEmblemasAtivos] = useState<string[]>([]);
+    const [modalEdicaoAberto, setModalEdicaoAberto] = useState(false)
 
     function toggleEmblema(id: string) {
         setEmblemasAtivos((atuais) =>
@@ -89,7 +91,10 @@ export function PerfilLayout(){
                             </button>
 
                             {meuPerfil ? (
-                                <button className={ styles.btnEditar }>
+                                <button
+                                    className={ styles.btnEditar }
+                                    onClick={() => setModalEdicaoAberto(true)}
+                                >
                                     <TbUserEdit size={22} className={ styles.iconEditar } /> Editar perfil
                                 </button>
                             ) : (
@@ -143,6 +148,10 @@ export function PerfilLayout(){
                     <CardSugestoes/>
                 </div>
             </main>
+            <ModalEditarPerfil
+                aberto={modalEdicaoAberto}
+                fechar={() => setModalEdicaoAberto(false)}
+            />
         </div>
     )
 }

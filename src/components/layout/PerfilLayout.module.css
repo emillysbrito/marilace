@@ -31,8 +31,10 @@
 }
 
 .avatar{
-    padding: 24px;
-    aspect-ratio: 1/1;
+    padding: 8px;
+    width: 152px;
+    height: 152px;
+    object-fit: cover;
     border: 4px solid var(--branco);
     background-color: var(--branco);
     color: var(--primaria);

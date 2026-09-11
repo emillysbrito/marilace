@@ -1,0 +1,209 @@
+import { useState, useRef, useEffect } from 'react'
+import styles from './ModalEditarPerfil.module.css'
+import { TbUser, TbCamera, TbX } from 'react-icons/tb'
+import { useAutenticacao } from '../../hooks/useAutenticacao'
+
+type ModalEditarPerfilProps = {
+    aberto: boolean
+    fechar: () => void
+}
+
+export function ModalEditarPerfil({ aberto, fechar }: ModalEditarPerfilProps) {
+    const { usuario, atualizarPerfil, atualizarFotoPerfil, alterarUsername } = useAutenticacao()
+
+    const [displayName, setDisplayName] = useState('')
+    const [username, setUsername] = useState('')
+    const [bio, setBio] = useState('')
+    const [area, setArea] = useState('')
+
+    const [arquivoFoto, setArquivoFoto] = useState<File | null>(null)
+    const [previewFoto, setPreviewFoto] = useState<string | null>(null)
+
+    const [salvando, setSalvando] = useState(false)
+    const [erro, setErro] = useState('')
+
+    const inputFotoRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        if (aberto && usuario) {
+            setDisplayName(usuario.nome ?? '')
+            setUsername(usuario.username ?? '')
+            setBio(usuario.bio ?? '')
+            setArea(usuario.area ?? '')
+            setArquivoFoto(null)
+            setPreviewFoto(null)
+            setErro('')
+        }
+    }, [aberto, usuario])
+
+    if (!aberto) return null
+
+    const aoSelecionarFoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const arquivo = e.target.files?.[0]
+        if (!arquivo) return
+        setArquivoFoto(arquivo)
+        setPreviewFoto(URL.createObjectURL(arquivo))
+    }
+
+    const salvar = async () => {
+        if (!displayName.trim()) {
+            setErro('O nome não pode ficar vazio.')
+            return
+        }
+        if (!username.trim()) {
+            setErro('O nome de usuário não pode ficar vazio.')
+            return
+        }
+
+        setSalvando(true)
+        setErro('')
+
+        try {
+            // 1. Foto
+            if (arquivoFoto) {
+                const retornoFoto = await atualizarFotoPerfil(arquivoFoto)
+                if (retornoFoto !== 'sucesso') {
+                setErro(retornoFoto)
+                setSalvando(false)
+                return
+                }
+            }
+            // 2. Username
+            const usernameFormatado = username.toLowerCase().trim()
+            if (usernameFormatado !== usuario?.username) {
+                const retornoUsername = await alterarUsername(usernameFormatado)
+                if (retornoUsername !== 'sucesso') {
+                    setErro(retornoUsername)
+                    setSalvando(false)
+                    return
+                }
+            }
+
+            // 3. Dados de texto
+            const retornoPerfil = await atualizarPerfil({
+                displayName: displayName.trim(),
+                bio: bio.trim(),
+                area: area.trim()
+            })
+            if (retornoPerfil !== 'sucesso') {
+                setErro(retornoPerfil)
+                setSalvando(false)
+                return
+            }
+
+            fechar()
+        } catch (e) {
+            setErro('Não foi possível salvar as alterações. Tente novamente.')
+        } finally {
+            setSalvando(false)
+        }
+    }
+
+    return (
+        <div className={styles.modalOverlay} onClick={fechar}>
+            <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+                <div className={styles.cabecalho}>
+                    <h2>Editar perfil</h2>
+                    <button className={styles.btnFechar} onClick={fechar} aria-label="Fechar">
+                        <TbX size={20} className={styles.btnFecharIcon} />
+                    </button>
+                </div>
+
+                <div className={styles.containerFoto}>
+                    <div className={styles.avatarWrapper}>
+                        {previewFoto || usuario?.photoURL ? (
+                            <img
+                                src={previewFoto ?? usuario?.photoURL}
+                                className={styles.avatar}
+                                alt="Foto de perfil"
+                            />
+                        ) : (
+                            <div className={styles.avatarPadrao}>
+                                <TbUser size={40} />
+                            </div>
+                        )}
+
+                        <label htmlFor="inputFotoPerfil" className={styles.btnTrocarFoto}>
+                            <TbCamera size={16} />
+                        </label>
+                        <input
+                        ref={inputFotoRef}
+                            id="inputFotoPerfil"
+                            type="file"
+                            accept="image/*"
+                            onChange={aoSelecionarFoto}
+                            style={{ display: 'none' }}
+                            />
+                    </div>
+                </div>
+
+                <div className={styles.formulario}>
+                    <div className={styles.campo}>
+                        <label htmlFor="displayName">Nome</label>
+                        <input
+                            id="displayName"
+                            type="text"
+                            value={displayName}
+                            onChange={(e) => setDisplayName(e.target.value)}
+                            disabled={salvando}
+                            maxLength={50}
+                        />
+                    </div>
+
+                    <div className={styles.campo}>
+                        <label htmlFor="username">Nome de usuário</label>
+                        <div className={styles.inputComPrefixo}>
+                            <span>@</span>
+                            <input
+                                id="username"
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                disabled={salvando}
+                                maxLength={30}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={styles.campo}>
+                        <label htmlFor="area">Área STEM</label>
+                        <input
+                            id="area"
+                            type="text"
+                            value={area}
+                            onChange={(e) => setArea(e.target.value)}
+                            disabled={salvando}
+                            placeholder="Ex: Engenharia de Software"
+                            maxLength={60}
+                        />
+                    </div>
+
+                    <div className={styles.campo}>
+                        <label htmlFor="bio">Bio</label>
+                        <textarea
+                            id="bio"
+                            value={bio}
+                            onChange={(e) => setBio(e.target.value)}
+                            disabled={salvando}
+                            rows={3}
+                            maxLength={160}
+                            placeholder="Conte um pouco sobre você..."
+                        />
+                        <span className={styles.contador}>{bio.length}/160</span>
+                    </div>
+
+                {   erro && <p className={styles.erroTexto}>{erro}</p>}
+                </div>
+
+                <div className={styles.acoes}>
+                    <button className={styles.btnCancelar} onClick={fechar} disabled={salvando}>
+                        Cancelar
+                    </button>
+                    <button className={styles.btnSalvar} onClick={salvar} disabled={salvando}>
+                        {salvando ? 'Salvando...' : 'Salvar alterações'}
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}
