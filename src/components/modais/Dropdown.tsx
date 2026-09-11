@@ -16,7 +16,7 @@ export function Dropdown({
 
     const navegacao = useNavigate()
 
-    const {deslogar} = useAutenticacao()
+    const {deslogar, usuario} = useAutenticacao()
 
     const sair = async () => {
         await deslogar()
@@ -34,7 +34,7 @@ export function Dropdown({
 
                 <div className={estilos.container}>
                     <Link
-                        to="/profile"
+                        to={`/${usuario?.username}`}
                         className={estilos.item}
                     >
                         <TbUser size={16}/>Seu perfil
