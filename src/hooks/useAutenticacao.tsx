@@ -1,9 +1,10 @@
 import { FirebaseError } from 'firebase/app'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { autenticacao, banco } from '../firebase/FirebaseConexao'
-import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, setDoc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { useContext } from 'react'
 import { AutenticacaoContexto } from '../contexts/AutenticacaoContexto'
+import { enviarImagem } from '../services/uploadImagem'
 
 export function useAutenticacao(){
     // Esse hook depende do contexto AutenticacaoContexto para ser executado
@@ -102,5 +103,53 @@ export function useAutenticacao(){
         return retorno
     }
 
-    return {criarAutenticacaoUsuario, validarUsuario, deslogar, usuario, carregando}
+    const atualizarPerfil = async (dados: { displayName: string; bio: string; area: string }): Promise<string> => {
+        let retorno = 'sucesso'
+        try {
+            if (!usuario) throw new Error('Usuário não autenticado.')
+            await updateDoc(doc(banco, 'users', usuario.uid), dados)
+        } catch (error) {
+            retorno = `Erro ao atualizar perfil! (${error})`
+        }
+        return retorno
+    }
+
+    const atualizarFotoPerfil = async (arquivo: File): Promise<string> => {
+        let retorno = 'sucesso'
+        try {
+            if (!usuario) throw new Error('Usuário não autenticado.')
+            const photoURL = await enviarImagem(arquivo)
+            await updateDoc(doc(banco, 'users', usuario.uid), { photoURL })
+        } catch (error) {
+            retorno = `Erro ao atualizar foto de perfil! (${error})`
+        }
+        return retorno
+    }
+
+    const alterarUsername = async (novoUsername: string): Promise<string> => {
+        let retorno = 'sucesso'
+        try {
+            if (!usuario) throw new Error('Usuário não autenticado.')
+            if (!usuario.username) throw new Error('Usuário sem username definido.')
+
+            const usernameAtual = usuario.username
+
+            const novo = novoUsername.toLowerCase().trim()
+            const novoRef = doc(banco, 'usernames', novo)
+
+            const existe = await getDoc(novoRef)
+            if (existe.exists()) return 'Esse nome de usuário já está em uso.'
+
+            await setDoc(novoRef, { uid: usuario.uid })
+            await deleteDoc(doc(banco, 'usernames', usernameAtual))
+            await updateDoc(doc(banco, 'users', usuario.uid), { username: novo })
+
+        } catch (error) {
+            retorno = `Erro ao alterar username! (${error})`
+        }
+        return retorno
+    }
+
+    return { criarAutenticacaoUsuario, validarUsuario, deslogar, atualizarPerfil, atualizarFotoPerfil, alterarUsername, usuario, carregando }
 }
+
