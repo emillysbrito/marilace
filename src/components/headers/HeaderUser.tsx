@@ -38,7 +38,15 @@ export function HeaderUser(){
             to={usuario ? `/${usuario.username}` : '/'}
             className={ styles.btnPerfil}
             >
-                <TbUser size={18}/>
+                {usuario?.photoURL ? (
+                    <img
+                        src={usuario.photoURL}
+                        className={ styles.avatarPerfil }
+                        alt="Foto de perfil"
+                    />
+                ) : (
+                    <TbUser size={18}/>
+                )}
             </Link>
             <button
                 className={styles.btnDropdown}
