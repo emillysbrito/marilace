@@ -53,3 +53,46 @@
   background-color: var(--primaria-escura);
   color: var(--branco);
 }
+
+/* ACESSIBILIDADE */
+
+:root[data-font-size="grande"] {
+  font-size: 112.5%;
+}
+
+:root[data-font-size="extra-grande"] {
+  font-size: 125%;
+}
+
+.alto-contraste {
+  --branco: #ffffff;
+  --preto: #000000;
+  --cinza: #4a4a4a;
+  filter: contrast(1.15) saturate(1.05);
+}
+
+.leitura-facilitada,
+.leitura-facilitada * {
+  letter-spacing: 0.03em;
+  word-spacing: 0.14em;
+  line-height: 1.6 !important;
+}
+
+.reduzir-movimento *,
+.reduzir-movimento *::before,
+.reduzir-movimento *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+.sublinhar-links a {
+  text-decoration: underline !important;
+}
+
+.indicador-foco :focus-visible {
+  outline: 3px solid var(--primaria-escura) !important;
+  outline-offset: 3px !important;
+  border-radius: 4px;
+}
