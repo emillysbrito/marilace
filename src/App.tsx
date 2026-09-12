@@ -1,11 +1,14 @@
 import { Rotas } from './rotas/Rotas'
 import { AutenticacaoProvider } from './contexts/AutenticacaoContexto'
+import { AcessibilidadeProvider } from './contexts/AcessibilidadeContexto'
 
 function App() {
   return (
-    <AutenticacaoProvider>
-      <Rotas />
-    </AutenticacaoProvider>
+    <AcessibilidadeProvider>
+      <AutenticacaoProvider>
+        <Rotas />
+      </AutenticacaoProvider>
+    </AcessibilidadeProvider>
   )
 }
 
