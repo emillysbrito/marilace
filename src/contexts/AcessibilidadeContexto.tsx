@@ -11,6 +11,7 @@ interface AcessibilidadeConfig {
     leituraFacilitada: boolean
     sublinharLinks: boolean
     indicadorFoco: boolean
+    modoEscuro: boolean
 }
 
 //pega todas as chaves do AcessibilidadeConfig, exceto tamanhoFonte (só aceita chaves booleanas)
@@ -31,6 +32,7 @@ const CONFIG_PADRAO: AcessibilidadeConfig = {
     leituraFacilitada: false,
     sublinharLinks: false,
     indicadorFoco: false,
+    modoEscuro: false,  
 }
 
 //chave usada para salvar/ler as configurações no localStorage
@@ -66,6 +68,7 @@ export function AcessibilidadeProvider({ children }: { children: ReactNode }) {
         raiz.classList.toggle('leitura-facilitada', config.leituraFacilitada)
         raiz.classList.toggle('sublinhar-links', config.sublinharLinks)
         raiz.classList.toggle('indicador-foco', config.indicadorFoco)
+        raiz.classList.toggle('modo-escuro', config.modoEscuro) 
 
         localStorage.setItem(CHAVE_STORAGE, JSON.stringify(config))
     }, [config])
@@ -90,5 +93,10 @@ export function AcessibilidadeProvider({ children }: { children: ReactNode }) {
 //hook que permite acessar o contexto de acessibilidade em qualquer componente
 export function useAcessibilidade() {
     const contexto = useContext(AcessibilidadeContexto)
+
+    if (contexto === undefined) {
+        throw new Error('useAcessibilidade precisa estar dentro de um <AcessibilidadeProvider>')
+    }
+
     return contexto
 }
