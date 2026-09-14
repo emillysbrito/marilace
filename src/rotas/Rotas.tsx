@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import { LandingPage } from '../pages/LandingPage.tsx'
 import { About } from '../pages/About.tsx'
@@ -14,7 +14,13 @@ import { Oportunidades } from '../pages/Oportunidades.tsx'
 import { Salvos } from '../pages/Salvos.tsx'
 
 import { Notificacoes } from '../pages/Notificacoes.tsx'
-import { Configuracoes } from '../pages/Configuracoes.tsx'
+
+import { ConfigLayout } from '../components/layout/ConfigLayout.tsx'
+import { ConfigAcessibilidade } from '../pages/ConfigAcessibilidade.tsx' 
+import { ConfigConta } from '../pages/ConfigConta.tsx'
+import { ConfigNotificacoes } from '../pages/ConfigNotificacoes.tsx'
+import { ConfigPrivacidade } from '../pages/ConfigPrivacidade.tsx'
+import { ConfigSobre } from '../pages/ConfigSobre.tsx'
 
 import { PerfilLayout } from '../components/layout/PerfilLayout.tsx'
 import { Profile } from '../pages/Profile.tsx'
@@ -44,8 +50,15 @@ export function Rotas(){
                     <Route path='portfolio' element={ <RotaProtegida><Portfolio/></RotaProtegida> }/>
                     <Route path='sobre' element={ <RotaProtegida><SobrePerfil/></RotaProtegida> }/>
                 </Route>
-                <Route path='notificacoes' element={ <Notificacoes/> }/>
-                <Route path='configuracoes' element={ <Configuracoes/> }/>
+                <Route path='notificacoes' element={ <RotaProtegida><Notificacoes/></RotaProtegida> }/>
+                <Route path='configuracoes' element={ <RotaProtegida><ConfigLayout/></RotaProtegida> }>
+                    <Route index element={ <Navigate to="acessibilidade" replace /> } />
+                    <Route path='acessibilidade' element={ <RotaProtegida><ConfigAcessibilidade/></RotaProtegida> }/>
+                    <Route path='conta' element={ <RotaProtegida><ConfigConta/></RotaProtegida> }/>
+                    <Route path='notificacoes' element={ <RotaProtegida><ConfigNotificacoes/></RotaProtegida> }/>
+                    <Route path='privacidade' element={ <RotaProtegida><ConfigPrivacidade/></RotaProtegida> }/>
+                    <Route path='sobre-o-sistema' element={<RotaProtegida><ConfigSobre/></RotaProtegida>} />
+                </Route>
             </Routes>
         </BrowserRouter>
     )
