@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { TbUser, TbChevronDown, TbPencilStar } from "react-icons/tb";
 import { Post } from '../components/posts/Post';
 import { useFeed } from '../hooks/usePublicacoes';
+import { useAutenticacao } from '../hooks/useAutenticacao';
 import { formatarTempo } from '../utils/formatarTempo';
 import { TelaCarregamento } from '../components/misc/TelaCarregamento';
 import { ModalPostagem } from '../components/modais/ModalPostagem';
 
 export function Forum(){
+    const { usuario } = useAutenticacao()
     const { publicacoes, carregando } = useFeed()
     const [modalAberto, setModalAberto] = useState(false);
 
@@ -19,7 +21,15 @@ export function Forum(){
                 <TbPencilStar size={ 40 }/>
             </button>
             <button className={ styles.inputPost } onClick={() => setModalAberto(true)}>
-                <TbUser size={24} className={ styles.iconPerfil } />
+                {usuario?.photoURL ? (
+                    <img
+                        src={usuario.photoURL}
+                        className={ styles.avatarPerfil }
+                        alt="Foto de perfil"
+                    />
+                ) : (
+                    <TbUser size={24} className={ styles.iconPerfil }/>
+                )}
                 <span>O que você está pensando?</span>
             </button>
 
