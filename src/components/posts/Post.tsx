@@ -95,7 +95,7 @@ export function Post({
                     ) : (
                     <TbStar className={styles.icon} size={24} />
                     )}
-                    <span>{curtidas}</span>
+                    <span className={styles.numeros}>{curtidas}</span>
                 </button>
                 <span className={styles.acao}><TbMessage size={24}/> {comentarios}</span>
                 <span className={styles.acao}><TbShare size={24}/> {compartilhamentos}</span>

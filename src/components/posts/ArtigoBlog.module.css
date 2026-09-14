@@ -40,7 +40,7 @@
     font-size: var(--P);
     font-weight: 700;
     margin: 0 0 6px 0;
-    color: #1a1a1a;
+    color: var(--preto);
 }
 
 .descricao {
