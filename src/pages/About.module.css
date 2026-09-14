@@ -152,7 +152,7 @@
 .imgMoldura{
     height: auto;
     width: 100%;
-    max-width: 700px;
+    max-width: 800px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 32px;

@@ -13,6 +13,7 @@ import ana from '../assets/img/ana.jpg'
 import fefe from '../assets/img/fefe.jpg'
 import gui from '../assets/img/gui.jpeg'
 import emilly from '../assets/img/emilly.jpeg'
+import equipe from '../assets/img/equipe.jpeg'
 
 export function About(){
     return(
@@ -33,7 +34,7 @@ export function About(){
             </div>
             <div className={ styles.moldura }>
                 <div className={ styles.estrelaMoldura1 } aria-hidden="true"/>
-                <img src="https://i.imgur.com/KCqzbMb.png" className={ styles.imgMoldura } alt='Imagem do grupo MariLace'/>
+                <img src={equipe} className={ styles.imgMoldura } alt='Imagem do grupo MariLace'/>
                 <div className={ styles.estrelaMoldura2 } aria-hidden="true"/>
             </div>
             <img src={listrado} className={ styles.fundoMain } aria-hidden="true"/>
