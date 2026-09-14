@@ -82,7 +82,7 @@ export function Registro(){
 
         let retorno = await criarAutenticacaoUsuario(data.email, data.senha, data.username, data.nome)
 
-        if (retorno == 'sucesso') {
+        if (retorno == 'Sucesso!') {
             setModalMensagemTexto(`Seja bem-vindo ${dadosUsuario.nome}!`)
         }else {
             setModalMensagemTexto(retorno)

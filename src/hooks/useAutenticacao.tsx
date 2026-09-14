@@ -18,7 +18,7 @@ export function useAutenticacao(){
     const { usuario, carregando } = autenticacaoContexto
 
     const criarAutenticacaoUsuario = async ( email: string, senha: string, username: string, nome: string ): Promise<string> => {
-        let retorno = 'sucesso'
+        let retorno = 'Sucesso!'
         const usernameFormatado = username.toLowerCase().trim()
 
         try {
@@ -67,7 +67,7 @@ export function useAutenticacao(){
 
 
     const validarUsuario = async (email: string, senha: string): Promise<string> => {
-        let retorno = 'sucesso'
+        let retorno = 'Sucesso!'
         try {
             // Verifica se o email e senha informados condizem com um usuário autenticado
             await signInWithEmailAndPassword(autenticacao, email, senha)
@@ -86,7 +86,7 @@ export function useAutenticacao(){
     }
 
     const deslogar = async (): Promise<string> => {
-        let retorno = 'sucesso'
+        let retorno = 'Sucesso!'
         try {
             await signOut(autenticacao)
         } catch (error) {
@@ -104,7 +104,7 @@ export function useAutenticacao(){
     }
 
     const atualizarPerfil = async (dados: { displayName: string; bio: string; area: string }): Promise<string> => {
-        let retorno = 'sucesso'
+        let retorno = 'Sucesso!'
         try {
             if (!usuario) throw new Error('Usuário não autenticado.')
             await updateDoc(doc(banco, 'users', usuario.uid), dados)
@@ -115,7 +115,7 @@ export function useAutenticacao(){
     }
 
     const atualizarFotoPerfil = async (arquivo: File): Promise<string> => {
-        let retorno = 'sucesso'
+        let retorno = 'Sucesso!'
         try {
             if (!usuario) throw new Error('Usuário não autenticado.')
             const photoURL = await enviarImagem(arquivo)
@@ -127,7 +127,7 @@ export function useAutenticacao(){
     }
 
     const alterarUsername = async (novoUsername: string): Promise<string> => {
-        let retorno = 'sucesso'
+        let retorno = 'Sucesso!'
         try {
             if (!usuario) throw new Error('Usuário não autenticado.')
             if (!usuario.username) throw new Error('Usuário sem username definido.')

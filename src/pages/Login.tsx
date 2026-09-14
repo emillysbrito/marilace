@@ -69,7 +69,7 @@ useEffect(() => {
 
         let retorno = await autenticacao.validarUsuario(data.email, data.senha)
 
-        if(retorno == 'sucesso'){
+        if(retorno == 'Sucesso!'){
             setModalMensagemTexto(retorno)
             exibirModal()
         }
