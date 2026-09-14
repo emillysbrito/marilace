@@ -45,7 +45,7 @@ export function AutenticacaoProvider({ children }: AutenticacaoProviderProps) {
                 setUsuario({
                 uid: uidAtual,
                 username: dados.username,
-                email: dados.email ?? '',
+                email: dados.email ?? autenticacao.currentUser?.email ?? '',
                 nome: dados.displayName,
                 bio: dados.bio,
                 area: dados.area,
