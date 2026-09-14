@@ -68,7 +68,9 @@
   --branco: #ffffff;
   --preto: #000000;
   --cinza: #4a4a4a;
-  filter: contrast(1.15) saturate(1.05);
+  --rosa: #ff8a8a;
+  --verde: #A6D645;
+  filter: contrast(1.15) saturate(-1);
 }
 
 .leitura-facilitada,
@@ -95,4 +97,21 @@
   outline: 3px solid var(--primaria-escura) !important;
   outline-offset: 3px !important;
   border-radius: 4px;
+}
+
+/* MODO ESCURO — aplicado via AcessibilidadeContexto */
+.modo-escuro {
+  --branco: #1c1a22;
+  --preto: #f2f0e8;
+  --cinza: #9a95a3;
+
+  --primaria: #b58cf0;
+  --primaria-escura: #e0cdfb;
+  --rosa: #e8b3b3;
+  --verde: #b8dd85;
+}
+
+.modo-escuro img,
+.modo-escuro video {
+  filter: brightness(.9);
 }
