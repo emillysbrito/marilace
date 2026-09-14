@@ -1,0 +1,335 @@
+.secaoCard{
+    padding: 0px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tituloSecao{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--primaria);
+    margin-bottom: 20px;
+}
+
+.tituloSecao h2{
+    font-family: var(--base);
+    font-size: var(--M);
+    font-weight: 700;
+    color: var(--preto);
+}
+
+.tituloSecao p{
+    font-family: var(--base);
+    font-size: var(--PP);
+    color: var(--cinza);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* SELETOR DE TAMANHO DE FONTE */
+.opcoesFonte{
+    display: flex;
+    gap: 8px;
+}
+
+.opcaoFonte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 56px;
+    padding: 8px 10px;
+    border-radius: 16px;
+    border: 2px solid var(--cinza);
+    background-color: var(--branco);
+    color: var(--preto);
+    font-family: var(--base);
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.opcaoFonteLabel{
+    font-size: var(--footer);
+    font-weight: 500;
+    color: var(--cinza);
+}
+
+.opcaoFonteAtiva{
+    border-color: var(--primaria);
+    background-color: var(--primaria);
+    color: var(--branco);
+}
+
+.opcaoFonteAtiva .opcaoFonteLabel{
+    color: var(--branco);
+}
+
+.btnRestaurar{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    background-color: transparent;
+    border: none;
+    color: var(--primaria-escura);
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px;
+    transition: all .2s ease;
+}
+
+.btnRestaurar:hover{
+    color: var(--primaria);
+}
+
+/* CONTA */
+.btnSecundario{
+    background-color: var(--branco);
+    border: 2px solid var(--cinza);
+    color: var(--cinza);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.btnSecundario:hover{
+    background-color: var(--rosa);
+    color: var(--preto);
+    border-color: var(--preto);
+}
+
+.acoesConta{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+}
+
+.btnSair,
+.btnExcluir{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 700;
+    cursor: pointer;
+    border: 2px solid var(--preto);
+    transition: .2s ease;
+}
+
+.btnSair{
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+.btnExcluir{
+    background-color: var(--branco);
+    color: var(--cinza);
+    border-color: var(--cinza);
+}
+
+.btnExcluir:hover{
+    background-color: var(--rosa);
+    color: var(--preto);
+    border-color: var(--preto);
+}
+
+.icon path{
+    stroke-width: 2.5px;
+}
+
+/* SOBRE */
+.sobreCard{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--branco);
+    border: 2px solid var(--primaria);
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.logo{
+    background-color: var(--primaria);
+    mask-image: url('../assets/logo.svg');
+    -webkit-mask-image: url('../assets/logo.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    width: 100%;
+    height: 80px;
+    animation: girar 40s linear infinite;
+    transform-origin: center;
+    left: 25%;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.listaInfo{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.linhaInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background-color: var(--branco);
+    border-radius: 8px;
+}
+
+.linhaInfo:hover{
+    filter: brightness(0.95);
+}
+
+.linhaInfoLabel{
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    color: var(--cinza);
+}
+
+.linhaInfoValor{
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    color: var(--preto);
+    text-align: right;
+}
+
+.linhaInfoLink{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    color: var(--primaria-escura);
+}
+
+.linhaInfoLink:hover{
+    text-decoration: underline;
+}
+
+.sobreBloco{
+    margin-bottom: 2.5rem;
+}
+
+.sobreSubtitulo,
+.categoriaTitulo{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--primaria);
+    margin-bottom: 12px;
+}
+
+.categoriaTitulo{
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+
+.sobreRedes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.redeItem{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 2px solid var(--preto);
+    background-color: var(--branco);
+    color: var(--preto);
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.redeItem:hover{
+    background-color: var(--rosa);
+}
+
+.sobreLinksLegais{
+    display: flex;
+    flex-direction: column;
+}
+
+.linkLegal{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 4px;
+    font-family: var(--base);
+    font-size: var(--PP);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--primaria-escura);
+    transition: all .2s ease;
+}
+
+.linkLegal:hover{
+    color: var(--primaria);
+}
+
+.copyright{
+    text-align: center;
+    font-family: var(--base);
+    font-size: var(--footer);
+    font-weight: 500;
+    color: var(--cinza);
+    margin-top: 6rem;
+    padding-top: 20px;
+    border-top: 2px solid var(--cinza);
+}
+
+.estrela{
+    background-color: var(--primaria);
+
+    mask-image: url('../assets/estrela.svg');
+    -webkit-mask-image: url('../assets/estrela.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    width: 12px;
+    height: 12px;
+}
+
+@media (max-width: 600px){
+    .secaoCard{
+        padding: 20px;
+    }
+
+    .opcoesFonte{
+        flex-wrap: wrap;
+    }
+}
