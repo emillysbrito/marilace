@@ -1,0 +1,126 @@
+.page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Impede a rolagem na tela inteira */
+    background-color: var(--branco);
+}
+
+.main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px 24px;
+    overflow: hidden;
+}
+
+.cabecalho{
+    margin-bottom: 12px;
+}
+
+.cabecalho h1{
+    font-family: var(--base);
+    font-size: var(--G);
+    color: var(--primaria-escura);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon path{
+    stroke-width: 2.5px;
+}
+
+.cabecalho p{
+    font-family: var(--base);
+    font-size: var(--P);
+    color: var(--cinza);
+    font-weight: 500;
+}
+
+.layout{
+    display: flex;
+    align-items: stretch;
+    gap: 32px;
+    width: 100%;
+    flex: 1;
+    min-height: 0; /* Permite a redução do container flexível */
+}
+
+/* MENU LATERAL */
+.navLateral{
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    flex-shrink: 0;
+    background-color: var(--branco);
+    border-right: 2px solid var(--cinza);
+
+    padding: 0px 24px 0px 0px;
+}
+
+.mainNav{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.navItem{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    color: var(--preto);
+    background-color: var(--branco);
+    font-family: var(--base);
+    font-size: var(--P);
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.navItem:hover{
+    filter: brightness(0.9);
+}
+
+.navItemAtivo,
+.navItemAtivo:hover{
+    background-color: var(--primaria);
+    color: var(--branco);
+}
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px){
+    .layout{
+        flex-direction: column;
+    }
+
+    .navLateral{
+        position: static;
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .navItem span{
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 600px){
+    .main{
+        padding: 24px 16px 60px;
+    }
+}
